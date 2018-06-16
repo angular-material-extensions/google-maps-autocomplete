@@ -1,0 +1,42 @@
+{
+  "generator-ngx-library": {
+    "version": "6.0.0",
+    "authorName": "Anthony Nahas",
+    "authorEmail": "anthony.na@hotmail.de",
+    "githubUsername": "angular-material-extensions",
+    "githubRepoName": "google-maps-autocomplete",
+    "projectName": "@angular-material-extensions/google-maps-autocomplete",
+    "projectVersion": "0.0.1",
+    "projectDescription": "Autocomplete input component for google-maps built with angular material design",
+    "projectKeywords": [
+      "angular",
+      "material design",
+      "google maps",
+      "autocomplete",
+      "places",
+      "locations"
+    ],
+    "ngVersion": "6.0.0",
+    "ngModules": [
+      "core",
+      "common",
+      "forms"
+    ],
+    "otherDependencies": [
+      "@angular/cdk",
+      "@angular/material  "
+    ],
+    "additionalPackageFiles": [],
+    "dependenciesRange": "^",
+    "ngPrefix": "mat",
+    "testingFramework": "jest",
+    "useGreenkeeper": true,
+    "useCompodoc": true,
+    "enforceNgGitCommitMsg": true,
+    "exclusions": [
+      "config/karma.conf.js",
+      "config/webpack.test.js",
+      "config/karma-test-shim.js"
+    ]
+  }
+}
