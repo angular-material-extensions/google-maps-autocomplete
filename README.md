@@ -12,7 +12,12 @@
 [![dependency Status](https://david-dm.org/angular-material-extensions/google-maps-autocomplete/status.svg)](https://david-dm.org/angular-material-extensions/google-maps-autocomplete)
 [![devDependency Status](https://david-dm.org/angular-material-extensions/google-maps-autocomplete/dev-status.svg?branch=master)](https://david-dm.org/angular-material-extensions/google-maps-autocomplete#info=devDependencies)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/google-maps-autocomplete.svg)](https://greenkeeper.io/)
-[![license](https://img.shields.io/github/license/angular-material-extensions/google-maps-auto.svg?style=flat-square)](https://github.com/angular-material-extensions/google-maps-auto/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/angular-material-extensions/google-maps-autocomplete.svg?style=flat-square)](https://github.com/angular-material-extensions/google-maps-autocomplete/blob/master/LICENSE)
+
+<p align="center">
+  <img alt="@angular-material-extensions/faq" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/demo1.gif">
+</p>
 
 ## Built by and for developers :heart:
 Do you have any question or suggestion ? Please do not hesitate to contact us!
@@ -51,7 +56,7 @@ View all the directives and components in action at [https://angular-material-ex
 
 ### Requirements (peer dependencies):
 - [angular material v6.2.1](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v6.0.2](https://www.npmjs.com/package/@angular/cdk)
+- [angular cdk v6.2.1](https://www.npmjs.com/package/@angular/cdk)
 - [angular animations v6.0.5](https://www.npmjs.com/package/@angular/animations)
 - [angular forms v6.0.5](https://www.npmjs.com/package/@angular/forms)
 
@@ -116,30 +121,30 @@ map: {
 
 Once installed you need to import the main module:
 ```js
-import { LibModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 ```
 The only remaining part is to list the imported module in your application module. The exact method will be slightly
-different for the root (top-level) module for which you should end up with the code similar to (notice ` LibModule .forRoot()`):
+different for the root (top-level) module for which you should end up with the code similar to (notice ` MatGoogleMapsAutocompleteModule.forRoot()`):
 ```js
-import { LibModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [LibModule.forRoot(), ...],  
+  imports: [MatGoogleMapsAutocompleteModule.forRoot(), ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
 
-Other modules in your application can simply import ` LibModule `:
+Other modules in your application can simply import ` MatGoogleMapsAutocompleteModule `:
 
 ```js
-import { LibModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
   declarations: [OtherComponent, ...],
-  imports: [LibModule, ...], 
+  imports: [MatGoogleMapsAutocompleteModule, ...], 
 })
 export class OtherModule {
 }
@@ -147,26 +152,118 @@ export class OtherModule {
 
 <a name="usage"/>
 
-## [Usage](https://angular-material-extensions.github.io/google-maps-auto/getting-started)
+## [Usage](https://angular-material-extensions.github.io/google-maps-autocomplete/getting-started)
+
+add `mat-google-maps-auto-complete` element to your template
+
+### `mat-google-maps-auto-complete` 
+
+```html
+<mat-google-maps-autocomplete (onAddressSelected)="onAddressSelected($event)"
+                              (onLocationSelected)="onLocationSelected($event)">
+      </mat-google-maps-autocomplete>
+```
+
+combine the result of the `mat-google-maps-autocomplete` with a google map instance via [@agm](https://angular-maps.com/api-docs/agm-core/)
+
+```html
+<div class="container" fxLayout="column" fxLayoutAlign="center">
+
+    <div fxFlex>
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
+
+    <div fxFlex fxFlexAlign="center"
+         class="autocomplete-container"
+         [ngStyle.xs]="{'min-width.%': 100}"
+         [ngStyle.sm]="{'width.%': 70}">
+      <mat-google-maps-autocomplete (onAddressSelected)="onAddressSelected($event)"
+                                    (onLocationSelected)="onLocationSelected($event)">
+      </mat-google-maps-autocomplete>
+    </div>
+
+  </div>
+```
+
+in your component, the code will be similar to --> 
+
+```typescript
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {Location} from '@angular-material-extensions/google-maps-autocomplete';
+import {} from '@types/googlemaps';
+import PlaceResult = google.maps.places.PlaceResult;
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+})
+export class HomeComponent implements OnInit {
+
+  public zoom: number;
+  public latitude: number;
+  public longitude: number;
+  public selectedAddress: PlaceResult;
+
+  constructor(private titleService: Title) {
+  }
+
+  ngOnInit() {
+    this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
+
+    this.zoom = 10;
+    this.latitude = 52.520008;
+    this.longitude = 13.404954;
+
+    this.setCurrentPosition();
+
+  }
+
+  private setCurrentPosition() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 12;
+      });
+    }
+  }
+
+  onAddressSelected(result: PlaceResult) {
+    console.log('onAddressSelected: ', result);
+  }
+
+  onLocationSelected(location: Location) {
+    console.log('onLocationSelected: ', location);
+    this.latitude = location.latitude;
+    this.longitude = location.longitude;
+  }
+}
+
+```
 
 <a name="documentation"/>
 
-## [Documentation](https://angular-material-extensions.github.io/google-maps-auto/doc/index.html)
+## [Documentation](https://angular-material-extensions.github.io/google-maps-autocomplete/doc/index.html)
 
-Please checkout the full documentation [here](https://angular-material-extensions.github.io//google-maps-auto/doc/index.html) 
-or follow the official [tutorial](https://angular-material-extensions.github.io//google-maps-auto/getting-started)
+Please checkout the full documentation [here](https://angular-material-extensions.github.io//google-maps-autocomplete/doc/index.html) 
+or follow the official [tutorial](https://angular-material-extensions.github.io//google-maps-autocomplete/getting-started)
 
 
 <a name="run-demo-app-locally"/>
 
 ## Run Demo App Locally
 
-- [clone this repo](https://github.com/angular-material-extensions/google-maps-auto.git) by running
+- [clone this repo](https://github.com/angular-material-extensions/google-maps-autocomplete.git) by running
 ```bash
-$ git clone https://github.com/angular-material-extensions/google-maps-auto.gi
+$ git clone https://github.com/angular-material-extensions/google-maps-autocomplete.git
 ```
 
-- link the **@angular-material-extensions/google-maps-auto** package
+- link the **@angular-material-extensions/google-maps-autocomplete** package
 use gulp globally
 ```bash
 $ gulp link
@@ -211,7 +308,7 @@ $ ng serve --open
 
 ## Development
 
-1. clone this [repo](https://github.com/angular-material-extensions/google-maps-auto.git)
+1. clone this [repo](https://github.com/angular-material-extensions/google-maps-autocomplete.git)
 2. Install the dependencies by running `npm i`
 3. build the library `npm run build` or `gulp build`
 To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
@@ -239,8 +336,9 @@ $ npm run lint
 
 ## Other Angular Libraries
 - [ngx-auth-firebaseui](https://github.com/AnthonyNahas/ngx-auth-firebaseui)
-- [ngx-material-pages](https://github.com/AnthonyNahas/ngx-material-pages)
-- [ngx-material-password-strength](https://github.com/AnthonyNahas/ngx-material-password-strength)
+- [@angular-material-extensions/pages](https://github.com/angular-material-extensions/pages)
+- [@angular-material-extensions/password-strength](https://github.com/angular-material-extensions/password-strength)
+- [@angular-material-extensions/faq](https://github.com/angular-material-extensions/faq)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
 - [@angular-material-extensions/combination-generator](https://github.com/angular-material-extensions/combination-generator)
 
