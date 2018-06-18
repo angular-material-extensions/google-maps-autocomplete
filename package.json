@@ -31,7 +31,6 @@
     "check-travis": " travis-status --repo=angular-material-extensions/google-maps-autocomplete --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.3",
     "@angular/cdk": "^6.2.1",
     "@angular/common": "6.0.5",
     "@angular/core": "6.0.5",

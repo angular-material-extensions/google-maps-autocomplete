@@ -5,7 +5,10 @@
     "target": "es2015",
     "rootDir": "./",
     "baseUrl": "",
-    "types": [ "node"]
+    "types": [
+      "node",
+      "googlemaps"
+    ]
   },
   "files": [
     "./index.ts"
