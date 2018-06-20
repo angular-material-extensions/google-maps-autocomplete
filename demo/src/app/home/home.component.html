@@ -26,20 +26,58 @@
 <section class="home">
   <div class="container" fxLayout="column" fxLayoutAlign="center">
 
-    <div fxFlex>
-      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-      </agm-map>
-    </div>
+    <mat-card>
+      <mat-card-content>
+        <mat-tab-group>
 
-    <div fxFlex fxFlexAlign="center"
-         class="autocomplete-container"
-         [ngStyle.xs]="{'min-width.%': 100}"
-         [ngStyle.sm]="{'width.%': 70}">
-      <mat-google-maps-autocomplete (onAddressSelected)="onAddressSelected($event)"
-                                    (onLocationSelected)="onLocationSelected($event)">
-      </mat-google-maps-autocomplete>
-    </div>
+          <!--tab 1-->
+          <mat-tab>
+            <ng-template mat-tab-label>Demo</ng-template>
+            <div class="container" fxLayout="column" fxLayoutAlign="center">
+              <div fxFlex>
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+              </div>
+
+              <div fxFlex fxFlexAlign="center"
+                   class="autocomplete-container"
+                   [ngStyle.xs]="{'min-width.%': 100}"
+                   [ngStyle.sm]="{'width.%': 70}">
+                <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                              (onLocationSelected)="onLocationSelected($event)">
+                </mat-google-maps-autocomplete>
+
+                <!--<mat-google-maps-autocomplete  country="us"-->
+                                               <!--type="address"-->
+                                               <!--(onAddressSelected)="onAutocompleteSelected($event)"-->
+                                              <!--(onLocationSelected)="onLocationSelected($event)">-->
+                <!--</mat-google-maps-autocomplete>-->
+              </div>
+            </div>
+          </mat-tab>
+          <!--tab 2-->
+          <mat-tab>
+            <ng-template mat-tab-label>HTML</ng-template>
+            <div fxLayout="column" fxLayoutAlign="center">
+              <pre><code highlight [code]="html"></code></pre>
+            </div>
+          </mat-tab>
+
+          <!--tab 3 TS-->
+          <mat-tab>
+            <ng-template mat-tab-label>TS</ng-template>
+            <pre><code highlight [code]="ts"></code></pre>
+          </mat-tab>
+
+          <!--tab 4 SCSS-->
+          <mat-tab>
+            <ng-template mat-tab-label>SCSS</ng-template>
+            <pre><code highlight [code]="scss"></code></pre>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
 
   </div>
 </section>

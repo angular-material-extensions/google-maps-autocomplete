@@ -6,22 +6,21 @@ import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AgmCoreModule} from '@agm/core';
-import {environment} from '../../environments/environment';
-
-const googleMapsParams = {
-  apiKey: environment.GOOGLE_MAPS_API_KEY,
-  libraries: ['places'],
-  language: 'de',
-  // region: 'DE'
-};
+import {HighlightModule} from 'ngx-highlightjs';
+import {MatButtonModule, MatCardModule, MatIconModule, MatTabsModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
     MatGoogleMapsAutocompleteModule.forRoot(),
+    HighlightModule.forRoot({theme: 'vs2015'}),
     HomeRoutingModule,
-    AgmCoreModule
+    AgmCoreModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTabsModule
   ],
   declarations: [HomeComponent],
 })

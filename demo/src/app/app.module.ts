@@ -17,7 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 const googleMapsParams = {
   apiKey: environment.GOOGLE_MAPS_API_KEY,
   libraries: ['places'],
-  language: 'de',
+  language: 'en',
   // region: 'DE'
 };
 
