@@ -15,6 +15,7 @@
   "private": true,
   "dependencies": {
     "@angular-material-extensions/faq": "^3.0.1",
+    "@angular-material-extensions/jumbotron": "^1.0.1",
     "@angular/animations": "^6.0.0",
     "@angular/cdk": "^6.3.0",
     "@angular/common": "^6.0.0",

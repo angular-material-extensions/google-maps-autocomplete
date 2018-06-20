@@ -8,6 +8,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {AgmCoreModule} from '@agm/core';
 import {HighlightModule} from 'ngx-highlightjs';
 import {MatButtonModule, MatCardModule, MatIconModule, MatTabsModule} from '@angular/material';
+import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {MatButtonModule, MatCardModule, MatIconModule, MatTabsModule} from '@ang
     MatGoogleMapsAutocompleteModule.forRoot(),
     HighlightModule.forRoot({theme: 'vs2015'}),
     HomeRoutingModule,
+    MatJumbotronModule,
     AgmCoreModule,
     MatButtonModule,
     MatCardModule,
