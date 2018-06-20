@@ -2,9 +2,10 @@
   <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/angular-material-extensions/google-maps-autocomplete/master/demo/src/assets/logo.svg">
 </p>
 
-# google-maps-autocomplete - Autocomplete input component for google-maps built with angular material design
+# @angular-material-extensions/google-maps-autocomplete - Autocomplete input component for google-maps built with angular material design
 
-[![npm version](https://badge.fury.io/js/google-maps-autocomplete.svg)](https://badge.fury.io/js/google-maps-autocomplete),
+[![npm version](https://badge.fury.io/js/%40angular-material-extensions%2Fgoogle-maps-autocomplete.svg)](https://badge.fury.io/js/%40angular-material-extensions%2Fgoogle-maps-autocomplete)
+[![npm demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://angular-material-extensions.github.io/google-maps-autocomplete)
 [![Join the chat at https://gitter.im/angular-material-extensions/Lobby](https://badges.gitter.im/angular-material-extensions/Lobby.svg)](https://gitter.im/angular-material-extensions/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Coverage Status](https://coveralls.io/repos/github/angular-material-extensions/google-maps-autocomplete/badge.svg?branch=master)](https://coveralls.io/github/angular-material-extensions/google-maps-autocomplete?branch=master)
 [![Build Status](https://travis-ci.org/angular-material-extensions/google-maps-autocomplete.svg?branch=master)](https://travis-ci.org/angular-material-extensions/google-maps-autocomplete)
@@ -43,9 +44,9 @@ by starring :star: and sharing it :loudspeaker:
 
 <a name="demo"/>
 
-## [Demo](https://angular-material-extensions.github.io/google-maps-auto)
+## [Demo](https://angular-material-extensions.github.io/google-maps-autocomplete)
 
-View all the directives and components in action at [https://angular-material-extensions.github.io/google-maps-auto](https://angular-material-extensions.github.io/google-maps-auto)
+View all the directives and components in action at [https://angular-material-extensions.github.io/google-maps-autocomplete](https://angular-material-extensions.github.io/google-maps-autocomplete)
 
 <a name="dependencies"/>
 
@@ -55,8 +56,8 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="peerDependencies"/>
 
 ### Requirements (peer dependencies):
-- [angular material v6.2.1](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v6.2.1](https://www.npmjs.com/package/@angular/cdk)
+- [angular material v6.3.0](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v6.3.0](https://www.npmjs.com/package/@angular/cdk)
 - [angular animations v6.0.5](https://www.npmjs.com/package/@angular/animations)
 - [angular forms v6.0.5](https://www.npmjs.com/package/@angular/forms)
 
@@ -100,7 +101,7 @@ npm i -s material-design-icons
 
 <a name="installation"/>
 
-##  [Installation](https://angular-material-extensions.github.io/google-maps-auto/getting-started)
+##  [Installation](https://angular-material-extensions.github.io/google-maps-autocomplete/getting-started)
 
 Install above dependencies via *npm*. 
 
@@ -164,6 +165,16 @@ add `mat-google-maps-auto-complete` element to your template
       </mat-google-maps-autocomplete>
 ```
 
+A customized `mat-google-maps-autocomplete` 
+
+```html
+<mat-google-maps-autocomplete  country="us"
+                               type="address"
+                               (onAddressSelected)="onAddressSelected($event)"
+                               (onLocationSelected)="onLocationSelected($event)">
+</mat-google-maps-autocomplete>
+```
+
 combine the result of the `mat-google-maps-autocomplete` with a google map instance via [@agm](https://angular-maps.com/api-docs/agm-core/)
 
 ```html
@@ -186,6 +197,7 @@ combine the result of the `mat-google-maps-autocomplete` with a google map insta
 
   </div>
 ```
+
 
 in your component, the code will be similar to --> 
 
@@ -245,6 +257,37 @@ export class HomeComponent implements OnInit {
 }
 
 ```
+
+<a name="api"/>
+
+### API - for more info please visit the official documentation [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=en)
+
+### `mat-google-maps-autocomplete` 
+
+| option | bind  |  type  |   default    | description  |
+|:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
+| address             | Input()   |  PlaceResult | string;      | - |  
+| country             | Input()   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
+| placeIdOnly         | Input()   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
+| strictBounds        | Input()   | boolean                     | - | is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.
+| types               | Input()   | string[]                    | - |  An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. The supported types are:
+                                                                       geocode instructs the Places service to return only geocoding results, rather than business results.
+                                                                       address instructs the Places service to return only geocoding results with a precise address.
+                                                                       establishment instructs the Places service to return only business results.
+                                                                       the (regions) type collection instructs the Places service to return any result matching the following types:
+                                                                       locality
+                                                                       sublocality
+                                                                       postal_code
+                                                                       country
+                                                                       administrative_area1
+                                                                       administrative_area2
+                                                                       the (cities) type collection instructs the Places service to return results that match either locality or administrative_area3.
+| type                | Input()   | string                      | - |  
+| autoCompleteOptions | Input()   | AutocompleteOptions         | - |  all above inputs in one object! The passed data to this object will be merged with the input if they exists
+| onChange            | Output()  | PlaceResult | string | null | - |  event when the input form value changed
+| onAutocompleteSelected   | Output()  | PlaceResult            | - |  the event will be fired when a
+| onLocationSelected  | Output()  | Location                    | - |  
+
 
 <a name="documentation"/>
 
