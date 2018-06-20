@@ -3,6 +3,7 @@ import {FormControl, Validators} from '@angular/forms';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {MapsAPILoader} from '@agm/core';
 import PlaceResult = google.maps.places.PlaceResult;
+import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
 export interface Location {
   latitude: number,
@@ -23,16 +24,29 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
   address: PlaceResult | string;
 
   @Input()
-  country = 'de';
+  country: string | string[];
 
   @Input()
-  types: string[] = ['address'];
+  placeIdOnly?: boolean;
+
+  @Input()
+  strictBounds?: boolean;
+
+  @Input()
+  types?: string[];
+  // types: string[] = ['address'];
+
+  @Input()
+  type?: string;
+
+  @Input()
+  autoCompleteOptions: AutocompleteOptions = {};
 
   @Output()
   onChange: EventEmitter<PlaceResult | string | null> = new EventEmitter<PlaceResult | string | null>();
 
   @Output()
-  onAddressSelected: EventEmitter<PlaceResult> = new EventEmitter<PlaceResult>();
+  onAutocompleteSelected: EventEmitter<PlaceResult> = new EventEmitter<PlaceResult>();
 
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
@@ -53,9 +67,15 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
     this.addressValidator.subscribe(this.onNewPlaceResult);
 
     const options = {
-      types: ['address'],
-      componentRestrictions: {country: 'de'}
+      // types: ['address'],
+      componentRestrictions: {country: this.country},
+      placeIdOnly: this.placeIdOnly,
+      strictBounds: this.strictBounds,
+      types: this.types,
+      type: this.type
     };
+
+    this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
 
     this._mapsAPILoader
       .load()
@@ -77,7 +97,7 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
         //     }
         //   });
         // }
-        const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, options);
+        const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, this.autoCompleteOptions);
         autocomplete.addListener('place_changed', () => {
           this._ngZone.run(() => {
             // get the place result
@@ -91,7 +111,7 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
               // emit failed event
             }
             this.address = place.formatted_address;
-            this.onAddressSelected.emit(place);
+            this.onAutocompleteSelected.emit(place);
             this.onLocationSelected.emit(
               {
                 latitude: place.geometry.location.lat(),
