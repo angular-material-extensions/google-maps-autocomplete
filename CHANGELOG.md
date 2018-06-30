@@ -1,5 +1,15 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.0.0...v1.1.0) (2018-06-30)
+
+
+### Features
+
+* **package:** added additional input for mat-google-maps-autocomplete` ([6f91889](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/6f91889))
+
+
+
 <a name="1.0.0"></a>
-# 1.0.0 (2018-06-18)
+# [1.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/60e44cd...v1.0.0) (2018-06-18)
 
 
 ### Bug Fixes
