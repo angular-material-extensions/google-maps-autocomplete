@@ -78,7 +78,8 @@
                    class="autocomplete-container"
                    [ngStyle.xs]="{'min-width.%': 100}"
                    [ngStyle.sm]="{'width.%': 70}">
-                <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                <mat-google-maps-autocomplete [appearance]="appearance.STANDARD"
+                                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
                                               (onLocationSelected)="onLocationSelected($event)">
                 </mat-google-maps-autocomplete>
 

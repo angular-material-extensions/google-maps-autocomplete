@@ -10,9 +10,11 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {AgmCoreModule} from '@agm/core';
+import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
+
 // import {} from '@types/googlemaps';
 
 const googleMapsParams = {
@@ -32,6 +34,7 @@ const googleMapsParams = {
     // the page.
     BrowserModule.withServerTransition({appId: '@angular-material-extensions/google-maps-autocomplete-demo-id'}),
     AgmCoreModule.forRoot(googleMapsParams),
+    MatGoogleMapsAutocompleteModule.forRoot(),
     MatJumbotronModule.forRoot(),
     BrowserAnimationsModule,
     FlexLayoutModule,

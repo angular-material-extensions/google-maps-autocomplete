@@ -7,7 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
 
 // Export module's public API
-export {MatGoogleMapsAutocompleteComponent, Location} from './component/mat-google-maps-autocomplete.component';
+export {MatGoogleMapsAutocompleteComponent, Location, Appearance} from './component/mat-google-maps-autocomplete.component';
 
 // export {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
 

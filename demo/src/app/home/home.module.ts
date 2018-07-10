@@ -14,7 +14,7 @@ import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    MatGoogleMapsAutocompleteModule.forRoot(),
+    MatGoogleMapsAutocompleteModule,
     HighlightModule.forRoot({theme: 'vs2015'}),
     HomeRoutingModule,
     MatJumbotronModule,

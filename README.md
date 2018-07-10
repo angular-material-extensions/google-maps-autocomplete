@@ -160,7 +160,8 @@ add `mat-google-maps-auto-complete` element to your template
 ### `mat-google-maps-auto-complete` 
 
 ```html
-<mat-google-maps-autocomplete (onAddressSelected)="onAddressSelected($event)"
+<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                              (onAddressSelected)="onAddressSelected($event)"
                               (onLocationSelected)="onLocationSelected($event)">
       </mat-google-maps-autocomplete>
 ```
@@ -204,7 +205,7 @@ in your component, the code will be similar to -->
 ```typescript
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Location} from '@angular-material-extensions/google-maps-autocomplete';
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 import {} from '@types/googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
 
@@ -216,6 +217,7 @@ import PlaceResult = google.maps.places.PlaceResult;
 })
 export class HomeComponent implements OnInit {
 
+  public appearance = Appearance;
   public zoom: number;
   public latitude: number;
   public longitude: number;
@@ -266,6 +268,7 @@ export class HomeComponent implements OnInit {
 
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
+| appearance          | Input()   |  Appearance | string;      | Appearance.STANDARD |  Style the `mat-form-field` by setting the appearance option : standard, fill, outline or legacy
 | address             | Input()   |  PlaceResult | string;      | - |  
 | country             | Input()   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
 | placeIdOnly         | Input()   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.

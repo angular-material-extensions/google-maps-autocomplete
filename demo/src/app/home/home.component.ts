@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Location} from '@angular-material-extensions/google-maps-autocomplete';
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 import sdk from '@stackblitz/sdk';
 import {} from '@types/googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
@@ -23,14 +23,15 @@ export class HomeComponent implements OnInit {
                  class="autocomplete-container"
                  [ngStyle.xs]="{'min-width.%': 100}"
                  [ngStyle.sm]="{'width.%': 70}">
-              <mat-google-maps-autocomplete (onAddressSelected)="onAddressSelected($event)"
-                                            (onLocationSelected)="onLocationSelected($event)">
+              <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                              (onLocationSelected)="onLocationSelected($event)">
               </mat-google-maps-autocomplete>
             </div>`;
 
   ts = `import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Location} from '@angular-material-extensions/google-maps-autocomplete';
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 import sdk from '@stackblitz/sdk';
 import {} from '@types/googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
@@ -43,6 +44,7 @@ import PlaceResult = google.maps.places.PlaceResult;
 })
 export class HomeComponent implements OnInit {
 
+  public appearance = Appearance;
   public zoom: number;
   public latitude: number;
   public longitude: number;
@@ -92,6 +94,7 @@ export class HomeComponent implements OnInit {
   width: 50%;
 }`;
 
+  public appearance = Appearance;
   public zoom: number;
   public latitude: number;
   public longitude: number;

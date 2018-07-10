@@ -10,6 +10,13 @@ export interface Location {
   longitude: number;
 }
 
+export enum Appearance {
+  STANDARD = 'standard',
+  FILL = 'fill',
+  OUTLINE = 'outline',
+  LEGACY = 'legacy',
+}
+
 @Component({
   selector: 'mat-google-maps-autocomplete',
   templateUrl: './mat-google-maps-autocomplete.component.html',
@@ -19,6 +26,9 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
+
+  @Input()
+  appearance: string | Appearance = Appearance.STANDARD;
 
   @Input()
   address: PlaceResult | string;
