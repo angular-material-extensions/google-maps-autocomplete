@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.1.0...v1.2.0) (2018-07-10)
+
+
+### Features
+
+* **package:** added the `appearance` input to style the address `mat-form-field` [#5](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/5) ([9cf1106](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/9cf1106))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.0.0...v1.1.0) (2018-06-30)
 
