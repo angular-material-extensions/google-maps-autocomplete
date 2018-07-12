@@ -9,9 +9,9 @@
          MatValidateAddress
          required>
   <mat-error *ngIf="addressSearchControl.hasError('required')">
-    {{requiredErrorText}} The address is <strong>required</strong>
+    {{requiredErrorText}}
   </mat-error>
   <mat-error *ngIf="addressSearchControl.hasError('validateAddress')">
-   {{invalidErrorText}} The address is <strong>not valid</strong>
+   {{invalidErrorText}} 
   </mat-error>
 </mat-form-field>
