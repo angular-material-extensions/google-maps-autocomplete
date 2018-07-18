@@ -72,7 +72,7 @@
     "jest": "^23.4.1",
     "jest-preset-angular": "^5.2.3",
     "lodash": "4.17.10",
-    "protractor": "~5.3.2",
+    "protractor": "~5.4.0",
     "reflect-metadata": "~0.1.12",
     "run-sequence": "2.2.1",
     "travis-status": "^3.0.0",
