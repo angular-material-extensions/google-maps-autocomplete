@@ -78,10 +78,41 @@
                    class="autocomplete-container"
                    [ngStyle.xs]="{'min-width.%': 100}"
                    [ngStyle.sm]="{'width.%': 70}">
-                <mat-google-maps-autocomplete [appearance]="appearance.STANDARD"
-                                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                                              (onLocationSelected)="onLocationSelected($event)">
+                <mat-google-maps-autocomplete
+                  [addressLabelText]="config.addressLabelText"
+                  [placeholderText]="config.placeholderText"
+                  [requiredErrorText]="'config.requiredErrorText'"
+                  [invalidErrorText]="config.invalidErrorText"
+                  [country]="config.country"
+                  [appearance]="config.appearance"
+                  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                  (onLocationSelected)="onLocationSelected($event)">
                 </mat-google-maps-autocomplete>
+
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        @Input()
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Change the default values
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <app-config #config></app-config>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel fxHide="true">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        @Output()
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        See the return values of the available events
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                  </mat-expansion-panel>
+                </mat-accordion>
 
                 <!--<mat-google-maps-autocomplete  country="us"-->
                 <!--type="address"-->
@@ -102,7 +133,7 @@
           <!--tab 3 TS-->
           <mat-tab>
             <ng-template mat-tab-label>TS</ng-template>
-            <pre><code highlight [code]="ts"></code></pre>
+            <pre><code highlight [code]="ts" style="max-height: 700px"></code></pre>
           </mat-tab>
 
           <!--tab 4 SCSS-->

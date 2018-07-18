@@ -7,13 +7,24 @@ import {HomeComponent} from './home.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AgmCoreModule} from '@agm/core';
 import {HighlightModule} from 'ngx-highlightjs';
-import {MatButtonModule, MatCardModule, MatIconModule, MatTabsModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatInputModule,
+  MatRadioModule,
+  MatTabsModule
+} from '@angular/material';
 import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
+import { ConfigComponent } from './config/config.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
+    FormsModule,
     MatGoogleMapsAutocompleteModule,
     HighlightModule.forRoot({theme: 'vs2015'}),
     HomeRoutingModule,
@@ -22,9 +33,12 @@ import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatRadioModule
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ConfigComponent],
 })
 export class HomeModule {
 }

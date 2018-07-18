@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {TransferHttpCacheModule} from '@nguniversal/common';
 
@@ -39,6 +39,7 @@ const googleMapsParams = {
     BrowserAnimationsModule,
     FlexLayoutModule,
     TransferHttpCacheModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
