@@ -34,10 +34,10 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
   placeholderText = 'Please enter the address';
 
   @Input()
-  requiredErrorText = 'The address is <strong>required</strong>';
+  requiredErrorText = 'The address is required';
 
   @Input()
-  invalidErrorText = 'The address is <strong>not valid</strong>';
+  invalidErrorText = 'The address is not valid';
 
   @Input()
   appearance: string | Appearance = Appearance.STANDARD;

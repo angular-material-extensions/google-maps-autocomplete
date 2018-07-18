@@ -3,7 +3,7 @@
   <input matInput
          [(ngModel)]="address"
          (change)="onQuery($event)"
-         placeholder="placeholderText"
+         placeholder="{{placeholderText}}"
          class="form-control"
          #search
          MatValidateAddress
