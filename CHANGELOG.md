@@ -1,3 +1,14 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.0...v1.2.1) (2018-07-18)
+
+
+### Bug Fixes
+
+* **package:** added dual binding for the placeholder and removed html content from inputs ([78f88ca](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/78f88ca))
+* **package:** solved all lint errors ([551743a](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/551743a))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.1.0...v1.2.0) (2018-07-10)
 
