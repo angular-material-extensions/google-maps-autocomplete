@@ -1,3 +1,13 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.1...v1.2.2) (2018-07-24)
+
+
+### Bug Fixes
+
+* **package:** added agm/core module to external modules for rollup ([95046fd](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/95046fd))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.0...v1.2.1) (2018-07-18)
 
