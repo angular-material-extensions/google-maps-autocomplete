@@ -377,6 +377,7 @@ gulp.task('rollup-bundle', (cb) => {
         // Add any other dependency or peer dependency of your library here
         // This is required for UMD bundle users.
         // See https://github.com/tinesoft/generator-ngx-library/TROUBLESHOUTING.md if trouble
+        '@agm/core': _.camelCase('@agm/core'.replace('/', '.')),
 
       };
       const rollupBaseConfig = {
