@@ -36,8 +36,7 @@
     "@angular/common": "^6.0.9",
     "@angular/core": "^6.0.9",
     "@angular/forms": "^6.0.9",
-    "@angular/material": "^6.4.1",
-    "@types/googlemaps": "^3.30.11"
+    "@angular/material": "^6.4.1"
   },
   "devDependencies": {
     "@angular/animations": "^6.0.9",
@@ -47,6 +46,7 @@
     "@angular/platform-browser-dynamic": "^6.0.9",
     "@angular/platform-server": "^6.0.9",
     "@compodoc/gulp-compodoc": "^0.0.9",
+    "@types/googlemaps": "^3.30.11",
     "@types/jest": "^23.3.0",
     "@types/lodash": "^4.14.113",
     "@types/node": "^10.5.2",
