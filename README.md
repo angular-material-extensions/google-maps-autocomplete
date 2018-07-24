@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/angular-material-extensions/google-maps-autocomplete/master/demo/src/assets/logo.svg">
+  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/angular-material-extensions/google-maps-autocomplete/master/assets/angular-material-extensions-logo.svg">
 </p>
 
 # @angular-material-extensions/google-maps-autocomplete - Autocomplete input component for google-maps built with angular material design
