@@ -1,7 +1,7 @@
 <p align="center">
   <img alt="angular-material-extensions's logo"
    height="256px" width="256px" style="text-align: center;" 
-   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/angular-material-extensions-logo.svg">
+   src="https://cdn.rawgit.com/angular-material-extensions/google-maps-autocomplete/master/assets/angular-material-extensions-logo.svg">
 </p>
 
 # @angular-material-extensions/google-maps-autocomplete - Autocomplete input component for google-maps built with angular material design
@@ -366,7 +366,7 @@ $ npm run lint
 
 ## Support
 + Drop an email to: [Anthony Nahas](mailto:anthony.na@hotmail.de)
-+ or open an appropriate [issue](https://github.com/angular-material-extensions/google-maps-auto/issues)
++ or open an appropriate [issue](https://github.com/angular-material-extensions/google-maps-autocomplete/issues)
 + let us chat on [Gitter](https://gitter.im/angular-material-extensions/Lobby)
  
  Built by and for developers :heart: we will help you :punch:
