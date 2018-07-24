@@ -1,5 +1,7 @@
 <p align="center">
-  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/angular-material-extensions/google-maps-autocomplete/master/assets/angular-material-extensions-logo.svg">
+  <img alt="angular-material-extensions's logo"
+   height="256px" width="256px" style="text-align: center;" 
+   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/angular-material-extensions-logo.svg">
 </p>
 
 # @angular-material-extensions/google-maps-autocomplete - Autocomplete input component for google-maps built with angular material design
@@ -16,7 +18,7 @@
 [![license](https://img.shields.io/github/license/angular-material-extensions/google-maps-autocomplete.svg?style=flat-square)](https://github.com/angular-material-extensions/google-maps-autocomplete/blob/master/LICENSE)
 
 <p align="center">
-  <img alt="@angular-material-extensions/faq" style="text-align: center;"
+  <img alt="@angular-material-extensions/google-maps-autocomplete" style="text-align: center;"
    src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/demo1.gif">
 </p>
 
@@ -32,7 +34,6 @@ by starring :star: and sharing it :loudspeaker:
 - [Dependencies](#dependencies)
 - [Peer Dependencies](#peerDependencies)
 - [Additional Requirements - material (Include a theme)](#additional-requirements-material-theme)
-- [Additional Requirements - material icons](#additional-requirements-material-icons)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Documentation](#documentation)
@@ -56,10 +57,10 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="peerDependencies"/>
 
 ### Requirements (peer dependencies):
-- [angular material v6.3.0](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v6.3.0](https://www.npmjs.com/package/@angular/cdk)
-- [angular animations v6.0.5](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v6.0.5](https://www.npmjs.com/package/@angular/forms)
+- [angular material v6.4.1](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v6.4.1](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v6.0.9](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v6.0.9](https://www.npmjs.com/package/@angular/forms)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
@@ -69,33 +70,6 @@ npm i @angular/cdk @angular/material @angular/animations @angular/forms
 
 ### Additional requirements Theme (Material Design)
 - [angular material theme](https://material.angular.io/guide/getting-started#step-4-include-a-theme)
-
-<a name="additional-requirements-material-icons"/>
-
-## Additional Requirements - Import the material design icons [learn more](https://material.angular.io/guide/getting-started#step-6-optional-add-material-icons)
-
-- The easiest way to import material design icons is to provide a link in your `index.html` file like below:
-
-```html
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
-
-- alternative solution:
-
-1. Install of the official npm module of the material design icons
-
-```bash
-npm i -s material-design-icons
-```
-
-2. Import them in your `angular.json` file
-
-```json
-"styles": [
-        "styles.css",
-        "../node_modules/material-design-icons/iconfont/material-icons.css"
-      ],
-```  
 
 ----
 
