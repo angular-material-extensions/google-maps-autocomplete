@@ -1,14 +1,10 @@
 import {Component, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {MapsAPILoader} from '@agm/core';
+import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
+import {Location} from '../interfaces/location.interface';
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
-
-export interface Location {
-  latitude: number,
-  longitude: number;
-}
 
 export enum Appearance {
   STANDARD = 'standard',
@@ -19,6 +15,7 @@ export enum Appearance {
 
 @Component({
   selector: 'mat-google-maps-autocomplete',
+  exportAs: 'matGoogleMapsAutocomplete',
   templateUrl: './mat-google-maps-autocomplete.component.html',
   styleUrls: ['./mat-google-maps-autocomplete.component.scss']
 })
@@ -98,27 +95,13 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
     };
 
     this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
+    this.initGoogleMapsAutocomplete();
+  }
 
+  public initGoogleMapsAutocomplete() {
     this._mapsAPILoader
       .load()
       .then(() => {
-        /* Instantiate a placesService */
-        // if (this.immoAd.address.place_id) {
-        //   const placesService = new google.maps.places.PlacesService(this.searchElementRef.nativeElement);
-        //   placesService.getDetails({
-        //     placeId: this.immoAd.address.place_id
-        //   }, (placeResult: PlaceResult, status) => {
-        //     console.log('status: ', status);
-        //     if (status === google.maps.places.PlacesServiceStatus.OK) {
-        //       console.log('place result: ', placeResult);
-        //       this.address = placeResult;
-        //
-        //       if (placeResult.place_id) {
-        //         this.updateAddress(placeResult)
-        //       }
-        //     }
-        //   });
-        // }
         const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, this.autoCompleteOptions);
         autocomplete.addListener('place_changed', () => {
           this._ngZone.run(() => {
@@ -146,7 +129,7 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
   }
 
   public onQuery(event: any) {
-    console.log('onChange()', event);
+    // console.log('onChange()', event);
     this.onChange.emit(this.address);
   }
 

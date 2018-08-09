@@ -5,9 +5,13 @@ import {MatGoogleMapsAutocompleteComponent} from './component/mat-google-maps-au
 import {MatInputModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
+import {MatGoogleMapsAutocompleteDirective} from './directives/mat-google-maps-autocomplete.directive';
 
 // Export module's public API
-export {MatGoogleMapsAutocompleteComponent, Location, Appearance} from './component/mat-google-maps-autocomplete.component';
+export {MatGoogleMapsAutocompleteComponent, Appearance} from './component/mat-google-maps-autocomplete.component';
+export {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
+export {MatGoogleMapsAutocompleteDirective} from './directives/mat-google-maps-autocomplete.directive';
+export {Location} from './interfaces/location.interface';
 
 // export {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
 
@@ -18,8 +22,16 @@ export {MatGoogleMapsAutocompleteComponent, Location, Appearance} from './compon
     ReactiveFormsModule,
     MatInputModule
   ],
-  exports: [MatGoogleMapsAutocompleteComponent],
-  declarations: [MatGoogleMapsAutocompleteComponent, MatValidateAddressDirective]
+  exports: [
+    MatGoogleMapsAutocompleteComponent,
+    MatGoogleMapsAutocompleteDirective,
+    MatValidateAddressDirective
+  ],
+  declarations: [
+    MatGoogleMapsAutocompleteComponent,
+    MatGoogleMapsAutocompleteDirective,
+    MatValidateAddressDirective
+  ]
 })
 export class MatGoogleMapsAutocompleteModule {
   static forRoot(): ModuleWithProviders {
