@@ -29,6 +29,29 @@ export class HomeComponent implements OnInit {
               </mat-google-maps-autocomplete>
             </div>`;
 
+  htmlAsDirective = `<div fxLayout="column" >
+                        <mat-form-field class="full-width" [appearance]="config.appearance">
+                          <mat-label>Address << using the directive >></mat-label>
+                          <input matInput
+                           matValidateAddress
+                           matGoogleMapsAutocomplete
+                           #matGoogleMapsAutocomplete="matGoogleMapsAutocomplete"
+                           placeholder="{{config.placeholderText}}"
+                           class="form-control"
+                           [country]="config.country"
+                           (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                           (onLocationSelected)="onLocationSelected($event)"
+                           required>
+                          <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
+                            {{config.requiredErrorText}}
+                           </mat-error>
+                           <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('validateAddress')">
+                             {{config.invalidErrorText}}
+                            </mat-error>
+                       </mat-form-field>
+
+                      </div>`;
+
   ts = `import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
@@ -100,6 +123,9 @@ export class HomeComponent implements OnInit {
   public longitude: number;
   public selectedAddress: PlaceResult;
 
+  public showAsDirective = false;
+  public showAsComponent = true;
+
   constructor(private titleService: Title) {
   }
 
@@ -136,5 +162,10 @@ export class HomeComponent implements OnInit {
 
   editOnStackBlitz() {
     sdk.openGithubProject('angular-material-extensions/google-maps-autocomplete/tree/master/demo');
+  }
+
+  flip() {
+    this.showAsDirective = !this.showAsDirective;
+    this.showAsComponent = !this.showAsDirective
   }
 }

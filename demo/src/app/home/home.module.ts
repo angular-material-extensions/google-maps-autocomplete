@@ -9,15 +9,16 @@ import {AgmCoreModule} from '@agm/core';
 import {HighlightModule} from 'ngx-highlightjs';
 import {
   MatButtonModule,
+  MatButtonToggleModule,
   MatCardModule,
   MatExpansionModule,
   MatIconModule,
   MatInputModule,
   MatRadioModule,
-  MatTabsModule
+  MatTabsModule,
 } from '@angular/material';
 import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
-import { ConfigComponent } from './config/config.component';
+import {ConfigComponent} from './config/config.component';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -36,7 +37,8 @@ import {FormsModule} from '@angular/forms';
     MatTabsModule,
     MatExpansionModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonToggleModule
   ],
   declarations: [HomeComponent, ConfigComponent],
 })

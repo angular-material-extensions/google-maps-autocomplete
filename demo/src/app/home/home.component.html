@@ -23,42 +23,19 @@
   </div>
 </div>
 
-<!--<mat-jumbotron imgURL="assets/logo.svg">-->
-<!--<mat-jumbotron-content>-->
-<!--<h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">-->
-<!--@angular-material-extensions/google-maps-autocomplete-->
-<!--</h1>-->
-<!--<p class="headline" ngClass.xs="text-center">Angular UI open source library built-->
-<!--with material design in order to illustrate a highlighted/important information for the user-->
-<!--</p>-->
-
-<!--<p class="text-center"> Scroll down to see it in action!</p>-->
-
-<!--<div fxLayout="row" fxLayout.xs="column"-->
-<!--fxLayoutGap.xs="1rem"-->
-<!--fxLayoutAlign="center center">-->
-<!--<a mat-stroked-button-->
-<!--color="primary"-->
-<!--target="_blank"-->
-<!--href="https://github.com/angular-material-extensions/google-maps-autocomplete">-->
-<!--<mat-icon>code</mat-icon>-->
-<!--Code on Github-->
-<!--</a>-->
-<!--<a mat-stroked-button-->
-<!--color="primary"-->
-<!--target="_blank"-->
-<!--href="doc/index.html">-->
-<!--<mat-icon>note</mat-icon>-->
-<!--Documentation-->
-<!--</a>-->
-<!--</div>-->
-
-<!--</mat-jumbotron-content>-->
-<!--</mat-jumbotron>-->
-
-
 <section class="home">
   <div class="container" fxLayout="column" fxLayoutAlign="center">
+
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle [checked]="showAsDirective"
+                         (click)="flip()">
+        As directive
+      </mat-button-toggle>
+      <mat-button-toggle [checked]="showAsComponent"
+                         (click)="flip()">
+        As component
+      </mat-button-toggle>
+    </mat-button-toggle-group>
 
     <mat-card>
       <mat-card-content>
@@ -78,16 +55,42 @@
                    class="autocomplete-container"
                    [ngStyle.xs]="{'min-width.%': 100}"
                    [ngStyle.sm]="{'width.%': 70}">
-                <mat-google-maps-autocomplete
-                  [addressLabelText]="config.addressLabelText"
-                  [placeholderText]="config.placeholderText"
-                  [requiredErrorText]="'config.requiredErrorText'"
-                  [invalidErrorText]="config.invalidErrorText"
-                  [country]="config.country"
-                  [appearance]="config.appearance"
-                  (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                  (onLocationSelected)="onLocationSelected($event)">
-                </mat-google-maps-autocomplete>
+
+                <div fxLayout="column" *ngIf="showAsDirective">
+                  <mat-form-field class="full-width" [appearance]="config.appearance">
+                    <mat-label>Address << using the directive >></mat-label>
+                    <input matInput
+                           matValidateAddress
+                           matGoogleMapsAutocomplete
+                           #matGoogleMapsAutocomplete="matGoogleMapsAutocomplete"
+                           placeholder="{{config.placeholderText}}"
+                           class="form-control"
+                           [country]="config.country"
+                           (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                           (onLocationSelected)="onLocationSelected($event)"
+                           required>
+                    <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
+                      {{config.requiredErrorText}}
+                    </mat-error>
+                    <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('validateAddress')">
+                      {{config.invalidErrorText}}
+                    </mat-error>
+                  </mat-form-field>
+
+                </div>
+
+                <div *ngIf="showAsComponent">
+                  <mat-google-maps-autocomplete
+                    [addressLabelText]="config.addressLabelText"
+                    [placeholderText]="config.placeholderText"
+                    [requiredErrorText]="config.requiredErrorText"
+                    [invalidErrorText]="config.invalidErrorText"
+                    [country]="config.country"
+                    [appearance]="config.appearance"
+                    (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                    (onLocationSelected)="onLocationSelected($event)">
+                  </mat-google-maps-autocomplete>
+                </div>
 
                 <mat-accordion>
                   <mat-expansion-panel>
@@ -126,7 +129,7 @@
           <mat-tab>
             <ng-template mat-tab-label>HTML</ng-template>
             <div fxLayout="column" fxLayoutAlign="center">
-              <pre><code highlight [code]="html"></code></pre>
+              <pre><code highlight [code]="showAsComponent ? html : htmlAsDirective"></code></pre>
             </div>
           </mat-tab>
 
