@@ -1,4 +1,6 @@
 import {Directive, ElementRef, EventEmitter, Input, NgZone, OnInit, Output} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {MapsAPILoader} from '@agm/core';
 import {Location} from '../interfaces/location.interface';
 import PlaceResult = google.maps.places.PlaceResult;
@@ -6,7 +8,7 @@ import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
 @Directive({
   selector: '[matGoogleMapsAutocomplete]',
-  exportAs: '[matGoogleMapsAutocomplete]',
+  exportAs: 'matGoogleMapsAutocomplete',
 })
 export class MatGoogleMapsAutocompleteDirective implements OnInit {
 
@@ -40,12 +42,21 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
 
+  private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
+  private addressValidator: MatValidateAddressDirective = new MatValidateAddressDirective();
+
+  public addressSearchControl: FormControl = new FormControl({value: null}, Validators.compose([
+    Validators.required,
+    this.addressValidator.validate()])
+  );
+
   constructor(public elemRef: ElementRef,
               public mapsAPILoader: MapsAPILoader,
               private _ngZone: NgZone) {
   }
 
   ngOnInit(): void {
+    this.addressValidator.subscribe(this.onNewPlaceResult);
     const options = {
       // types: ['address'],
       componentRestrictions: {country: this.country},
