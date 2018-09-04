@@ -22,6 +22,10 @@
    src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/demo1.gif">
 </p>
 
+Stating with v1.3.0, you can now use this library without material2's dependency! To
+enable this goolgle maps autocomplate api as feature, you can just add `matGoogleMapsAutocomplete` 
+to any html input element! 
+
 ## Built by and for developers :heart:
 Do you have any question or suggestion ? Please do not hesitate to contact us!
 Alternatively, provide a PR | open an appropriate issue [here](https://github.com/angular-material-extensions/google-maps-auto/issues)
@@ -57,10 +61,18 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="peerDependencies"/>
 
 ### Requirements (peer dependencies):
-- [angular material v6.4.1](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v6.4.1](https://www.npmjs.com/package/@angular/cdk)
-- [angular animations v6.0.9](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v6.0.9](https://www.npmjs.com/package/@angular/forms)
+for the directive as standalone you just need to install the agm core module
+- [agm - angular google maps v1.0.0-beta.3](https://www.npmjs.com/package/@agm/core)
+
+```bash
+npm i @agm/core 
+```
+
+for the ui input component, please consider to install the following packages
+- [angular material v6.4.3](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v6.4.3](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v6.1.2](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v6.1.2](https://www.npmjs.com/package/@angular/forms)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
@@ -128,6 +140,24 @@ export class OtherModule {
 <a name="usage"/>
 
 ## [Usage](https://angular-material-extensions.github.io/google-maps-autocomplete/getting-started)
+
+### As directive
+
+add `matGoogleMapsAutocomplete` to your target html input element to enable the google maps autocomplete api as feature
+
+```html
+<mat-form-field>
+  <mat-label>Address << using the directive >></mat-label>
+  <input matInput
+       matGoogleMapsAutocomplete
+       [country]="de"
+       (onAutocompleteSelected)="onAutocompleteSelected($event)"
+       (onLocationSelected)="onLocationSelected($event)">
+</mat-form-field>
+```
+### As components
+
+#### or alternatively use `mat-google-maps-auto-complete`, the UI wrapper
 
 add `mat-google-maps-auto-complete` element to your template
 
@@ -238,11 +268,9 @@ export class HomeComponent implements OnInit {
 
 ### API - for more info please visit the official documentation [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=en)
 
-### `mat-google-maps-autocomplete` 
-
+### `matGoogleMapsAutocomplete`
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
-| appearance          | Input()   |  Appearance | string;      | Appearance.STANDARD |  Style the `mat-form-field` by setting the appearance option : standard, fill, outline or legacy
 | address             | Input()   |  PlaceResult | string;      | - |  
 | country             | Input()   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
 | placeIdOnly         | Input()   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
@@ -266,6 +294,19 @@ export class HomeComponent implements OnInit {
 | onLocationSelected  | Output()  | Location                    | - |  
 
 
+### `mat-google-maps-autocomplete` 
+
+everything included in `matGoogleMapsAutocomplete` + the following
+
+| option | bind  |  type  |   default    | description  |
+|:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
+| addressLabelText  | Input()   |  string;      | Address using the component |  self explanatory
+| placeholderText  | Input()   |  string;      | Please enter the address |  self explanatory
+| requiredErrorText  | Input()   |  string;      | The address is required |  self explanatory
+| invalidErrorText  | Input()   |  string;      | The address is not valid |  self explanatory
+| appearance          | Input()   |  Appearance | string;      | Appearance.STANDARD |  Style the `mat-form-field` by setting the appearance option : standard, fill, outline or legacy
+
+
 <a name="documentation"/>
 
 ## [Documentation](https://angular-material-extensions.github.io/google-maps-autocomplete/doc/index.html)
@@ -284,23 +325,9 @@ $ git clone https://github.com/angular-material-extensions/google-maps-autocompl
 ```
 
 - link the **@angular-material-extensions/google-maps-autocomplete** package
-use gulp globally
+
 ```bash
 $ gulp link
-```
-
-use gulp locally
-```bash
-$ npx gulp link
-```
-for some mac os users, you may use the sudo command with gulp
-use gulp with sudo
-```bash
-$ sudo gulp link
-```
-or locally 
-```bash
-$ sudo npx gulp link
 ```
 
 - navigate to the demo app directory
@@ -346,12 +373,8 @@ $ npm run build
   _ `npm i`
   _ `npm start`
 
-extras
-To lint all `*.ts` files:
 
-```bash
-$ npm run lint
-```
+
 <a name="other-angular-libraries"/>
 
 ## Other Angular Libraries
