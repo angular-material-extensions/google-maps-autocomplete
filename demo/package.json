@@ -29,7 +29,7 @@
     "@angular/platform-browser": "^6.1.1",
     "@angular/platform-browser-dynamic": "^6.1.1",
     "@angular/platform-server": "^6.1.1",
-    "@angular/pwa": "^0.7.2",
+    "@angular/pwa": "^0.8.0",
     "@angular/router": "^6.1.1",
     "@ng-bootstrap/ng-bootstrap": "^2.2.2",
     "@stackblitz/sdk": "^1.2.0",
