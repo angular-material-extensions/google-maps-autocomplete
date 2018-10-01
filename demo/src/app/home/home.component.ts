@@ -2,7 +2,6 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 import sdk from '@stackblitz/sdk';
-import {} from '@types/googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
