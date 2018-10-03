@@ -28,16 +28,18 @@
     "build": "gulp build",
     "test": " gulp test",
     "demo": " gulp build:demo",
-    "check-travis": " travis-status --repo=angular-material-extensions/google-maps-autocomplete --branch=master --fail-pending || echo 'Not yet passing'"
+    "check-travis": " travis-status --repo=angular-material-extensions/google-maps-autocomplete --branch=master --fail-pending || echo 'Not yet passing'",
+    "postinstall": "npm run compile_@agm_core",
+    "compile_@agm_core": "babel node_modules/@agm/core -d node_modules/@agm/core --presets @babel/preset-env"
   },
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "^6.1.9",
     "@angular/cdk": "^6.4.7",
     "@angular/common": "^6.1.9",
     "@angular/core": "^6.1.9",
     "@angular/forms": "^6.1.9",
-    "@angular/material": "^6.4.7"
+    "@angular/material": "^6.4.7",
+    "un": "0.0.0"
   },
   "devDependencies": {
     "@angular/compiler": "^6.1.9",
@@ -45,6 +47,11 @@
     "@angular/platform-browser": "^6.1.9",
     "@angular/platform-browser-dynamic": "^6.1.9",
     "@angular/platform-server": "^6.1.9",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-typescript": "^7.1.0",
     "@compodoc/gulp-compodoc": "^0.0.9",
     "@types/googlemaps": "^3.30.13",
     "@types/jest": "^23.3.2",
@@ -55,7 +62,11 @@
     "ansi-colors": "^2.0.5",
     "autoprefixer": "^9.1.5",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "codelyzer": "^4.4.4",
     "commitplease": "^3.2.0",
     "conventional-github-releaser": "2.0.2",
@@ -106,7 +117,8 @@
   "jest": {
     "preset": "jest-preset-angular",
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
     },
     "globals": {
       "google": {}
