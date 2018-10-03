@@ -1,3 +1,22 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.2...v1.3.0) (2018-10-03)
+
+
+### Bug Fixes
+
+* **package:** fixed the path of node_module in the npm script to transpile agm core via babel ([abeb505](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/abeb505))
+* **package:** unexpected token import from agm core module fixed via babel v7.1.0 ([5c6a295](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5c6a295))
+* **package:** updated dependencies ([8a41a4c](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/8a41a4c))
+* **package:** updated typescript to v2.9.2 ([66d1e24](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/66d1e24))
+
+
+### Features
+
+* **package:** added address validator's form control to 'matGoogleMapsAutocomplete' ([859c103](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/859c103))
+* **package:** simplify the library by adding the `matGoogleMapsAutocomplete` directive ([f2b7b63](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/f2b7b63))
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.1...v1.2.2) (2018-07-24)
 
