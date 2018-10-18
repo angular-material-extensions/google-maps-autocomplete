@@ -39,7 +39,7 @@
     "@angular/common": "^6.1.9",
     "@angular/core": "^6.1.9",
     "@angular/forms": "^6.1.9",
-    "@angular/material": "^6.4.7"
+    "@angular/material": "^7.0.0"
   },
   "devDependencies": {
     "@angular/compiler": "^6.1.9",
