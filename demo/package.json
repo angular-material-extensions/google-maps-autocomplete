@@ -54,7 +54,7 @@
     "@compodoc/gulp-compodoc": "^0.0.9",
     "@nguniversal/common": "^6.1.0",
     "@nguniversal/express-engine": "^6.1.0",
-    "@nguniversal/module-map-ngfactory-loader": "^6.1.0",
+    "@nguniversal/module-map-ngfactory-loader": "^7.0.0",
     "@types/jest": "^23.3.3",
     "@types/node": "^10.11.4",
     "angular-cli-ghpages": "0.5.2",
