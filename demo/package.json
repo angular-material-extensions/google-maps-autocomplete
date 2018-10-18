@@ -52,7 +52,7 @@
     "@angular/language-service": "^6.1.9",
     "@angularclass/hmr": "~2.1.3",
     "@compodoc/gulp-compodoc": "^0.0.9",
-    "@nguniversal/common": "^6.1.0",
+    "@nguniversal/common": "^7.0.0",
     "@nguniversal/express-engine": "^6.1.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.1.0",
     "@types/jest": "^23.3.3",
