@@ -1,6 +1,5 @@
 import {Directive, EventEmitter, forwardRef} from '@angular/core';
 import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn} from '@angular/forms';
-import {} from '@types/googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
 
 // https://github.com/angular/angular/blob/master/packages/forms/src/directives/validators.ts

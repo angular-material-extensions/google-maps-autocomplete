@@ -16,7 +16,7 @@ import { ROUTES } from './static.paths';
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
 
-const BROWSER_FOLDER = join(process.cwd(), 'dist', 'browser');
+const BROWSER_FOLDER = join(process.cwd(), 'browser');
 
 // Load the index.html file containing referances to your application bundle.
 const index = readFileSync(join(BROWSER_FOLDER, 'index.html'), 'utf8');
@@ -25,7 +25,7 @@ let previousRender = Promise.resolve();
 
 // Iterate each route path
 ROUTES.forEach(route => {
-  var fullPath = join(BROWSER_FOLDER, route);
+  const fullPath = join(BROWSER_FOLDER, route);
 
   // Make sure the directory structure is there
   if (!existsSync(fullPath)) {

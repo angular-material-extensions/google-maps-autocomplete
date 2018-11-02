@@ -15,9 +15,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
 
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import {Angulartics2Module} from 'angulartics2';
+import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
+import {ServiceWorkerModule} from '@angular/service-worker';
 
 // import {} from '@types/googlemaps';
 
@@ -37,7 +37,7 @@ const googleMapsParams = {
     // The application ID can be any identifier which is unique on
     // the page.
     BrowserModule.withServerTransition({appId: '@angular-material-extensions/google-maps-autocomplete-demo-id'}),
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    Angulartics2Module.forRoot(),
     AgmCoreModule.forRoot(googleMapsParams),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatJumbotronModule.forRoot(),
@@ -50,7 +50,7 @@ const googleMapsParams = {
     AppRoutingModule,
     AppSharedModule,
     HomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]
