@@ -62,17 +62,17 @@ View all the directives and components in action at [https://angular-material-ex
 
 ### Requirements (peer dependencies):
 for the directive as standalone you just need to install the agm core module
-- [agm - angular google maps v1.0.0-beta.3](https://www.npmjs.com/package/@agm/core)
+- [agm - angular google maps v1.0.0-beta.5](https://www.npmjs.com/package/@agm/core)
 
 ```bash
 npm i @agm/core 
 ```
 
 for the ui input component, please consider to install the following packages
-- [angular material v6.4.3](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v6.4.3](https://www.npmjs.com/package/@angular/cdk)
-- [angular animations v6.1.2](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v6.1.2](https://www.npmjs.com/package/@angular/forms)
+- [angular material v7.0.2](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v7.0.2](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v7.0.2](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v7.0.2](https://www.npmjs.com/package/@angular/forms)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
