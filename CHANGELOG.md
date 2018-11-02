@@ -1,4 +1,12 @@
-<a name="1.3.0"></a>
+# [1.4.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.3.0...v1.4.0) (2018-11-02)
+
+
+### Features
+
+* **package:** support of angular v7 ([22b1bd5](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/22b1bd5))
+
+
+
 # [1.3.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.2...v1.3.0) (2018-10-03)
 
 
@@ -17,7 +25,6 @@
 
 
 
-<a name="1.2.2"></a>
 ## [1.2.2](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.1...v1.2.2) (2018-07-24)
 
 
@@ -27,7 +34,6 @@
 
 
 
-<a name="1.2.1"></a>
 ## [1.2.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.2.0...v1.2.1) (2018-07-18)
 
 
@@ -38,7 +44,6 @@
 
 
 
-<a name="1.2.0"></a>
 # [1.2.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.1.0...v1.2.0) (2018-07-10)
 
 
@@ -48,7 +53,6 @@
 
 
 
-<a name="1.1.0"></a>
 # [1.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.0.0...v1.1.0) (2018-06-30)
 
 
@@ -58,7 +62,6 @@
 
 
 
-<a name="1.0.0"></a>
 # [1.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/60e44cd...v1.0.0) (2018-06-18)
 
 
