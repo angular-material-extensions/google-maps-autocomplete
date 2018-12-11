@@ -71,10 +71,10 @@ npm i @agm/core
 ```
 
 for the ui input component, please consider to install the following packages
-- [angular material v7.0.2](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v7.0.2](https://www.npmjs.com/package/@angular/cdk)
-- [angular animations v7.0.2](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v7.0.2](https://www.npmjs.com/package/@angular/forms)
+- [angular material v7.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v7.x](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v7.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v7.x](https://www.npmjs.com/package/@angular/forms)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
