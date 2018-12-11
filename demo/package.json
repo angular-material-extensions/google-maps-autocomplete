@@ -18,7 +18,8 @@
     "generate:prerender": "cd dist && node prerender",
     "lint": "ng lint",
     "test": "ng test",
-    "postinstall": "npm link @angular-material-extensions/google-maps-autocomplete",
+    "postinstall": "npm run link",
+    "link": "npm link @angular-material-extensions/google-maps-autocomplete",
     "serve:prerender": "cd dist/browser && http-server",
     "serve:ssr": "node dist/server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
