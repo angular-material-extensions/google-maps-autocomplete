@@ -55,7 +55,7 @@
     "@compodoc/gulp-compodoc": "^0.0.9",
     "@types/googlemaps": "^3.30.13",
     "@types/jest": "^23.3.10",
-    "@types/lodash": "^4.14.118",
+    "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.12",
     "angular-cli-ghpages": "^0.5.3",
     "angular2-template-loader": "^0.6.2",
