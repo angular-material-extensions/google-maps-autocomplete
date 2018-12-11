@@ -117,6 +117,7 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
             }
             this.address = place.formatted_address;
             this.onAutocompleteSelected.emit(place);
+            // console.log('onAutocompleteSelected -> ', place);
             this.onLocationSelected.emit(
               {
                 latitude: place.geometry.location.lat(),

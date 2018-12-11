@@ -167,7 +167,7 @@ add `mat-google-maps-auto-complete` element to your template
 
 ```html
 <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
-                              (onAddressSelected)="onAddressSelected($event)"
+                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
                               (onLocationSelected)="onLocationSelected($event)">
       </mat-google-maps-autocomplete>
 ```
@@ -177,7 +177,7 @@ A customized `mat-google-maps-autocomplete`
 ```html
 <mat-google-maps-autocomplete  country="us"
                                type="address"
-                               (onAddressSelected)="onAddressSelected($event)"
+                               (onAutocompleteSelected)="onAutocompleteSelected($event)"
                                (onLocationSelected)="onLocationSelected($event)">
 </mat-google-maps-autocomplete>
 ```
@@ -197,7 +197,7 @@ combine the result of the `mat-google-maps-autocomplete` with a google map insta
          class="autocomplete-container"
          [ngStyle.xs]="{'min-width.%': 100}"
          [ngStyle.sm]="{'width.%': 70}">
-      <mat-google-maps-autocomplete (onAddressSelected)="onAddressSelected($event)"
+      <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
                                     (onLocationSelected)="onLocationSelected($event)">
       </mat-google-maps-autocomplete>
     </div>
@@ -253,8 +253,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onAddressSelected(result: PlaceResult) {
-    console.log('onAddressSelected: ', result);
+  onAutocompleteSelected(result: PlaceResult) {
+    console.log('onAutocompleteSelected: ', result);
   }
 
   onLocationSelected(location: Location) {
