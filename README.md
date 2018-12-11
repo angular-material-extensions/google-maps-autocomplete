@@ -16,6 +16,8 @@
 [![devDependency Status](https://david-dm.org/angular-material-extensions/google-maps-autocomplete/dev-status.svg?branch=master)](https://david-dm.org/angular-material-extensions/google-maps-autocomplete#info=devDependencies)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/google-maps-autocomplete.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/google-maps-autocomplete.svg?style=flat-square)](https://github.com/angular-material-extensions/google-maps-autocomplete/blob/master/LICENSE)
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/gdi2290/awesome-angular)
+
 
 <p align="center">
   <img alt="@angular-material-extensions/google-maps-autocomplete" style="text-align: center;"
