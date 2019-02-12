@@ -51,7 +51,7 @@
     "font-awesome": "^4.7.0",
     "include-media": "^1.4.9",
     "material-design-icons": "^3.0.1",
-    "ngx-highlightjs": "^2.1.4",
+    "ngx-highlightjs": "^3.0.2",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.27"
   },
