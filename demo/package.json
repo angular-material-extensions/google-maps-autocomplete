@@ -82,7 +82,7 @@
     "tslint": "~5.11.0",
     "typescript": "~3.2.4",
     "webpack-cli": "^3.2.3",
-    "yargs": "^12.0.5"
+    "yargs": "^13.1.0"
   },
   "jest": {
     "preset": "jest-preset-angular",
