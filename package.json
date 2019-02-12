@@ -106,7 +106,7 @@
     "tsickle": "^0.33.1",
     "tslint": "^5.12.1",
     "typescript": "~3.1.6",
-    "yargs": "^12.0.5",
+    "yargs": "^13.1.0",
     "zone.js": "^0.8.27"
   },
   "engines": {
