@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   hmr: false,
-  GOOGLE_MAPS_API_KEY: 'AIzaSyAH_AQG-V0nHEGhlImZLMFyLIk6Xq30htA'
+  GOOGLE_MAPS_API_KEY: 'AIzaSyAzwRDOIWaOsBIXzql7u8SFIBc28Fq5gmI'
 };
