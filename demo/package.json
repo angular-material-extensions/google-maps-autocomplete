@@ -74,7 +74,7 @@
     "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.2",
     "lodash": "^4.17.11",
-    "protractor": "^5.4.2",
+    "protractor": "^6.0.0",
     "reflect-metadata": "^0.1.13",
     "run-sequence": "2.2.1",
     "ts-loader": "^5.3.3",
