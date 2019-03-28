@@ -271,6 +271,7 @@ gulp.task('build', ['clean'], (cb) => {
   runSequence('compile', 'test', 'npm-package', 'rollup-bundle', cb);
 });
 
+// Build the schematics in dist
 gulp.task('build:schematics', () => {
   // return execDemoCmd(`build --preserve-symlinks --prod --aot --build-optimizer`, {cwd: `${config.demoDir}`});
   return execCmd('tsc', '-p src/schematics/tsconfig.json').then(exitCode => {
@@ -308,10 +309,10 @@ gulp.task('build:watch-fast', ['build-watch-no-tests'], () => {
 /////////////////////////////////////////////////////////////////////////////
 
 // Prepare 'dist' folder for publication to NPM
-gulp.task('npm-package', ['build:schematics'], (cb) => {
+gulp.task('npm-package', (cb) => {
   let pkgJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
   let targetPkgJson = {};
-  let fieldsToCopy = ['version', 'description', 'keywords', 'author', 'repository', 'license', 'bugs', 'homepage'];
+  let fieldsToCopy = ['version', 'description', 'keywords', 'author', 'repository', 'license', 'bugs', 'homepage', 'schematics'];
 
   targetPkgJson['name'] = config.libraryName;
 
@@ -656,7 +657,7 @@ gulp.task('create-new-tag', (cb) => {
 });
 
 // Build and then Publish 'dist' folder to NPM
-gulp.task('npm-publish', ['build'], () => {
+gulp.task('npm-publish', ['build', 'build:schematics'], () => {
   return execExternalCmd('npm', `publish ${config.outputDir} --access public`)
 });
 
