@@ -30,12 +30,13 @@ export function addPackageJsonDependencies(): Rule {
     const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default,
-        version: loadPackageVersionGracefully(context) || '1.5.0',
+        version: loadPackageVersionGracefully(context) || 'latest',
         name: '@angular-material-extensions/google-maps-autocomplete'
       },
-      {type: NodeDependencyType.Default, version: '1.0.0-beta.5', name: '@agm/core'},
-      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '7.2.7', name: '@angular/animations'},
-      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '7.2.7', name: '@angular/forms'}
+      {type: NodeDependencyType.Default, version: '^1.0.0-beta.5', name: '@agm/core'},
+      {type: NodeDependencyType.Default, version: '^3.30.19', name: '@types/googlemaps'},
+      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^7.2.7', name: '@angular/animations'},
+      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^7.2.7', name: '@angular/forms'}
     ];
 
     dependencies.forEach(dependency => {
@@ -64,9 +65,11 @@ export function addModuleToImports(options: any): Rule {
       // Takes the first project in case it's not provided by CLI
       options.project ? options.project : Object.keys(workspace['projects'])[0]
     );
-    const moduleName = 'MatPasswordStrengthModule';
+    const moduleName = 'MatGoogleMapsAutocompleteModule';
+    const agmCoreModule = 'AgmCoreModule.forRoot()';
 
     addModuleImportToRootModule(host, moduleName, '@angular-material-extensions/google-maps-autocomplete', project);
+    addModuleImportToRootModule(host, agmCoreModule, '@agm/core', project);
     context.logger.log('info', `✅️ "${moduleName}" is imported`);
 
     return host;
