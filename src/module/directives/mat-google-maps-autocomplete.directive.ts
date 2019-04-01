@@ -1,10 +1,11 @@
-import {Directive, ElementRef, EventEmitter, Input, NgZone, OnInit, Output} from '@angular/core';
+import {Directive, ElementRef, EventEmitter, Inject, Input, NgZone, OnInit, Output, PLATFORM_ID} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {MapsAPILoader} from '@agm/core';
 import {Location} from '../interfaces/location.interface';
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
+import {isPlatformBrowser} from '@angular/common';
 
 @Directive({
   selector: '[matGoogleMapsAutocomplete]',
@@ -50,24 +51,27 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
     this.addressValidator.validate()])
   );
 
-  constructor(public elemRef: ElementRef,
+  constructor(@Inject(PLATFORM_ID) public platformId: string,
+              public elemRef: ElementRef,
               public mapsAPILoader: MapsAPILoader,
               private _ngZone: NgZone) {
   }
 
   ngOnInit(): void {
-    this.addressValidator.subscribe(this.onNewPlaceResult);
-    const options = {
-      // types: ['address'],
-      componentRestrictions: {country: this.country},
-      placeIdOnly: this.placeIdOnly,
-      strictBounds: this.strictBounds,
-      types: this.types,
-      type: this.type
-    };
+    if (isPlatformBrowser(this.platformId)) {
+      this.addressValidator.subscribe(this.onNewPlaceResult);
+      const options = {
+        // types: ['address'],
+        componentRestrictions: {country: this.country},
+        placeIdOnly: this.placeIdOnly,
+        strictBounds: this.strictBounds,
+        types: this.types,
+        type: this.type
+      };
 
-    this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
-    this.initGoogleMapsAutocomplete();
+      this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
+      this.initGoogleMapsAutocomplete();
+    }
 
   }
 
