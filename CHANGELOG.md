@@ -1,3 +1,34 @@
+# [1.5.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.4.0...v1.5.0) (2019-04-02)
+
+
+### Bug Fixes
+
+* **demo:** updated angular cdk and material to 7.3.4 ([bf4af44](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/bf4af44))
+* **demo:** updated angular to v7.3.1 ([15526c1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/15526c1))
+* **demo:** updated angular, material and other deps ([ea16bb7](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/ea16bb7))
+* **demo:** updated dependencies ([4238e7d](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/4238e7d))
+* **demo:** updated dependencies, angular to v7.2.0 and material to v7.2.1 ([a025c26](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/a025c26))
+* **demo:** updated dependencies, angular to v7.2.0 and material to v7.2.1 ([a4378f1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/a4378f1))
+* **demo:** updated reflect metadata ([7ef4da6](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/7ef4da6))
+* **docs:** replaced `onAddressSelected` with `onAutocompleteSelected` - typo error [#40](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/40) ([1f88ec6](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/1f88ec6))
+* **package:** added angular schematics ([ab59926](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/ab59926))
+* **package:** downgraded jest ([f428a82](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/f428a82))
+* **package:** initialize the autocomplete mechanism only in the browser - SSR ([7519b8c](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/7519b8c))
+* **package:** updated angular material and other deps ([c9feeff](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/c9feeff))
+* **package:** updated angular to v7.3.1 ([5884951](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5884951))
+* **package:** updated angular to v7.3.4 ([a5f08ac](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/a5f08ac))
+* **package:** updated jest ([d180485](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/d180485))
+* **package:** updated postcss to v7.0.13 ([4058ad9](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/4058ad9))
+
+
+### Features
+
+* **demo:** updated angular and other dependencies ([446bc32](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/446bc32))
+* **package:** added schematics support [#69](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/69) ([7c145d7](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/7c145d7))
+* **package:** updated angular and other dependencies ([69b6513](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/69b6513))
+
+
+
 # [1.4.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.3.0...v1.4.0) (2018-11-02)
 
 
