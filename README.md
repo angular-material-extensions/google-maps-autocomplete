@@ -91,7 +91,17 @@ npm i @angular/cdk @angular/material @angular/animations @angular/forms
 
 ##  [Installation](https://angular-material-extensions.github.io/google-maps-autocomplete/getting-started)
 
-Install above dependencies via *npm*. 
+## 1. Install via *ng add*. (Recommended)
+
+If Angular Material Design is not setup, just run `ng add @angular/material` [learn more](https://material.angular.io/guide/getting-started)
+
+Now add the library via the `angular schematics` and everything will be setup for you
+```shell
+ng add @angular-material-extensions/google-maps-autocomplete
+```
+
+
+## 2. Install via *npm*. (Alternative) 
 
 Now install `@angular-material-extensions/google-maps-autocomplete` via:
 ```shell
@@ -115,11 +125,16 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 The only remaining part is to list the imported module in your application module. The exact method will be slightly
 different for the root (top-level) module for which you should end up with the code similar to (notice ` MatGoogleMapsAutocompleteModule.forRoot()`):
 ```js
+import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [MatGoogleMapsAutocompleteModule.forRoot(), ...],  
+  imports: [
+     AgmCoreModule.forRoot({
+          apiKey: 'YOUR_KEY'
+        }),
+     MatGoogleMapsAutocompleteModule.forRoot(), ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -129,11 +144,16 @@ export class AppModule {
 Other modules in your application can simply import ` MatGoogleMapsAutocompleteModule `:
 
 ```js
+import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
   declarations: [OtherComponent, ...],
-  imports: [MatGoogleMapsAutocompleteModule, ...], 
+  imports: [
+     AgmCoreModule.forRoot({
+              apiKey: 'YOUR_KEY'
+            }),
+     MatGoogleMapsAutocompleteModule, ...], 
 })
 export class OtherModule {
 }
@@ -332,24 +352,11 @@ $ git clone https://github.com/angular-material-extensions/google-maps-autocompl
 $ gulp link
 ```
 
-- navigate to the demo app directory
+- navigate to the demo app directory, install the dependencies and serve the app
 ```bash
-$ cd demo
+$ cd demo && npm i && npm start
 ```
 
-- install the dependencies
-```bash
-$ npm i
-```
-
-- run/start/serve the app
-```bash
-$ npm run start
-```
-or
-```bash
-$ ng serve --open
-```
 - the app is now hosted by `http://localhost:4200/`
 
 
@@ -360,15 +367,16 @@ $ ng serve --open
 1. clone this [repo](https://github.com/angular-material-extensions/google-maps-autocomplete.git)
 2. Install the dependencies by running `npm i`
 3. build the library `npm run build` or `gulp build`
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
 
 ```bash
 $ npm run build
 ```
 
 4. Link the library 
-  - on windows `gulp link` or locally `npx gulp link`
-  - on mac/linux `sudo gulp link` or locally `sudo npx gulp link`
+  ```bash
+  $ gulp link
+  ```
+ 
   
  5. Navigate to the demo app's directory
   - `cd demo`
