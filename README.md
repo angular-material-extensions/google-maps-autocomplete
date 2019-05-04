@@ -60,9 +60,6 @@ View all the directives and components in action at [https://angular-material-ex
 ## Dependencies
 * [Angular](https://angular.io) (*requires* Angular 2 or higher)
 
-<a name="peerDependencies"/>
-
-### Requirements (peer dependencies):
 for the directive as standalone you just need to install the agm core module
 - [agm - angular google maps v1.0.0-beta.5](https://www.npmjs.com/package/@agm/core)
 
@@ -70,22 +67,11 @@ for the directive as standalone you just need to install the agm core module
 npm i @agm/core 
 ```
 
-for the ui input component, please consider to install the following packages
-- [angular material v7.x](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v7.x](https://www.npmjs.com/package/@angular/cdk)
-- [angular animations v7.x](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v7.x](https://www.npmjs.com/package/@angular/forms)
+optional
 
 ```bash
-npm i @angular/cdk @angular/material @angular/animations @angular/forms 
+npm i -D @types/googlemaps 
 ```
-
-<a name="additional-requirements-material-theme"/>
-
-### Additional requirements Theme (Material Design)
-- [angular material theme](https://material.angular.io/guide/getting-started#step-4-include-a-theme)
-
-----
 
 <a name="installation"/>
 
@@ -107,6 +93,29 @@ Now install `@angular-material-extensions/google-maps-autocomplete` via:
 ```shell
 npm install --save @angular-material-extensions/google-maps-autocomplete
 ```
+
+<a name="peerDependencies"/>
+
+### Requirements (peer dependencies):
+
+for the ui input component, please consider to install the following packages
+- [angular animations v7.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v7.x](https://www.npmjs.com/package/@angular/forms)
+
+if your are not using the directive but the `mat-google-maps-autocomplete` component
+- [angular material v7.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v7.x](https://www.npmjs.com/package/@angular/cdk)
+
+```bash
+npm i @angular/cdk @angular/material @angular/animations @angular/forms 
+```
+
+<a name="additional-requirements-material-theme"/>
+
+### Additional requirements Theme (Material Design)
+- [angular material theme](https://material.angular.io/guide/getting-started#step-4-include-a-theme)
+
+----
 
 ##### SystemJS
 >**Note**:If you are using `SystemJS`, you should adjust your configuration to point to the UMD bundle.
@@ -144,15 +153,11 @@ export class AppModule {
 Other modules in your application can simply import ` MatGoogleMapsAutocompleteModule `:
 
 ```js
-import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
   declarations: [OtherComponent, ...],
   imports: [
-     AgmCoreModule.forRoot({
-              apiKey: 'YOUR_KEY'
-            }),
      MatGoogleMapsAutocompleteModule, ...], 
 })
 export class OtherModule {
