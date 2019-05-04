@@ -85,14 +85,19 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
   ngOnInit(): void {
     this.addressValidator.subscribe(this.onNewPlaceResult);
 
-    const options = {
+    const options: any = {
       // types: ['address'],
-      componentRestrictions: {country: this.country},
+      // componentRestrictions: {country: this.country},
       placeIdOnly: this.placeIdOnly,
       strictBounds: this.strictBounds,
-      types: this.types,
+      // types: this.types,
       type: this.type
     };
+
+    // tslint:disable-next-line:no-unused-expression
+    this.country ? options.push({componentRestrictions: {country: this.country}}) : null;
+    // tslint:disable-next-line:no-unused-expression
+    this.country ? options.push({types: this.types}) : null;
 
     this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
     this.initGoogleMapsAutocomplete();

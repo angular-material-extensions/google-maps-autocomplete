@@ -65,7 +65,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
         componentRestrictions: {country: this.country},
         placeIdOnly: this.placeIdOnly,
         strictBounds: this.strictBounds,
-        types: this.types,
+        // types: this.types,
         type: this.type
       };
 
