@@ -1,3 +1,27 @@
+# [1.6.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.5.0...v1.6.0) (2019-05-04)
+
+
+### Bug Fixes
+
+* **demo:** downgraded @angular/platform-browser to v7.2.12 ([80f2005](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/80f2005))
+* **demo:** updated angular and other dependencies ([02fb365](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/02fb365))
+* **demo:** updated angular and other dependencies ([59d34a7](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/59d34a7))
+* **demo-schematics:** minor [#69](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/69) ([7a1804a](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/7a1804a))
+* **package:** added @angular-devkit/schematics as dev dependency [#69](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/69) ([6ec7bb1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/6ec7bb1))
+* **package:** minor [#69](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/69) ([dd10b9b](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/dd10b9b))
+* **package:** prevent invalid value error for the directive as well [#100](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/100) ([8ebe3fb](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/8ebe3fb))
+* **package:** prevent invalid value error when type or country are null [#100](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/100) ([80014cd](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/80014cd))
+* **package:** updated postcss and rollup ([eca3761](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/eca3761))
+* **package:** updated rollup to v1 ([98125e2](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/98125e2))
+* **package:** updated the schematics [#69](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/69) ([9281882](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/9281882))
+
+
+### Features
+
+* **demo-schematics:** added a brand new demo app for angular schematics ([5ad3513](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5ad3513))
+
+
+
 # [1.5.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.4.0...v1.5.0) (2019-04-02)
 
 
