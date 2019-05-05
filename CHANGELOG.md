@@ -1,3 +1,12 @@
+## [1.6.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.6.0...v1.6.1) (2019-05-05)
+
+
+### Bug Fixes
+
+* **package:** options.push is not a function fixed [#104](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/104) ([2cf8d4f](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/2cf8d4f))
+
+
+
 # [1.6.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.5.0...v1.6.0) (2019-05-04)
 
 
