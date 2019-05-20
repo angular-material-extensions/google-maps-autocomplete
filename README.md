@@ -317,8 +317,8 @@ export class HomeComponent implements OnInit {
 | type                | Input()   | string                      | - |  
 | autoCompleteOptions | Input()   | AutocompleteOptions         | - |  all above inputs in one object! The passed data to this object will be merged with the input if they exists
 | onChange            | Output()  | PlaceResult | string | null | - |  event when the input form value changed
-| onAutocompleteSelected   | Output()  | PlaceResult            | - |  the event will be fired when a
-| onLocationSelected  | Output()  | Location                    | - |  
+| onAutocompleteSelected   | Output()  | PlaceResult            | - |  the event will be fired when a place has been selected via the google maps autocomplete component
+| onLocationSelected  | Output()  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component
 
 
 ### `mat-google-maps-autocomplete` 
