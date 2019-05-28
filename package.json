@@ -42,7 +42,7 @@
     "@angular/common": "^7.2.15",
     "@angular/core": "^7.2.15",
     "@angular/forms": "^7.2.15",
-    "@angular/material": "^7.3.7"
+    "@angular/material": "^8.0.0"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^7.3.9",
