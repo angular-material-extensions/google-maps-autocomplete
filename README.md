@@ -303,23 +303,22 @@ export class HomeComponent implements OnInit {
 | country             | Input()   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
 | placeIdOnly         | Input()   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
 | strictBounds        | Input()   | boolean                     | - | is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.
-| types               | Input()   | string[]                    | - |  An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. The supported types are:
-                                                                       geocode instructs the Places service to return only geocoding results, rather than business results.
-                                                                       address instructs the Places service to return only geocoding results with a precise address.
-                                                                       establishment instructs the Places service to return only business results.
-                                                                       the (regions) type collection instructs the Places service to return any result matching the following types:
-                                                                       locality
-                                                                       sublocality
-                                                                       postal_code
-                                                                       country
-                                                                       administrative_area1
-                                                                       administrative_area2
-                                                                       the (cities) type collection instructs the Places service to return results that match either locality or administrative_area3.
+| types               | Input()   | string[]                    | - |  An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. Supported types are listed below. |
 | type                | Input()   | string                      | - |  
 | autoCompleteOptions | Input()   | AutocompleteOptions         | - |  all above inputs in one object! The passed data to this object will be merged with the input if they exists
 | onChange            | Output()  | PlaceResult | string | null | - |  event when the input form value changed
 | onAutocompleteSelected   | Output()  | PlaceResult            | - |  the event will be fired when a place has been selected via the google maps autocomplete component
-| onLocationSelected  | Output()  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component
+| onLocationSelected  | Output()  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component |
+
+#### Supported Types
+
+| type | description |
+| --- | --- |
+| geocode | instructs the Places service to return only geocoding results, rather than business results. |
+| address | instructs the Places service to return only geocoding results with a precise address. | 
+| establishment | instructs the Places service to return only business results. |
+|regions | instructs the Places service to return any result matching the following types: locality, sublocality, postal_code, country, administrative_area1, administrative_area2 |
+| cities | instructs the Places service to return results that match either locality or administrative_area3. |
 
 
 ### `mat-google-maps-autocomplete` 
