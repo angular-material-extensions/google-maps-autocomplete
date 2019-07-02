@@ -21,7 +21,7 @@ export enum Appearance {
 })
 export class MatGoogleMapsAutocompleteComponent implements OnInit {
 
-  @ViewChild('search')
+  @ViewChild('search', {static: false})
   public searchElementRef: ElementRef;
 
   @Input()
