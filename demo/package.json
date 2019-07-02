@@ -40,7 +40,7 @@
     "@angular/platform-browser": "8.0.0",
     "@angular/platform-browser-dynamic": "^8.0.3",
     "@angular/platform-server": "^8.0.3",
-    "@angular/pwa": "^0.10.7",
+    "@angular/pwa": "^0.801.0",
     "@angular/router": "^8.0.3",
     "@angular/service-worker": "^8.0.3",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
