@@ -13,8 +13,6 @@ export {MatValidateAddressDirective} from './directives/address-validator/mat-ad
 export {MatGoogleMapsAutocompleteDirective} from './directives/mat-google-maps-autocomplete.directive';
 export {Location} from './interfaces/location.interface';
 
-// export {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
-
 @NgModule({
   imports: [
     CommonModule,
