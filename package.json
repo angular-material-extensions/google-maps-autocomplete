@@ -64,7 +64,7 @@
     "@types/node": "^10.14.10",
     "angular-cli-ghpages": "^0.5.3",
     "angular2-template-loader": "^0.6.2",
-    "ansi-colors": "^3.2.4",
+    "ansi-colors": "^4.1.1",
     "autoprefixer": "^9.5.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
