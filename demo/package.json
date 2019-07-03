@@ -65,7 +65,7 @@
     "@compodoc/gulp-compodoc": "^0.0.10",
     "@nguniversal/common": "^7.1.1",
     "@nguniversal/express-engine": "^7.1.1",
-    "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
+    "@nguniversal/module-map-ngfactory-loader": "^8.1.0",
     "@types/jest": "^23.3.14",
     "@types/node": "^10.14.10",
     "codelyzer": "^4.5.0",
