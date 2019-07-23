@@ -42,7 +42,8 @@
     "@angular/common": "^8.1.2",
     "@angular/core": "^8.1.2",
     "@angular/forms": "^8.1.2",
-    "@angular/material": "^8.1.1"
+    "@angular/material": "^8.1.1",
+    "@types/googlemaps": "^3.37.0"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^8.1.2",
@@ -57,7 +58,6 @@
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-typescript": "^7.3.3",
     "@compodoc/gulp-compodoc": "^0.0.10",
-    "@types/googlemaps": "^3.36.6",
     "@types/jasmine": "^3.3.12",
     "@types/jest": "^23.3.14",
     "@types/lodash": "^4.14.135",

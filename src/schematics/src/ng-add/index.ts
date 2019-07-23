@@ -33,10 +33,10 @@ export function addPackageJsonDependencies(): Rule {
         version: loadPackageVersionGracefully(context) || 'latest',
         name: '@angular-material-extensions/google-maps-autocomplete'
       },
-      {type: NodeDependencyType.Default, version: '^1.0.0-beta.5', name: '@agm/core'},
-      {type: NodeDependencyType.Default, version: '^3.30.19', name: '@types/googlemaps'},
-      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^7.2.12', name: '@angular/animations'},
-      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^7.2.14', name: '@angular/forms'}
+      {type: NodeDependencyType.Default, version: '^1.0.0-beta.7', name: '@agm/core'},
+      {type: NodeDependencyType.Default, version: '^3.37.0', name: '@types/googlemaps'},
+      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^8.1.2', name: '@angular/animations'},
+      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^8.1.2', name: '@angular/forms'}
     ];
 
     dependencies.forEach(dependency => {
