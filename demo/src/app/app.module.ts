@@ -16,7 +16,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatJumbotronModule} from '@angular-material-extensions/jumbotron';
 
 import {Angulartics2Module} from 'angulartics2';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {ServiceWorkerModule} from '@angular/service-worker';
 
 // import {} from '@types/googlemaps';
