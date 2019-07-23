@@ -1,3 +1,28 @@
+# [2.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.6.1...v2.0.0) (2019-07-23)
+
+
+### Bug Fixes
+
+* **demo:** solved rendering issue ([6b9582c](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/6b9582c))
+* **demo:** updated angular and other deps ([ede64ca](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/ede64ca))
+* **demo:** updated angular flex layout to v8 ([0faf3dc](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/0faf3dc))
+* **demo:** updated angular to v8 ([2a32477](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/2a32477))
+* **demo:** updated angular to v8.1.2 ([4fc3521](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/4fc3521))
+* **demo:** updated angular, material and other dependencies ([df4282b](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/df4282b))
+* **package:** fixed version of the compiler and compiler cli ([5ad7ae2](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5ad7ae2))
+* **package:** updated angular and material to v8 [#133](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/133) ([da2e294](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/da2e294))
+* **package:** updated angular and other deps ([88079ea](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/88079ea))
+* **package:** updated rollup ([ab9fb55](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/ab9fb55))
+* **package:** updated the angular dependencies ([4b1d51f](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/4b1d51f))
+* **package:** updated the schematics ([b2b441f](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/b2b441f))
+
+
+### Features
+
+* **project:** added a second demo app ([3f07d26](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/3f07d26))
+
+
+
 ## [1.6.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.6.0...v1.6.1) (2019-05-05)
 
 
