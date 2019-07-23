@@ -36,7 +36,7 @@ const googleMapsParams = {
     // Add .withServerTransition() to support Universal rendering.
     // The application ID can be any identifier which is unique on
     // the page.
-    BrowserModule.withServerTransition({appId: '@angular-material-extensions/google-maps-autocomplete-demo-id'}),
+    BrowserModule.withServerTransition({appId: 'demo'}),
     Angulartics2Module.forRoot(),
     AgmCoreModule.forRoot(googleMapsParams),
     MatGoogleMapsAutocompleteModule.forRoot(),

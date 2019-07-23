@@ -5,7 +5,7 @@
   "description": "Demo app for @angular-material-extensions/google-maps-autocomplete",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4021",
     "serve:prod": "ng serve --prod",
     "build": "ng build",
     "build:doc": "cd ../ && gulp build:doc",
