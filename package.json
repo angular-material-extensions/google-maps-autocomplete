@@ -36,21 +36,21 @@
     "compile_@agm_core": "babel ./node_modules/@agm/core -d ./node_modules/@agm/core --presets @babel/preset-env"
   },
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.6",
-    "@angular/animations": "^8.0.3",
-    "@angular/cdk": "^8.0.1",
-    "@angular/common": "^8.0.3",
-    "@angular/core": "^8.0.3",
-    "@angular/forms": "^8.0.3",
-    "@angular/material": "^8.0.1"
+    "@agm/core": "^1.0.0-beta.7",
+    "@angular/animations": "^8.1.2",
+    "@angular/cdk": "^8.1.1",
+    "@angular/common": "^8.1.2",
+    "@angular/core": "^8.1.2",
+    "@angular/forms": "^8.1.2",
+    "@angular/material": "^8.1.1"
   },
   "devDependencies": {
-    "@angular-devkit/schematics": "^8.0.6",
+    "@angular-devkit/schematics": "^8.1.2",
     "@angular/compiler": "^8.0.3",
     "@angular/compiler-cli": "^8.0.3",
-    "@angular/platform-browser": "^8.0.3",
-    "@angular/platform-browser-dynamic": "^8.0.3",
-    "@angular/platform-server": "^8.0.3",
+    "@angular/platform-browser": "^8.1.2",
+    "@angular/platform-browser-dynamic": "^8.1.2",
+    "@angular/platform-server": "^8.1.2",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
