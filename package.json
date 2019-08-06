@@ -43,7 +43,7 @@
     "@angular/core": "^8.1.2",
     "@angular/forms": "^8.1.2",
     "@angular/material": "^8.1.1",
-    "@types/googlemaps": "^3.37.0"
+    "@types/googlemaps": "3.37.1"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^8.1.2",
