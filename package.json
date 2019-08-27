@@ -62,7 +62,7 @@
     "@types/jest": "^23.3.14",
     "@types/lodash": "^4.14.135",
     "@types/node": "^10.14.10",
-    "angular-cli-ghpages": "^0.5.3",
+    "angular-cli-ghpages": "^0.6.0",
     "angular2-template-loader": "^0.6.2",
     "ansi-colors": "^3.2.4",
     "autoprefixer": "^9.5.0",
