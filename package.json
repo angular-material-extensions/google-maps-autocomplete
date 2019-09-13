@@ -56,7 +56,7 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-es2015": "^7.0.0-beta.53",
-    "@babel/preset-typescript": "^7.3.3",
+    "@babel/preset-typescript": "^7.6.0",
     "@compodoc/gulp-compodoc": "^0.0.10",
     "@types/jasmine": "^3.3.12",
     "@types/jest": "^23.3.14",
