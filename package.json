@@ -36,7 +36,7 @@
     "compile_@agm_core": "babel ./node_modules/@agm/core -d ./node_modules/@agm/core --presets @babel/preset-env"
   },
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.7",
+    "@agm/core": "1.0.0-beta.7",
     "@angular/animations": "^8.1.2",
     "@angular/cdk": "^8.1.1",
     "@angular/common": "^8.1.2",
