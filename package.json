@@ -81,7 +81,7 @@
     "greenkeeper-lockfile": "^1.15.1",
     "gulp": "3.9.1",
     "gulp-bump": "3.1.1",
-    "gulp-conventional-changelog": "^2.0.19",
+    "gulp-conventional-changelog": "2.0.21",
     "gulp-coveralls": "^0.1.4",
     "gulp-file": "^0.4.0",
     "gulp-git": "^2.9.0",
