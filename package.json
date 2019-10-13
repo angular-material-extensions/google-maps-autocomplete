@@ -36,7 +36,9 @@
     "build:watch:fast": "gulp build:watch-fast",
     "test": " gulp test",
     "demo": " gulp build:demo",
-    "check-travis": " travis-status --repo=angular-material-extensions/google-maps-autocomplete --branch=master --fail-pending || echo 'Not yet passing'"
+    "check-travis": " travis-status --repo=angular-material-extensions/google-maps-autocomplete --branch=master --fail-pending || echo 'Not yet passing'",
+    "prettier": "prettier --write 'src/**/*.{html,js,ts,css,scss,less,md,json}'",
+    "prettier-check": "prettier --list-different 'src/**/*.{html,js,ts,css,scss,less,md,json}'"
   },
   "peerDependencies": {
     "@agm/core": "^1.0.0",
@@ -50,9 +52,9 @@
   },
   "devDependencies": {
     "@agm/core": "^1.0.0",
-    "@angular-devkit/schematics": "^8.2.10",
     "@angular-devkit/build-angular": "^0.803.9",
     "@angular-devkit/build-ng-packagr": "^0.803.9",
+    "@angular-devkit/schematics": "^8.2.10",
     "@angular/animations": "^8.2.10",
     "@angular/cdk": "^8.2.3",
     "@angular/common": "^8.2.10",
@@ -111,6 +113,7 @@
     "node-sass": "^4.11.0",
     "postcss": "^7.0.16",
     "postcss-strip-inline-comments": "^0.1.5",
+    "prettier": "^1.18.2",
     "pump": "^3.0.0",
     "raw-loader": "^0.5.1",
     "rollup": "^1.16.4",

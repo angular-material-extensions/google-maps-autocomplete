@@ -1,1 +1,1 @@
-export * from './module/mat-google-maps-autocomplete.module';
+export { MatGoogleMapsAutocompleteModule } from './module/mat-google-maps-autocomplete.module';

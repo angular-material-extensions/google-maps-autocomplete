@@ -1,17 +1,19 @@
 <mat-form-field class="full-width" [appearance]="appearance">
-  <mat-label>{{addressLabelText}}</mat-label>
-  <input matInput
-         [(ngModel)]="address"
-         (change)="onQuery($event)"
-         placeholder="{{placeholderText}}"
-         class="form-control"
-         #search
-         MatValidateAddress
-         required>
-  <mat-error *ngIf="addressSearchControl.hasError('required')">
-    {{requiredErrorText}}
-  </mat-error>
-  <mat-error *ngIf="addressSearchControl.hasError('validateAddress')">
-    {{invalidErrorText}}
-  </mat-error>
+    <mat-label>{{ addressLabelText }}</mat-label>
+    <input
+        matInput
+        [(ngModel)]="address"
+        (change)="onQuery($event)"
+        placeholder="{{ placeholderText }}"
+        class="form-control"
+        #search
+        MatValidateAddress
+        required
+    />
+    <mat-error *ngIf="addressSearchControl.hasError('required')">
+        {{ requiredErrorText }}
+    </mat-error>
+    <mat-error *ngIf="addressSearchControl.hasError('validateAddress')">
+        {{ invalidErrorText }}
+    </mat-error>
 </mat-form-field>

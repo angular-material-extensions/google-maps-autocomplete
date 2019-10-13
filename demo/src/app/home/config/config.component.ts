@@ -1,30 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {Appearance} from '@angular-material-extensions/google-maps-autocomplete';
+import { Appearance } from '@angular-material-extensions/google-maps-autocomplete';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.component.html',
-  styleUrls: ['./config.component.scss']
+    selector: 'app-config',
+    templateUrl: './config.component.html',
+    styleUrls: ['./config.component.scss']
 })
-export class ConfigComponent implements OnInit {
+export class ConfigComponent {
+    addressLabelText = 'Address';
 
-  addressLabelText = 'Address';
+    placeholderText = 'Please enter the address';
 
-  placeholderText = 'Please enter the address';
+    requiredErrorText = 'The address is required';
 
-  requiredErrorText = 'The address is required';
+    invalidErrorText = 'The address is not valid';
 
-  invalidErrorText = 'The address is not valid';
+    country;
 
-  country;
-
-  appearance = Appearance.OUTLINE;
-  appearanceOptions = Object.keys(Appearance);
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+    appearance = Appearance.OUTLINE;
+    appearanceOptions = Object.keys(Appearance);
 }

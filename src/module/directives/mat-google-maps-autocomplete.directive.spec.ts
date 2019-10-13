@@ -1,55 +1,51 @@
-import {MatGoogleMapsAutocompleteDirective} from './mat-google-maps-autocomplete.directive';
-import {async, TestBed} from '@angular/core/testing';
-import {Component, DebugElement, ElementRef, NgZone} from '@angular/core';
-import {MapsAPILoader} from '@agm/core';
-import {environment} from '../../../demo/src/environments/environment';
-import {MockNgZone} from '../testing/mock-ng-zone';
+import { MatGoogleMapsAutocompleteDirective } from './mat-google-maps-autocomplete.directive';
+import { async, TestBed } from '@angular/core/testing';
+import { Component, DebugElement, ElementRef, NgZone } from '@angular/core';
+import { MapsAPILoader } from '@agm/core';
+import { environment } from '../../../demo/src/environments/environment';
+import { MockNgZone } from '../testing/mock-ng-zone';
 
 @Component({
-  template: `<input type="text">`
+    template: `
+        <input type="text" />
+    `
 })
-class TestGoogleMapsAutoCompleteComponent {
-}
+class TestGoogleMapsAutoCompleteComponent {}
 
 describe('MatGoogleMapsAutocompleteDirective', () => {
+    let directive: MatGoogleMapsAutocompleteDirective;
+    let inputEl: DebugElement;
 
-  let directive: MatGoogleMapsAutocompleteDirective;
-  let inputEl: DebugElement;
+    const elementRefPartial: Partial<ElementRef> = {};
+    const mapsAPILoaderPartial: Partial<MapsAPILoader> = {};
+    const ngZonePartial: Partial<NgZone> = { run: (fn: Function) => fn() };
 
-  const elementRefPartial: Partial<ElementRef> = {};
-  const mapsAPILoaderPartial: Partial<MapsAPILoader> = {};
-  const ngZonePartial: Partial<NgZone> = {run: (fn: Function) => fn()};
+    // spyOn(ngZonePartial, 'run').and.callFake((fn: Function) => fn());
 
-  // spyOn(ngZonePartial, 'run').and.callFake((fn: Function) => fn());
+    const googleMapsParams = {
+        apiKey: environment.GOOGLE_MAPS_API_KEY,
+        libraries: ['places'],
+        language: 'en'
+        // region: 'DE'
+    };
 
-  const googleMapsParams = {
-    apiKey: environment.GOOGLE_MAPS_API_KEY,
-    libraries: ['places'],
-    language: 'en',
-    // region: 'DE'
-  };
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            // imports: [AgmCoreModule.forRoot(googleMapsParams)],
+            declarations: [],
+            providers: [
+                { provide: ElementRef, useValue: elementRefPartial },
+                { provide: MapsAPILoader, useValue: mapsAPILoaderPartial },
+                { provide: NgZone, useClass: MockNgZone }
+            ]
+        }).compileComponents();
+    }));
 
-  beforeEach(async(() => {
+    beforeEach(() => {
+        directive = new MatGoogleMapsAutocompleteDirective(TestBed.get(ElementRef), TestBed.get(MapsAPILoader), TestBed.get(NgZone));
+    });
 
-    TestBed.configureTestingModule({
-      // imports: [AgmCoreModule.forRoot(googleMapsParams)],
-      declarations: [],
-      providers: [
-        {provide: ElementRef, useValue: elementRefPartial},
-        {provide: MapsAPILoader, useValue: mapsAPILoaderPartial},
-        {provide: NgZone, useClass: MockNgZone},
-      ]
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    directive = new MatGoogleMapsAutocompleteDirective(
-      TestBed.get(ElementRef),
-      TestBed.get(MapsAPILoader),
-      TestBed.get(NgZone));
-  });
-
-  it('should create an instance', () => {
-    expect(directive).toBeTruthy();
-  });
+    it('should create an instance', () => {
+        expect(directive).toBeTruthy();
+    });
 });
