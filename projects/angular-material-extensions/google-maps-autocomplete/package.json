@@ -1,6 +1,45 @@
 {
   "name": "@angular-material-extensions/google-maps-autocomplete",
-  "version": "0.0.1",
+  "description": "Autocomplete input component for google-maps built with angular material design",
+  "version": "2.0.0",
+  "homepage": "https://github.com/angular-material-extensions/google-maps-autocomplete",
+  "author": {
+    "name": "Anthony Nahas",
+    "url": "https://github.com/angular-material-extensions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular-material-extensions/google-maps-autocomplete.git"
+  },
+  "license": "MIT",
+  "schematics": "./schematics/collection.json",
+  "keywords": [
+    "angular",
+    "material design",
+    "google maps",
+    "autocomplete",
+    "places",
+    "locations"
+  ],
+  "bugs": {
+    "url": "https://github.com/angular-material-extensions/google-maps-autocomplete/issues"
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/google-maps-autocomplete",
+    "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "clean": "rm -rf ../../../dist",
+    "lint": "../../../node_modules/.bin/ng lint @angular-material-extensions/google-maps-autocomplete",
+    "resync:schematics": "rsync -a schematics/collection.json ../../../dist/angular-material-extensions/google-maps-autocomplete/schematics/",
+    "resync:readme": "rsync -a ../../../README.md ../../../dist/angular-material-extensions/google-maps-autocomplete/",
+    "postbuild": "npm run build:schematics && npm run resync:readme && npm run resync:schematics",
+    "prepublish": "npm run build",
+    "release:patch": "../../../node_modules/.bin/release-it --patch --ci",
+    "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
+    "release:major": "../../../node_modules/.bin/release-it --major --ci",
+    "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/google-maps-autocomplete",
+    "test": "../../../node_modules/.bin/jest --coverage",
+    "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
@@ -10,5 +49,51 @@
     "@agm/core": "^1.1.0",
     "@types/googlemaps": "^3.38.0",
     "zone.js": "~0.9.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": true,
+      "publishPath": "../../../dist/angular-material-extensions/google-maps-autocomplete"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "../../../CHANGELOG.md"
+      }
+    },
+    "hooks": {
+      "before:init": [
+        "npm run clean"
+      ],
+      "after:bump": "echo \"building lib v${version}... \" && npm run build",
+      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"Updating CHANGELOG.md for v${version} \" ../../../CHANGELOG.md",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
+      "before:npm": "echo building the library..."
+    }
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../../src/setup-jest.ts"
+    ]
+  },
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "<rootDir>/tsconfig.spec.json",
+      "stringifyContentPathRegex": "\\.html$",
+      "astTransformers": [
+        "jest-preset-angular/build/InlineFilesTransformer",
+        "jest-preset-angular/build/StripStylesTransformer"
+      ]
+    }
   }
 }

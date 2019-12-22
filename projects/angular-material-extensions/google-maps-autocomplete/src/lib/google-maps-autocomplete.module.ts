@@ -4,11 +4,13 @@ import {MatInputModule} from '@angular/material';
 import {MatGoogleMapsAutocompleteDirective} from './directives/mat-google-maps-autocomplete.directive';
 import {MatGoogleMapsAutocompleteComponent} from './component/mat-google-maps-autocomplete.component';
 import {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
   imports:
     [
+      CommonModule,
       FormsModule,
       ReactiveFormsModule,
       MatInputModule
