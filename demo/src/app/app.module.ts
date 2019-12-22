@@ -36,11 +36,11 @@ const googleMapsParams = {
     // The application ID can be any identifier which is unique on
     // the page.
     BrowserModule.withServerTransition({appId: 'demo'}),
+    BrowserAnimationsModule,
     Angulartics2Module.forRoot(),
     AgmCoreModule.forRoot(googleMapsParams),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatJumbotronModule.forRoot(),
-    BrowserAnimationsModule,
     FlexLayoutModule,
     TransferHttpCacheModule,
     ReactiveFormsModule,

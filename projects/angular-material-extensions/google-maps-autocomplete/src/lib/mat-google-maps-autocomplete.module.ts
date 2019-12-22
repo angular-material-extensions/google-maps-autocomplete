@@ -26,5 +26,5 @@ import {CommonModule} from '@angular/common';
     MatValidateAddressDirective
   ]
 })
-export class GoogleMapsAutocompleteModule {
+export class MatGoogleMapsAutocompleteModule {
 }
