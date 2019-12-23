@@ -1,0 +1,10 @@
+```scss
+agm-map {
+  height: 400px;
+}
+
+.autocomplete-container {
+  padding: 1rem 0 1rem 0;
+  width: 50%;
+}
+```

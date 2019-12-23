@@ -99,12 +99,10 @@ npm install --save @angular-material-extensions/google-maps-autocomplete
 ### Requirements (peer dependencies):
 
 for the ui input component, please consider to install the following packages
-- [angular animations v7.x](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v7.x](https://www.npmjs.com/package/@angular/forms)
-
-if your are not using the directive but the `mat-google-maps-autocomplete` component
-- [angular material v7.x](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v7.x](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v8.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v8.x](https://www.npmjs.com/package/@angular/forms)
+- [angular material v8.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v8.x](https://www.npmjs.com/package/@angular/cdk)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
@@ -121,8 +119,8 @@ npm i @angular/cdk @angular/material @angular/animations @angular/forms
 >**Note**:If you are using `SystemJS`, you should adjust your configuration to point to the UMD bundle.
 In your systemjs config file, `map` needs to tell the System loader where to look for `@angular-material-extensions/google-maps-autocomplete`:
 ```js
-map: {
-  '@angular-material-extensions/google-maps-autocomplete': 'node_modules/@angular-material-extensions/google-maps-autocomplete/bundles/google-maps-autocomplete.umd.js',
+{
+  '@angular-material-extensions/google-maps-autocomplete';: 'node_modules/@angular-material-extensions/google-maps-autocomplete/bundles/google-maps-autocomplete.umd.js',
 }
 ```
 ---
@@ -140,6 +138,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [
+     // important !!!
      AgmCoreModule.forRoot({
           apiKey: 'YOUR_KEY',
           libraries: ['places']
@@ -224,7 +223,8 @@ combine the result of the `mat-google-maps-autocomplete` with a google map insta
          [ngStyle.xs]="{'min-width.%': 100}"
          [ngStyle.sm]="{'width.%': 70}">
       <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                                    (onLocationSelected)="onLocationSelected($event)">
+                                    (onLocationSelected)="onLocationSelected($event)"
+                                    (onGermanAddressMapped)="onGermanAddressMapped($event)">
       </mat-google-maps-autocomplete>
     </div>
 
@@ -237,7 +237,7 @@ in your component, the code will be similar to -->
 ```typescript
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
+import {Location, Appearance, GermanAddress} from '@angular-material-extensions/google-maps-autocomplete';
 import {} from '@types/googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
 
@@ -288,6 +288,11 @@ export class HomeComponent implements OnInit {
     this.latitude = location.latitude;
     this.longitude = location.longitude;
   }
+
+ onGermanAddressMapped($event: GermanAddress) {
+    console.log('onGermanAddressMapped', $event);
+  }
+
 }
 
 ```
@@ -309,6 +314,7 @@ export class HomeComponent implements OnInit {
 | onChange            | Output()  | PlaceResult | string | null | - |  event when the input form value changed
 | onAutocompleteSelected   | Output()  | PlaceResult            | - |  the event will be fired when a place has been selected via the google maps autocomplete component
 | onLocationSelected  | Output()  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component |
+| onLocationSelected  | Output()  | GermanAddress               | - |  the event will be fired when a place has been selected and mapped to the german address interface |
 
 #### Supported Types
 

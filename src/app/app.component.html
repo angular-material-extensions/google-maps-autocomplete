@@ -532,20 +532,20 @@
         <mat-tab>
           <ng-template mat-tab-label>HTML</ng-template>
           <div fxLayout="column" fxLayoutAlign="center">
-<!--            <pre><code highlight [code]="showAsComponent ? html : htmlAsDirective"></code></pre>-->
+            <markdown src="assets/md/html.md"></markdown>
           </div>
         </mat-tab>
 
         <!--tab 3 TS-->
         <mat-tab>
           <ng-template mat-tab-label>TS</ng-template>
-<!--          <pre><code highlight [code]="ts" style="max-height: 700px"></code></pre>-->
+          <markdown src="assets/md/ts.md"></markdown>
         </mat-tab>
 
         <!--tab 4 SCSS-->
         <mat-tab>
           <ng-template mat-tab-label>SCSS</ng-template>
-<!--          <pre><code highlight [code]="scss"></code></pre>-->
+          <markdown src="assets/md/scss.md"></markdown>
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>
