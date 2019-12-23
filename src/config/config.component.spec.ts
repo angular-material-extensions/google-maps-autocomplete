@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ConfigComponent } from './config.component';
+import {ConfigComponent} from './config.component';
+import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
 
 describe('ConfigComponent', () => {
   let component: ConfigComponent;
@@ -8,9 +9,10 @@ describe('ConfigComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfigComponent ]
+      imports: [MatGoogleMapsAutocompleteModule],
+      declarations: [ConfigComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
