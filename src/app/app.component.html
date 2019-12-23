@@ -191,7 +191,7 @@
   }
 
   .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     color: white;
     padding: 0 1rem 1rem;
     margin: 0;
@@ -235,17 +235,17 @@
     align-items: center;
     font-size: 12px;
     padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
+    border: 1px solid rgba(27, 31, 35, .2);
     border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
     margin-left: 4px;
     font-weight: 600;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   }
 
   .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, .35);
     background-position: -.5em;
   }
 
@@ -267,7 +267,7 @@
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
 
-    .card-container > *:not(.circle-link) ,
+    .card-container > *:not(.circle-link),
     .terminal {
       width: 100%;
     }
@@ -373,7 +373,8 @@
   <p>Here are some links to help you get started:</p>
 
   <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://github.com/angular-material-extensions/google-maps-autocomplete">
+    <a class="card" target="_blank" rel="noopener"
+       href="https://github.com/angular-material-extensions/google-maps-autocomplete">
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
         <path
           d="M12,2C6.48,2 2,6.48 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12C22,6.48 17.52,2 12,2Z"/>
@@ -413,6 +414,140 @@
     </a>
 
   </div>
+
+  <!-- Install -->
+  <h2>Install</h2>
+  <p>run the following command in your favorite terminal to install the library</p>
+
+  <!-- Terminal -->
+  <div class="terminal">
+    <pre>ng add @angular-material-extensions/google-maps-autocomplete</pre>
+  </div>
+
+  <!-- Usage -->
+  <h2>Usage</h2>
+
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle [checked]="showAsDirective"
+                       (click)="flip()">
+      As directive
+    </mat-button-toggle>
+    <mat-button-toggle [checked]="showAsComponent"
+                       (click)="flip()">
+      As component
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-card>
+    <mat-card-content>
+      <mat-tab-group>
+
+        <!--tab 1-->
+        <mat-tab>
+          <ng-template mat-tab-label>Demo</ng-template>
+          <div class="container" fxLayout="column" fxLayoutAlign="center">
+            <div fxFlex>
+              <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+              </agm-map>
+            </div>
+
+            <div fxFlex fxFlexAlign="center"
+                 class="autocomplete-container"
+                 [ngStyle.xs]="{'min-width.%': 100}"
+                 [ngStyle.sm]="{'width.%': 70}">
+
+              <div fxLayout="column" *ngIf="showAsDirective">
+                <mat-form-field class="full-width" [appearance]="config.appearance">
+                  <mat-label>Address << using the directive >></mat-label>
+                  <input matInput
+                         matValidateAddress
+                         matGoogleMapsAutocomplete
+                         #matGoogleMapsAutocomplete="matGoogleMapsAutocomplete"
+                         placeholder="{{config.placeholderText}}"
+                         class="form-control"
+                         [country]="config.country"
+                         (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                         (onLocationSelected)="onLocationSelected($event)"
+                         required>
+                  <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
+                    {{config.requiredErrorText}}
+                  </mat-error>
+                  <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('validateAddress')">
+                    {{config.invalidErrorText}}
+                  </mat-error>
+                </mat-form-field>
+
+              </div>
+
+              <div *ngIf="showAsComponent">
+                <mat-google-maps-autocomplete
+                  [addressLabelText]="config.addressLabelText"
+                  [placeholderText]="config.placeholderText"
+                  [requiredErrorText]="config.requiredErrorText"
+                  [invalidErrorText]="config.invalidErrorText"
+                  [country]="config.country"
+                  [types]="['bank']"
+                  [appearance]="config.appearance"
+                  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                  (onLocationSelected)="onLocationSelected($event)">
+                </mat-google-maps-autocomplete>
+              </div>
+
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      @Input()
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Change the default values
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <app-config #config></app-config>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel fxHide="true">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      @Output()
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      See the return values of the available events
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+              </mat-accordion>
+
+              <!--<mat-google-maps-autocomplete  country="us"-->
+              <!--type="address"-->
+              <!--(onAddressSelected)="onAutocompleteSelected($event)"-->
+              <!--(onLocationSelected)="onLocationSelected($event)">-->
+              <!--</mat-google-maps-autocomplete>-->
+            </div>
+          </div>
+        </mat-tab>
+        <!--tab 2-->
+        <mat-tab>
+          <ng-template mat-tab-label>HTML</ng-template>
+          <div fxLayout="column" fxLayoutAlign="center">
+<!--            <pre><code highlight [code]="showAsComponent ? html : htmlAsDirective"></code></pre>-->
+          </div>
+        </mat-tab>
+
+        <!--tab 3 TS-->
+        <mat-tab>
+          <ng-template mat-tab-label>TS</ng-template>
+<!--          <pre><code highlight [code]="ts" style="max-height: 700px"></code></pre>-->
+        </mat-tab>
+
+        <!--tab 4 SCSS-->
+        <mat-tab>
+          <ng-template mat-tab-label>SCSS</ng-template>
+<!--          <pre><code highlight [code]="scss"></code></pre>-->
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
 
   <!-- Next Steps -->
   <h2 style="margin-top: 4rem">Next Steps</h2>
@@ -550,7 +685,8 @@
   <!-- Footer -->
   <footer>
     Love this library?&nbsp;
-    <a href="https://github.com/angular-material-extensions/google-maps-autocomplete" target="_blank" rel="noopener"> Give our
+    <a href="https://github.com/angular-material-extensions/google-maps-autocomplete" target="_blank" rel="noopener">
+      Give our
       repo a star.
       <div class="github-star-badge">
         <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
