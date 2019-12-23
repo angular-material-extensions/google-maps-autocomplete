@@ -165,6 +165,6 @@ export class HomeComponent implements OnInit {
 
   flip() {
     this.showAsDirective = !this.showAsDirective;
-    this.showAsComponent = !this.showAsDirective
+    this.showAsComponent = !this.showAsDirective;
   }
 }
