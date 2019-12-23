@@ -1,6 +1,6 @@
 import {MatGoogleMapsAutocompleteDirective} from './mat-google-maps-autocomplete.directive';
 import {async, TestBed} from '@angular/core/testing';
-import {Component, DebugElement, ElementRef, NgZone} from '@angular/core';
+import {Component, DebugElement, ElementRef, NgZone, PLATFORM_ID} from '@angular/core';
 import {MapsAPILoader} from '@agm/core';
 import {MockNgZone} from '../testing/mock-ng-zone';
 import {environment} from '../../../../../../src/environments/environment';
@@ -44,6 +44,7 @@ describe('MatGoogleMapsAutocompleteDirective', () => {
 
   beforeEach(() => {
     directive = new MatGoogleMapsAutocompleteDirective(
+      TestBed.get(PLATFORM_ID),
       TestBed.get(ElementRef),
       TestBed.get(MapsAPILoader),
       TestBed.get(NgZone));
