@@ -2,8 +2,8 @@ import {MatGoogleMapsAutocompleteDirective} from './mat-google-maps-autocomplete
 import {async, TestBed} from '@angular/core/testing';
 import {Component, DebugElement, ElementRef, NgZone} from '@angular/core';
 import {MapsAPILoader} from '@agm/core';
-import {environment} from '../../../demo/src/environments/environment';
 import {MockNgZone} from '../testing/mock-ng-zone';
+import {environment} from '../../../../../../src/environments/environment';
 
 @Component({
   template: `<input type="text">`

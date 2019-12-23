@@ -468,6 +468,7 @@
                          [country]="config.country"
                          (onAutocompleteSelected)="onAutocompleteSelected($event)"
                          (onLocationSelected)="onLocationSelected($event)"
+                         (onGermanAddressMapped)="onGermanAddressMapped($event)"
                          required>
                   <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
                     {{config.requiredErrorText}}
@@ -489,7 +490,8 @@
                   [types]="['bank']"
                   [appearance]="config.appearance"
                   (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                  (onLocationSelected)="onLocationSelected($event)">
+                  (onLocationSelected)="onLocationSelected($event)"
+                  (onGermanAddressMapped)="onGermanAddressMapped($event)">
                 </mat-google-maps-autocomplete>
               </div>
 

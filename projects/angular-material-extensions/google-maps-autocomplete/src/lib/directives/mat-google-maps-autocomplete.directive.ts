@@ -4,6 +4,7 @@ import {MatValidateAddressDirective} from '../directives/address-validator/mat-a
 import {MapsAPILoader} from '@agm/core';
 import {Location} from '../interfaces/location.interface';
 import {isPlatformBrowser} from '@angular/common';
+import {GermanAddress} from '../interfaces/germand.address.interface';
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
@@ -39,6 +40,9 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
 
   @Output()
   onAutocompleteSelected: EventEmitter<PlaceResult> = new EventEmitter<PlaceResult>();
+
+  @Output()
+  onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();
 
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
@@ -89,6 +93,57 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
           this.ngZone.run(() => {
             // get the place result
             const place: PlaceResult = autocomplete.getPlace();
+
+            const germanAddress: GermanAddress = {
+              gmID: place.id,
+              icon: place.icon,
+              url: place.url,
+              placeID: place.place_id,
+              displayAddress: place.formatted_address,
+              name: place.name,
+              vicinity: place.vicinity,
+              locality: {},
+              state: {},
+              country: {},
+              geoLocation: {latitude: -1, longitude: -1},
+            };
+
+            if (place.geometry && place.geometry.location) {
+              germanAddress.geoLocation.latitude = place.geometry.location.lat();
+              germanAddress.geoLocation.longitude = place.geometry.location.lng();
+            }
+
+            place.address_components.forEach(value => {
+              if (value.types.indexOf('street_number') > -1) {
+                germanAddress.streetNumber = Number(value.short_name);
+              }
+              if (value.types.indexOf('route') > -1) {
+                germanAddress.streetName = value.long_name;
+              }
+              if (value.types.indexOf('postal_code') > -1) {
+                germanAddress.postalCode = Number(value.short_name);
+              }
+              if (value.types.indexOf('sublocality') > -1) {
+                germanAddress.sublocality = value.long_name;
+              }
+              if (value.types.indexOf('locality') > -1) {
+                germanAddress.locality.long = value.long_name;
+                germanAddress.locality.short = value.short_name;
+              }
+              if (value.types.indexOf('administrative_area_level_1') > -1) {
+                germanAddress.state.long = value.long_name;
+                germanAddress.state.short = value.short_name;
+              }
+              if (value.types.indexOf('country') > -1) {
+                germanAddress.country.long = value.long_name;
+                germanAddress.country.short = value.short_name;
+              }
+              if (value.types.indexOf('administrative_area_level_3') > -1) {
+                germanAddress.locality.short = value.short_name;
+              }
+            });
+
+            this.onGermanAddressMapped.emit(germanAddress);
 
             if (!place.place_id || place.geometry === undefined || place.geometry === null) {
               // place result is not valid

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {Appearance, Location} from '@angular-material-extensions/google-maps-autocomplete';
-import PlaceResult = google.maps.places.PlaceResult;
+import {Appearance, GermanAddress, Location} from '@angular-material-extensions/google-maps-autocomplete';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
+import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
   selector: 'app-root',
@@ -46,5 +46,9 @@ export class AppComponent {
   flip() {
     this.showAsDirective = !this.showAsDirective;
     this.showAsComponent = !this.showAsDirective;
+  }
+
+  onGermanAddressMapped($event: GermanAddress) {
+    console.log('onGermanAddressMapped', $event);
   }
 }
