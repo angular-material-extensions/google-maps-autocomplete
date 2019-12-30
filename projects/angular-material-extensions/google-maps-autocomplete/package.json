@@ -1,7 +1,7 @@
 {
   "name": "@angular-material-extensions/google-maps-autocomplete",
   "description": "Autocomplete input component and directive for google-maps built with angular and material design",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "homepage": "https://github.com/angular-material-extensions/google-maps-autocomplete",
   "author": {
     "name": "Anthony Nahas",
@@ -36,7 +36,7 @@
     "prepublish": "npm run build",
     "release:patch": "../../../node_modules/.bin/release-it --patch --ci",
     "release:minor": "../../../node_modules/.bin/release-it --minor --ci",
-    "release:major": "../../../node_modules/.bin/release-it --major --ci",
+    "release:major": "../../../node_modules/.bin/release-it --major --ci --no-git.requireCleanWorkingDir",
     "ng:test": "../../../node_modules/.bin/ng test @angular-material-extensions/google-maps-autocomplete",
     "test": "../../../node_modules/.bin/jest --coverage",
     "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
@@ -77,7 +77,7 @@
         "npm run clean"
       ],
       "after:bump": "echo \"building lib v${version}... \" && npm run build",
-      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"docs(project): Updating CHANGELOG.md for v${version} \" ../../../CHANGELOG.md",
+      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"docs(project): Updating CHANGELOG.md for v${version}",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
       "before:npm": "echo building the library..."
     }
