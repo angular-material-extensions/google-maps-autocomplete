@@ -1,3 +1,30 @@
+# [2.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v2.0.0...v2.1.0) (2019-12-30)
+
+
+### Bug Fixes
+
+* **demo:** removed the old demo app ([d356d25](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/d356d254c2e941cdabb90b55277791b1ae70b69e))
+* **package:** added http-server packages ([47debd1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/47debd15429c8d0f9a2e325a34347c57e48e5462))
+* **package:** added release-it and compodoc packages ([e37b0c7](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/e37b0c73cef475caa880cc4c497ed8af27f5e60e))
+* **package:** enhanced the demo app ([5b00c6e](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5b00c6e312998a0938ac970b8ad4f8c686f454cd))
+* **package:** improved ssr ([02ef848](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/02ef8485d57c520d5c36d657d7402c1ab4aad7c5))
+* **package:** improved the build process of the library ([5c26591](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5c265911f4f0db394619163e7888016af6e3d75d))
+* **package:** improved the demo app ([a479304](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/a47930444afa0db861904d9afe4c6766c2f9fafa))
+* **package:** improved the new search component ([2a99112](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/2a99112462eb2f7d63257d3e82b4525b2b3a511d))
+* **package:** minor ([547536d](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/547536d9fbe4587d831888936514dacba9245035))
+* **package:** removed forRoot() ([f4bf604](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/f4bf604f3eddca5aacecb4c494daa4e1d64cd4a3))
+* **package:** updated googlemaps types ([78b2e63](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/78b2e63ca9776317f3d849dd16dbcfad3163dec7))
+* **package:** updated the project ([9df8107](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/9df81075aeb8c94cb66db3bc99ee75b03df6a314))
+
+
+### Features
+
+* **package:** added new component `mat-search-google-maps-autocomplete` ([bed820a](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/bed820ab09685e3e64d78af3b52ff0bebebf2d82))
+* **package:** added new germand addreess interface ([83a5ab4](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/83a5ab470e071ee07bc74b1393ebaca08bd5d24e))
+* **package:** customize the label in the search component ([dc6e427](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/dc6e4275b1f3321ab894386a0d214a722ad9ce57))
+* **package:** integration of the new german address interface ([defe0b0](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/defe0b02459f403f5151b1a60128a8ad53aea319))
+* **package:** new event emitter onGermanAddressMapped ([3ae431f](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/3ae431f270877a84f12522a9ceebc176362304de))
+
 # [2.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v1.6.1...v2.0.0) (2019-07-23)
 
 
