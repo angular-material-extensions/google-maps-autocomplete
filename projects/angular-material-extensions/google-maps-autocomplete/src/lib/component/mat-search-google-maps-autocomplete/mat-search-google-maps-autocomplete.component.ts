@@ -32,8 +32,20 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
   localityLabel = 'Locality';
 
   @Input()
-  errorText: string;
+  country: string | string[];
 
+  @Input()
+  placeIdOnly?: boolean;
+
+  @Input()
+  strictBounds?: boolean;
+
+  @Input()
+  types?: string[];
+  // types: string[] = ['address'];
+
+  @Input()
+  type?: string;
 
   @Output()
   onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();

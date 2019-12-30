@@ -555,8 +555,13 @@
     <mat-card-title>Auto Parse Address</mat-card-title>
     <mat-card-content>
       <mat-search-google-maps-autocomplete appearance="outline"
-      ></mat-search-google-maps-autocomplete>
+                                           country="de"
+                                           (onGermanAddressMapped)="onGermanAddressMapped($event)">
+      </mat-search-google-maps-autocomplete>
     </mat-card-content>
+    <mat-card-footer>
+      <markdown src="assets/md/search//html.md"></markdown>
+    </mat-card-footer>
   </mat-card>
 
   <!-- Next Steps -->

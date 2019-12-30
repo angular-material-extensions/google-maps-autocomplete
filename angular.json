@@ -28,10 +28,14 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "./node_modules/prismjs/themes/prism-okaidia.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/prismjs/prism.js",
+              "./node_modules/prismjs/components/prism-typescript.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,10 +98,14 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "./node_modules/prismjs/themes/prism-okaidia.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/prismjs/prism.js",
+              "./node_modules/prismjs/components/prism-typescript.min.js"
+            ]
           }
         },
         "lint": {

@@ -5,7 +5,11 @@
       <mat-label>{{searchAddressLabel}}</mat-label>
       <input
         (onAutocompleteSelected)="syncAutoComplete($event)"
-        country="de"
+        [country]="country"
+        [placeIdOnly]="placeIdOnly"
+        [strictBounds]="strictBounds"
+        [types]="types"
+        [type]="type"
         matGoogleMapsAutocomplete
         matInput
         required

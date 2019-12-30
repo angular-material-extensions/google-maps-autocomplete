@@ -24,6 +24,11 @@
    src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/demo1.gif">
 </p>
 
+<p align="center">
+  <img alt="@angular-material-extensions/google-maps-autocomplete" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/v3.0.0/search.gif">
+</p>
+
 Stating with v1.3.0, you can now use this library without material2's dependency! To
 enable this goolgle maps autocomplate api as feature, you can just add `matGoogleMapsAutocomplete` 
 to any html input element! 
@@ -304,17 +309,17 @@ export class HomeComponent implements OnInit {
 ### `matGoogleMapsAutocomplete`
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
-| address             | Input()   |  PlaceResult | string;      | - |  
-| country             | Input()   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
-| placeIdOnly         | Input()   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
-| strictBounds        | Input()   | boolean                     | - | is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.
-| types               | Input()   | string[]                    | - |  An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. Supported types are listed below. |
-| type                | Input()   | string                      | - |  
-| autoCompleteOptions | Input()   | AutocompleteOptions         | - |  all above inputs in one object! The passed data to this object will be merged with the input if they exists
-| onChange            | Output()  | PlaceResult | string | null | - |  event when the input form value changed
-| onAutocompleteSelected   | Output()  | PlaceResult            | - |  the event will be fired when a place has been selected via the google maps autocomplete component
-| onLocationSelected  | Output()  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component |
-| onLocationSelected  | Output()  | GermanAddress               | - |  the event will be fired when a place has been selected and mapped to the german address interface |
+| address             | `Input()`   |  PlaceResult | string;      | - |  
+| country             | `Input()`   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
+| placeIdOnly         | `Input()`   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
+| strictBounds        | `Input()`   | boolean                     | - | is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.
+| types               | `Input()`   | string[]                    | - |  An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. Supported types are listed below. |
+| type                | `Input()`   | string                      | - |  
+| autoCompleteOptions | `Input()`   | AutocompleteOptions         | - |  all above inputs in one object! The passed data to this object will be merged with the input if they exists
+| onChange            | `Output()`  | PlaceResult | string | null | - |  event when the input form value changed
+| onAutocompleteSelected   | `Output()`  | PlaceResult            | - |  the event will be fired when a place has been selected via the google maps autocomplete component
+| onLocationSelected  | `Output()`  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component |
+| onLocationSelected  | `Output()`  | GermanAddress               | - |  the event will be fired when a place has been selected and mapped to the german address interface |
 
 #### Supported Types
 
@@ -333,11 +338,34 @@ everything included in `matGoogleMapsAutocomplete` + the following
 
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
-| addressLabelText  | Input()   |  string;      | Address using the component |  self explanatory
-| placeholderText  | Input()   |  string;      | Please enter the address |  self explanatory
-| requiredErrorText  | Input()   |  string;      | The address is required |  self explanatory
-| invalidErrorText  | Input()   |  string;      | The address is not valid |  self explanatory
-| appearance          | Input()   |  Appearance | string;      | Appearance.STANDARD |  Style the `mat-form-field` by setting the appearance option : standard, fill, outline or legacy
+| addressLabelText  | `Input()`   |  string;      | Address using the component |  self explanatory
+| placeholderText  | `Input()`   |  string;      | Please enter the address |  self explanatory
+| requiredErrorText  | `Input()`   |  string;      | The address is required |  self explanatory
+| invalidErrorText  | `Input()`   |  string;      | The address is not valid |  self explanatory
+| appearance          | `Input()`   |  Appearance | string;      | Appearance.STANDARD |  Style the `mat-form-field` by setting the appearance option : standard, fill, outline or legacy
+
+### `mat-search-google-maps-autocomplete` 
+
+| option | bind  |  type  |   default    | description  |
+|:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
+| appearance          | `Input()`   |  Appearance | string;      | Appearance.STANDARD |  Style the `mat-form-field` by setting the appearance option : standard, fill, outline or legacy
+| searchAddressLabel  | `Input()`   |  string;      | `Search Address` |  input label
+| streetNameLabel     | `Input()`   |  string;      | `Street` |  input label
+| streetNumberLabel   | `Input()`   |  string;      | `Nr.` |  input label
+| postalCodeLabel     | `Input()`   |  string;      | `PLZ` |  input label
+| localityLabel       | `Input()`   |  string;      | `Locality` |  input label
+| country             | `Input()`   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
+| placeIdOnly         | `Input()`   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
+| strictBounds        | `Input()`   | boolean                     | - | is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.
+| types               | `Input()`   | string[]                    | - |  An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. Supported types are listed below. |
+| type                | `Input()`   | string                      | - | 
+| onGermanAddressMapped  | `Output()`  |  EventEmitter<GermanAddress> | string;      | Appearance.STANDARD |  asd
+
+
+<p align="center">
+  <img alt="@angular-material-extensions/google-maps-autocomplete" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/v3.0.0/search1.png">
+</p>
 
 
 <a name="documentation"/>
@@ -377,23 +405,8 @@ $ cd demo && npm i && npm start
 
 1. clone this [repo](https://github.com/angular-material-extensions/google-maps-autocomplete.git)
 2. Install the dependencies by running `npm i`
-3. build the library `npm run build` or `gulp build`
-
-```bash
-$ npm run build
-```
-
-4. Link the library 
-  ```bash
-  $ gulp link
-  ```
- 
-  
- 5. Navigate to the demo app's directory
-  - `cd demo`
-  _ `npm i`
-  _ `npm start`
-
+3. go to lib directory under `projects/angular-material-extensions/google-maps-autocomplete`
+4. build the library `npm run build`
 
 
 <a name="other-angular-libraries"/>
