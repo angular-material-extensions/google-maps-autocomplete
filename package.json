@@ -44,6 +44,7 @@
     "@briebug/jest-schematic": "^2.1.1",
     "@nguniversal/express-engine": "^8.2.6",
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
+    "angular-cli-ghpages": "^0.6.1",
     "angulartics2": "^8.1.0",
     "express": "^4.15.2",
     "http-server": "^0.11.1",

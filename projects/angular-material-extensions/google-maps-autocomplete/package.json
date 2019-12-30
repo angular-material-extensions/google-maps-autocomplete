@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "../../../node_modules/.bin/ng build @angular-material-extensions/google-maps-autocomplete",
+    "build:watch": "../../../node_modules/.bin/ng build @angular-material-extensions/google-maps-autocomplete --watch",
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "clean": "rm -rf ../../../dist",
     "lint": "../../../node_modules/.bin/ng lint @angular-material-extensions/google-maps-autocomplete",
@@ -43,6 +44,7 @@
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
+    "@angular/platform-browser": "^8.2.14",
     "@angular/forms": "^8.2.14",
     "@angular/cdk": "^8.2.3",
     "@angular/material": "^8.2.3",
