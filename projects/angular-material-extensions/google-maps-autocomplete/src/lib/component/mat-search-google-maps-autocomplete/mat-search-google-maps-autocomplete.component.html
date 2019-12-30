@@ -2,7 +2,7 @@
   <div fxFlex="100">
     <!--search address-->
     <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
-      <mat-label>Address</mat-label>
+      <mat-label>{{searchAddressLabel}}</mat-label>
       <input
         (onAutocompleteSelected)="syncAutoComplete($event)"
         country="de"
@@ -18,7 +18,7 @@
   <form [formGroup]="addressFormGroup" fxFlex fxLayoutGap="10px">
     <div fxLayout="row" fxLayoutGap="10px">
       <mat-form-field fxFlex="80" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
-        <mat-label>Street Name</mat-label>
+        <mat-label>{{streetNameLabel}}</mat-label>
         <input
           formControlName="streetName"
           matInput
@@ -28,7 +28,7 @@
         <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
       </mat-form-field>
       <mat-form-field fxFlex="20" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
-        <mat-label>Nr.</mat-label>
+        <mat-label>{{streetNumberLabel}}</mat-label>
         <input
           formControlName="streetNumber"
           matInput
@@ -40,7 +40,7 @@
     </div>
     <div fxLayout="row" fxLayoutGap="10px">
       <mat-form-field fxFlex="20" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
-        <mat-label>PLZ</mat-label>
+        <mat-label>{{postalCodeLabel}}</mat-label>
         <input
           formControlName="postalCode"
           matInput
@@ -51,7 +51,7 @@
       </mat-form-field>
       <div formGroupName="locality" fxFlex="auto">
         <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
-          <mat-label>Locality</mat-label>
+          <mat-label>{{localityLabel}}</mat-label>
           <input
             formControlName="long"
             matInput

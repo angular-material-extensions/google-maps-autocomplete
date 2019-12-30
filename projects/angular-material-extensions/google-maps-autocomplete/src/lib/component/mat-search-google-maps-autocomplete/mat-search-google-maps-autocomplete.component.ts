@@ -17,9 +17,23 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
   appearance: string | Appearance = Appearance.STANDARD;
 
   @Input()
+  searchAddressLabel = 'Search Address';
+
+  @Input()
+  streetNameLabel = 'Street';
+
+  @Input()
+  streetNumberLabel = 'Nr.';
+
+  @Input()
+  postalCodeLabel = 'PLZ';
+
+  @Input()
+  localityLabel = 'Locality';
+
+  @Input()
   errorText: string;
 
-  @Output()
 
   @Output()
   onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();
