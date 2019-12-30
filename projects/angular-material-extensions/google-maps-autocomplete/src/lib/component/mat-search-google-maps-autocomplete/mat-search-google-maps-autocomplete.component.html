@@ -1,0 +1,66 @@
+<div fxLayout="column">
+  <div fxFlex="100">
+    <!--search address-->
+    <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+      <mat-label>Address</mat-label>
+      <input
+        (onAutocompleteSelected)="syncAutoComplete($event)"
+        country="de"
+        matGoogleMapsAutocomplete
+        matInput
+        required
+      />
+      <mat-icon color="primary" matSuffix>search</mat-icon>
+      <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
+    </mat-form-field>
+  </div>
+
+  <form [formGroup]="addressFormGroup" fxFlex fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="80" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+        <mat-label>Street Name</mat-label>
+        <input
+          formControlName="streetName"
+          matInput
+          required
+        />
+        <!--        <mat-icon color="primary" matSuffix>add_location</mat-icon>-->
+        <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
+      </mat-form-field>
+      <mat-form-field fxFlex="20" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+        <mat-label>Nr.</mat-label>
+        <input
+          formControlName="streetNumber"
+          matInput
+          required
+        />
+        <!--        <mat-icon color="primary" matSuffix>add_location</mat-icon>-->
+        <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="20" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+        <mat-label>PLZ</mat-label>
+        <input
+          formControlName="postalCode"
+          matInput
+          required
+        />
+        <!--        <mat-icon color="primary" matSuffix>add_location</mat-icon>-->
+        <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
+      </mat-form-field>
+      <div formGroupName="locality" fxFlex="auto">
+        <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+          <mat-label>Locality</mat-label>
+          <input
+            formControlName="long"
+            matInput
+            required
+          />
+          <mat-icon color="primary" matSuffix>add_location</mat-icon>
+          <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
