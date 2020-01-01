@@ -1,4 +1,3 @@
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -15,7 +14,6 @@ import {MatSearchGoogleMapsAutocompleteComponent} from './component/mat-search-g
   imports:
     [
       CommonModule,
-      BrowserAnimationsModule,
       FormsModule,
       ReactiveFormsModule,
       FlexLayoutModule,
