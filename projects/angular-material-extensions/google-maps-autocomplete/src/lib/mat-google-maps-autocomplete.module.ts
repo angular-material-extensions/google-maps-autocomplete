@@ -1,12 +1,14 @@
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule, MatInputModule} from '@angular/material';
 import {MatGoogleMapsAutocompleteDirective} from './directives/mat-google-maps-autocomplete.directive';
 import {MatValidateAddressDirective} from './directives/address-validator/mat-address-validator.directive';
-import {CommonModule} from '@angular/common';
-import {MatGoogleMapsAutocompleteComponent, MatSearchGoogleMapsAutocompleteComponent} from './component';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatGoogleMapsAutocompleteComponent} from './component/mat-google-maps-autocomplete.component';
+// tslint:disable-next-line:max-line-length
+import {MatSearchGoogleMapsAutocompleteComponent} from './component/mat-search-google-maps-autocomplete/mat-search-google-maps-autocomplete.component';
 
 
 @NgModule({

@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {GermanAddress} from '../../interfaces';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 import {parseGermanAddress} from '../../helpers/parser';
+import {GermanAddress} from '../../interfaces';
 import {Appearance} from '../mat-google-maps-autocomplete.component';
 import {InputAnimations} from '../../animations';
 
