@@ -2,7 +2,7 @@
   "name": "@angular-material-extensions/google-maps-autocomplete",
   "description": "Autocomplete input component and directive for google-maps built with angular and material design",
   "version": "3.0.0",
-  "homepage": "https://github.com/angular-material-extensions/google-maps-autocomplete",
+  "homepage": "https://angular-material-extensions.github.io/google-maps-autocomplete",
   "author": {
     "name": "Anthony Nahas",
     "url": "https://github.com/angular-material-extensions"
@@ -58,7 +58,7 @@
   },
   "release-it": {
     "github": {
-      "release": false
+      "release": true
     },
     "npm": {
       "publish": true,
