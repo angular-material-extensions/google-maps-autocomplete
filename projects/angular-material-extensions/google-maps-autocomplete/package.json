@@ -19,7 +19,12 @@
     "google maps",
     "autocomplete",
     "places",
-    "locations"
+    "locations",
+    "parse",
+    "street name",
+    "location",
+    "country",
+    "city"
   ],
   "bugs": {
     "url": "https://github.com/angular-material-extensions/google-maps-autocomplete/issues"
