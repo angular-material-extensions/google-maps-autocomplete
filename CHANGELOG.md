@@ -1,3 +1,5 @@
+
+
 # [2.4.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v2.0.0...v2.4.0) (2020-01-01)
 
 
