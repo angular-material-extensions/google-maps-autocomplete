@@ -70,13 +70,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/MatGoogleMapsAutocompleteModule.html" data-type="entity-link">MatGoogleMapsAutocompleteModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' : 'data-target="#xs-components-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' }>
+                                            'data-target="#components-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' : 'data-target="#xs-components-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' :
-                                            'id="xs-components-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' :
+                                            'id="xs-components-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' }>
                                             <li class="link">
                                                 <a href="components/MatGoogleMapsAutocompleteComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">MatGoogleMapsAutocompleteComponent</a>
@@ -89,13 +89,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' : 'data-target="#xs-directives-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' }>
+                                        'data-target="#directives-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' : 'data-target="#xs-directives-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' :
-                                        'id="xs-directives-links-module-MatGoogleMapsAutocompleteModule-be465ee99c91942b89c8707cd97df5d7"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' :
+                                        'id="xs-directives-links-module-MatGoogleMapsAutocompleteModule-79e7ffdc8b2df875c45054f2c9c0943c"' }>
                                         <li class="link">
                                             <a href="directives/MatGoogleMapsAutocompleteDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">MatGoogleMapsAutocompleteDirective</a>

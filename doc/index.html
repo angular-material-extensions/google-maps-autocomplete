@@ -53,6 +53,11 @@
    src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/demo1.gif">
 </p>
 
+<p align="center">
+  <img alt="@angular-material-extensions/google-maps-autocomplete" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/v3.0.0/search.gif">
+</p>
+
 <p>Stating with v1.3.0, you can now use this library without material2&#39;s dependency! To
 enable this goolgle maps autocomplate api as feature, you can just add <code>matGoogleMapsAutocomplete</code> 
 to any html input element! </p>
@@ -271,77 +276,77 @@ export class HomeComponent implements OnInit {
 <tbody>
 <tr>
 <td align="left">address</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">PlaceResult</td>
 <td align="center">string;</td>
 <td align="left">-</td>
 </tr>
 <tr>
 <td align="left">country</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string</td>
 <td align="center">string[];</td>
 <td align="left">-</td>
 </tr>
 <tr>
 <td align="left">placeIdOnly</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">boolean</td>
 <td align="center">-</td>
 <td align="left">can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.</td>
 </tr>
 <tr>
 <td align="left">strictBounds</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">boolean</td>
 <td align="center">-</td>
 <td align="left">is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.</td>
 </tr>
 <tr>
 <td align="left">types</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string[]</td>
 <td align="center">-</td>
 <td align="left">An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. Supported types are listed below.</td>
 </tr>
 <tr>
 <td align="left">type</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string</td>
 <td align="center">-</td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left">autoCompleteOptions</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">AutocompleteOptions</td>
 <td align="center">-</td>
 <td align="left">all above inputs in one object! The passed data to this object will be merged with the input if they exists</td>
 </tr>
 <tr>
 <td align="left">onChange</td>
-<td align="center">Output()</td>
+<td align="center"><code>Output()</code></td>
 <td align="center">PlaceResult</td>
 <td align="center">string</td>
 <td align="left">null</td>
 </tr>
 <tr>
 <td align="left">onAutocompleteSelected</td>
-<td align="center">Output()</td>
+<td align="center"><code>Output()</code></td>
 <td align="center">PlaceResult</td>
 <td align="center">-</td>
 <td align="left">the event will be fired when a place has been selected via the google maps autocomplete component</td>
 </tr>
 <tr>
 <td align="left">onLocationSelected</td>
-<td align="center">Output()</td>
+<td align="center"><code>Output()</code></td>
 <td align="center">Location</td>
 <td align="center">-</td>
 <td align="left">the event will be fired when a place has been selected via the google maps autocomplete component</td>
 </tr>
 <tr>
 <td align="left">onLocationSelected</td>
-<td align="center">Output()</td>
+<td align="center"><code>Output()</code></td>
 <td align="center">GermanAddress</td>
 <td align="center">-</td>
 <td align="left">the event will be fired when a place has been selected and mapped to the german address interface</td>
@@ -394,41 +399,145 @@ export class HomeComponent implements OnInit {
 <tbody>
 <tr>
 <td align="left">addressLabelText</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string;</td>
 <td align="center">Address using the component</td>
 <td align="left">self explanatory</td>
 </tr>
 <tr>
 <td align="left">placeholderText</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string;</td>
 <td align="center">Please enter the address</td>
 <td align="left">self explanatory</td>
 </tr>
 <tr>
 <td align="left">requiredErrorText</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string;</td>
 <td align="center">The address is required</td>
 <td align="left">self explanatory</td>
 </tr>
 <tr>
 <td align="left">invalidErrorText</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">string;</td>
 <td align="center">The address is not valid</td>
 <td align="left">self explanatory</td>
 </tr>
 <tr>
 <td align="left">appearance</td>
-<td align="center">Input()</td>
+<td align="center"><code>Input()</code></td>
 <td align="center">Appearance</td>
 <td align="center">string;</td>
 <td align="left">Appearance.STANDARD</td>
 </tr>
 </tbody>
 </table>
+<h3 id="mat-search-google-maps-autocomplete"><code>mat-search-google-maps-autocomplete</code></h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th align="left">option</th>
+<th align="center">bind</th>
+<th align="center">type</th>
+<th align="center">default</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">appearance</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">Appearance</td>
+<td align="center">string;</td>
+<td align="left">Appearance.STANDARD</td>
+</tr>
+<tr>
+<td align="left">searchAddressLabel</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string;</td>
+<td align="center"><code>Search Address</code></td>
+<td align="left">input label</td>
+</tr>
+<tr>
+<td align="left">streetNameLabel</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string;</td>
+<td align="center"><code>Street</code></td>
+<td align="left">input label</td>
+</tr>
+<tr>
+<td align="left">streetNumberLabel</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string;</td>
+<td align="center"><code>Nr.</code></td>
+<td align="left">input label</td>
+</tr>
+<tr>
+<td align="left">postalCodeLabel</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string;</td>
+<td align="center"><code>PLZ</code></td>
+<td align="left">input label</td>
+</tr>
+<tr>
+<td align="left">localityLabel</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string;</td>
+<td align="center"><code>Locality</code></td>
+<td align="left">input label</td>
+</tr>
+<tr>
+<td align="left">country</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string</td>
+<td align="center">string[];</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">placeIdOnly</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">boolean</td>
+<td align="center">-</td>
+<td align="left">can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.</td>
+</tr>
+<tr>
+<td align="left">strictBounds</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">boolean</td>
+<td align="center">-</td>
+<td align="left">is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.</td>
+</tr>
+<tr>
+<td align="left">types</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string[]</td>
+<td align="center">-</td>
+<td align="left">An array of types specifies an explicit type or a type collection, as listed in the supported types below. If nothing is specified, all types are returned. In general only a single type is allowed. The exception is that you can safely mix the geocode and establishment types, but note that this will have the same effect as specifying no types. Supported types are listed below.</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="center"><code>Input()</code></td>
+<td align="center">string</td>
+<td align="center">-</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">onGermanAddressMapped</td>
+<td align="center"><code>Output()</code></td>
+<td align="center">EventEmitter<GermanAddress></td>
+<td align="center">string;</td>
+<td align="left">Appearance.STANDARD</td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+  <img alt="@angular-material-extensions/google-maps-autocomplete" style="text-align: center;"
+   src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/v3.0.0/search1.png">
+</p>
+
+
 <a name="documentation"/>
 
 <h2 id="documentation"><a href="https://angular-material-extensions.github.io/google-maps-autocomplete/doc/index.html">Documentation</a></h2>
@@ -455,18 +564,8 @@ or follow the official <a href="https://angular-material-extensions.github.io//g
 <ol>
 <li>clone this <a href="https://github.com/angular-material-extensions/google-maps-autocomplete.git">repo</a></li>
 <li>Install the dependencies by running <code>npm i</code></li>
-<li>build the library <code>npm run build</code> or <code>gulp build</code></li>
-</ol>
-<div><pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre></div><ol start="4">
-<li>Link the library <div><pre class="line-numbers"><code class="language-bash">$ gulp link</code></pre></div></li>
-</ol>
-<ol start="5">
-<li>Navigate to the demo app&#39;s directory<ul>
-<li><code>cd demo</code>
-_ <code>npm i</code>
-_ <code>npm start</code></li>
-</ul>
-</li>
+<li>go to lib directory under <code>projects/angular-material-extensions/google-maps-autocomplete</code></li>
+<li>build the library <code>npm run build</code></li>
 </ol>
 <a name="other-angular-libraries"/>
 
