@@ -1,3 +1,12 @@
+## [3.0.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.0.0...3.0.1) (2020-01-01)
+
+
+### Bug Fixes
+
+* **project:** minor ([2212e00](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/2212e00db9d50a9041039d59383b7bfab925addf))
+* **project:** removed browseranimations import ([5d6037c](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5d6037c8a5e159cf701edc6a8e84111d02e5e83c))
+* **project:** updated the homepage url ([0203235](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/0203235743c165186617651ee96c06c43d6c4f37))
+
 # [3.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/v2.0.0...v3.0.0) (2020-01-01)
 
 
