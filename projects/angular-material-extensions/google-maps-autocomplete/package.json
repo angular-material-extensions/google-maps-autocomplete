@@ -77,7 +77,7 @@
         "npm run clean"
       ],
       "after:bump": "echo \"building lib v${version}... \" && npm run build",
-      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"docs(project): Updating CHANGELOG.md for v${version} \"",
+      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -a -m \"docs(project): Updating CHANGELOG.md for v${version} \" && git push",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
       "before:npm": "echo building the library..."
     }
