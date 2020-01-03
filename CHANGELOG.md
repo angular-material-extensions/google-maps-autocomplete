@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.1.0...3.1.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* **app:** support lat and lng properties for the german address ([325345b](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/325345bd5152f1219f36590ab3249b645f71b200))
+
 # [3.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.0.1...3.1.0) (2020-01-03)
 
 
