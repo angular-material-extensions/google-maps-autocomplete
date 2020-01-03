@@ -33,6 +33,12 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
   localityLabel = 'Locality';
 
   @Input()
+  vicinityLabel = 'Vicinity';
+
+  @Input()
+  showVicinity: boolean;
+
+  @Input()
   country: string | string[];
 
   @Input()
@@ -67,6 +73,7 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
       streetName: [null, Validators.required],
       streetNumber: [null, Validators.required],
       postalCode: [null, Validators.required],
+      vicinity: [null],
       locality: this.formBuilder.group({
         long: [null, Validators.required],
       }),
@@ -79,7 +86,9 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
     }
     const germanAddress: GermanAddress = parseGermanAddress($event);
     this.germanAddress = germanAddress;
-    console.log('syncAutoComplete', $event, 'after parsing', germanAddress);
+    if (germanAddress.vicinity) {
+      this.addressFormGroup.get('vicinity').patchValue(germanAddress.vicinity);
+    }
     if (germanAddress.streetName) {
       this.addressFormGroup.get('streetName').patchValue(germanAddress.streetName);
     }
@@ -94,8 +103,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
     }
 
     this.onGermanAddressMapped.emit(germanAddress);
-
-    console.log('address', this.addressFormGroup.getRawValue());
   }
 
 }

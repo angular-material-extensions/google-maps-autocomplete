@@ -53,6 +53,14 @@
         <!--        <mat-icon color="primary" matSuffix>add_location</mat-icon>-->
         <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
       </mat-form-field>
+      <mat-form-field *ngIf="showVicinity" fxFlex="auto" [appearance]="appearance"
+                      [@animate]="{ value: '*', params: { y: '100%' } }">
+        <mat-label>{{vicinityLabel}}</mat-label>
+        <input
+          matInput
+          formControlName="vicinity"
+        />
+      </mat-form-field>
       <div formGroupName="locality" fxFlex="auto">
         <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
           <mat-label>{{localityLabel}}</mat-label>

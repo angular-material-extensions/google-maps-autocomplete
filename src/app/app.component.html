@@ -556,6 +556,7 @@
     <mat-card-content>
       <mat-search-google-maps-autocomplete appearance="outline"
                                            country="de"
+                                           [showVicinity]="true"
                                            (onGermanAddressMapped)="onGermanAddressMapped($event)">
       </mat-search-google-maps-autocomplete>
     </mat-card-content>
