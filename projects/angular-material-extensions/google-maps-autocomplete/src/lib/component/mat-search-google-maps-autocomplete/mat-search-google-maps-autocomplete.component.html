@@ -21,9 +21,12 @@
 
   <form [formGroup]="addressFormGroup" fxFlex fxLayoutGap="10px">
     <div fxLayout="row" fxLayoutGap="10px">
-      <mat-form-field fxFlex="80" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+      <mat-form-field fxFlex="80"
+                      [appearance]="appearance"
+                      [@animate]="{ value: '*', params: { y: '100%' } }">
         <mat-label>{{streetNameLabel}}</mat-label>
         <input
+          [readonly]="readonly"
           formControlName="streetName"
           matInput
           required
@@ -34,6 +37,7 @@
       <mat-form-field fxFlex="20" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
         <mat-label>{{streetNumberLabel}}</mat-label>
         <input
+          [readonly]="readonly"
           formControlName="streetNumber"
           matInput
           required
@@ -46,6 +50,7 @@
       <mat-form-field fxFlex="20" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
         <mat-label>{{postalCodeLabel}}</mat-label>
         <input
+          [readonly]="readonly"
           formControlName="postalCode"
           matInput
           required
@@ -53,10 +58,12 @@
         <!--        <mat-icon color="primary" matSuffix>add_location</mat-icon>-->
         <!--    <mat-error>{{ 'msa.contactData.currentAddress.error' | translate }}</mat-error>-->
       </mat-form-field>
-      <mat-form-field *ngIf="showVicinity" fxFlex="auto" [appearance]="appearance"
+      <mat-form-field *ngIf="showVicinity" fxFlex="auto"
+                      [appearance]="appearance"
                       [@animate]="{ value: '*', params: { y: '100%' } }">
         <mat-label>{{vicinityLabel}}</mat-label>
         <input
+          [readonly]="readonly"
           matInput
           formControlName="vicinity"
         />
@@ -65,6 +72,7 @@
         <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
           <mat-label>{{localityLabel}}</mat-label>
           <input
+            [readonly]="readonly"
             formControlName="long"
             matInput
             required

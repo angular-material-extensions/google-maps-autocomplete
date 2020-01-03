@@ -54,6 +54,12 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
   @Input()
   type?: string;
 
+  @Input()
+  readonly: boolean;
+
+  @Input()
+  disableSearch: boolean;
+
   @Output()
   onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();
 
