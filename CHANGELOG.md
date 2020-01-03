@@ -1,3 +1,11 @@
+# [3.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.0.1...3.1.0) (2020-01-03)
+
+
+### Features
+
+* **project:** add vicinity as option ([898c17a](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/898c17abb3f18440e299224f44e33ad592d18dbd))
+* **project:** added readonly input to the search component ([46acaa1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/46acaa131f5d29b3605b3f24f2b4f9da0aa00eda))
+
 ## [3.0.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.0.0...3.0.1) (2020-01-01)
 
 
