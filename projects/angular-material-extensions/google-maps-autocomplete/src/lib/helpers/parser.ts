@@ -16,6 +16,11 @@ export function parseGermanAddress(placeResult: PlaceResult): GermanAddress {
     geoLocation: {latitude: -1, longitude: -1},
   };
 
+  if (placeResult.geometry && placeResult.geometry.location) {
+    germanAddress.geoLocation.latitude = placeResult.geometry.location.lat();
+    germanAddress.geoLocation.longitude = placeResult.geometry.location.lng();
+  }
+
   if (placeResult.address_components && placeResult.address_components.length > 0) {
     placeResult.address_components.forEach(value => {
       if (value.types.indexOf('street_number') > -1) {
