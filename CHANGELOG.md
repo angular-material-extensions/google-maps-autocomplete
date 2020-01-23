@@ -1,3 +1,16 @@
+# [3.2.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.1.1...3.2.0) (2020-01-23)
+
+
+### Bug Fixes
+
+* **lib:** updated dependencies ([c8f08cb](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/c8f08cb33c26e349155dc3355e1cbe6d0e4a187a))
+* **lib:** updated dependencies ([4d6f2a8](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/4d6f2a817678ebf2e8ad1c36adf8dd0cd89da25c))
+
+
+### Features
+
+* **lib:** ability to render an initial value of the search component ([3d11853](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/3d11853196931487cc5f3f8d814884cb4081b7cf))
+
 ## [3.1.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.1.0...3.1.1) (2020-01-03)
 
 
