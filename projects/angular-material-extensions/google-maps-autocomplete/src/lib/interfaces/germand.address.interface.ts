@@ -7,8 +7,8 @@ import {Location} from './location.interface';
  */
 export interface GermanAddress {
   id?: string;
-  gmID: string;
-  placeID: string;
+  gmID?: string;
+  placeID?: string;
   name?: string;
   icon?: string;
   displayAddress?: string;

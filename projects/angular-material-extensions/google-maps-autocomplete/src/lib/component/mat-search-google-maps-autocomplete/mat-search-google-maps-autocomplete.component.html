@@ -1,5 +1,5 @@
 <div fxLayout="column">
-  <div fxFlex="100">
+  <div *ngIf="!disableSearch" fxFlex="100">
     <!--search address-->
     <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
       <mat-label>{{searchAddressLabel}}</mat-label>

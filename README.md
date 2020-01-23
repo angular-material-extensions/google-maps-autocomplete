@@ -357,6 +357,8 @@ everything included in `matGoogleMapsAutocomplete` + the following
 | localityLabel       | `Input()`   |  string;      | `Locality` |  input label
 | showVicinity       | `Input()`   |  boolean;      | `false` |  input label - whether to display the vecinity
 | readonly             | `Input()`   |  boolean;      | `false` |  readonly input
+| disableSearch             | `Input()`   |  boolean;      | `false` |  disabled users to search a place
+| value             | `Input()`   |  `GermanAddress`;          | - | the initial value of the component  
 | country             | `Input()`   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
 | placeIdOnly         | `Input()`   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
 | strictBounds        | `Input()`   | boolean                     | - | is a boolean specifying whether the API must return only those places that are strictly within the region defined by the given bounds. The API does not return results outside this region even if they match the user input.

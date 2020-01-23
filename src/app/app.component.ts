@@ -18,6 +18,15 @@ export class AppComponent {
   public longitude: number;
   public showAsDirective = false;
   public showAsComponent = true;
+  addressValue: GermanAddress = {
+    streetNumber: 100,
+    streetName: 'Your StreetName',
+    vicinity: 'Your vicinity',
+    postalCode: 37084,
+    locality: {
+      long: 'your locality'
+    }
+  };
 
   constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
     angulartics2GoogleAnalytics.startTracking();

@@ -60,6 +60,9 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
   @Input()
   disableSearch: boolean;
 
+  @Input()
+  value: GermanAddress;
+
   @Output()
   onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();
 
@@ -76,12 +79,12 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
 
   createAddressFormGroup(): FormGroup {
     return this.formBuilder.group({
-      streetName: [null, Validators.required],
-      streetNumber: [null, Validators.required],
-      postalCode: [null, Validators.required],
-      vicinity: [null],
+      streetName: [this.value && this.value.streetName ? this.value.streetName : null, Validators.required],
+      streetNumber: [this.value && this.value.streetNumber ? this.value.streetNumber : null, Validators.required],
+      postalCode: [this.value && this.value.postalCode ? this.value.postalCode : null, Validators.required],
+      vicinity: [this.value && this.value.vicinity ? this.value.vicinity : null],
       locality: this.formBuilder.group({
-        long: [null, Validators.required],
+        long: [this.value && this.value.locality && this.value.locality.long ? this.value.locality.long : null, Validators.required],
       }),
     });
   }
