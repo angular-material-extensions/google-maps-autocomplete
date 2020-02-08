@@ -2,7 +2,7 @@ import {chain, noop, Rule, SchematicContext, Tree} from '@angular-devkit/schemat
 import {NodePackageInstallTask} from '@angular-devkit/schematics/tasks';
 import {addPackageJsonDependency, NodeDependency, NodeDependencyType} from '../helpers';
 import {getWorkspace} from '@schematics/angular/utility/config';
-import {addModuleImportToRootModule, getProjectFromWorkspace,} from '@angular/cdk/schematics';
+import {addModuleImportToRootModule, getProjectFromWorkspace} from '@angular/cdk/schematics';
 
 /** Loads the full version from the given Angular package gracefully. */
 function loadPackageVersionGracefully(context: SchematicContext): string | null {
