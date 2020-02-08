@@ -63,10 +63,10 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="dependencies"/>
 
 ## Dependencies
-* [Angular](https://angular.io) (*requires* Angular 2 or higher)
+* [Angular](https://angular.io) (*requires* Angular 2 or higher | we are using already V9 ;)
 
 for the directive as standalone you just need to install the agm core module
-- [agm - angular google maps v1.0.0-beta.5](https://www.npmjs.com/package/@agm/core)
+- [agm - angular google maps v1.0.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
 npm i @agm/core 
@@ -104,10 +104,10 @@ npm install --save @angular-material-extensions/google-maps-autocomplete
 ### Requirements (peer dependencies):
 
 for the ui input component, please consider to install the following packages
-- [angular animations v8.x](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v8.x](https://www.npmjs.com/package/@angular/forms)
-- [angular material v8.x](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v8.x](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v9.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v9.x](https://www.npmjs.com/package/@angular/forms)
+- [angular material v9.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v9.x](https://www.npmjs.com/package/@angular/cdk)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
@@ -446,9 +446,10 @@ $ cd demo && npm i && npm start
 - [@angular-material-extensions/pages](https://github.com/angular-material-extensions/pages)
 - [@angular-material-extensions/link-preview](https://github.com/angular-material-extensions/link-preview)
 - [@angular-material-extensions/password-strength](https://github.com/angular-material-extensions/password-strength)
+- [@angular-material-extensions/select-country](https://github.com/angular-material-extensions/select-country)
+- [@angular-material-extensions/fab-menu](https://github.com/angular-material-extensions/fab-menu)
 - [@angular-material-extensions/faq](https://github.com/angular-material-extensions/faq)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
-- [@angular-material-extensions/combination-generator](https://github.com/angular-material-extensions/combination-generator)
 
 <a name="support"/>
 
