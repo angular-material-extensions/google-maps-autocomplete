@@ -6,7 +6,6 @@
       "jasmine",
       "node"
     ],
-    "module": "commonjs",
     "emitDecoratorMetadata": true,
     "allowJs": true
   },

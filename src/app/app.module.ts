@@ -7,7 +7,12 @@ import {AgmCoreModule} from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
-import {MatButtonToggleModule, MatCardModule, MatExpansionModule, MatInputModule, MatRadioModule, MatTabsModule} from '@angular/material';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTabsModule } from '@angular/material/tabs';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConfigComponent} from '../config/config.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -31,7 +36,9 @@ const googleMapsParams = {
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     BrowserAnimationsModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], {
+    initialNavigation: 'enabled'
+}),
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
     AgmCoreModule.forRoot(googleMapsParams),

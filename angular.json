@@ -22,7 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -50,7 +50,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -137,7 +136,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
@@ -149,16 +148,39 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             }
           }
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {}
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "google-maps-autocomplete:build",
+            "serverTarget": "google-maps-autocomplete:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "google-maps-autocomplete:build:production",
+              "serverTarget": "google-maps-autocomplete:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "google-maps-autocomplete:build:production",
+            "serverTarget": "google-maps-autocomplete:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
         }
       }
     },
@@ -173,6 +195,11 @@
           "options": {
             "tsConfig": "projects/angular-material-extensions/google-maps-autocomplete/tsconfig.lib.json",
             "project": "projects/angular-material-extensions/google-maps-autocomplete/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-material-extensions/google-maps-autocomplete/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -198,5 +225,8 @@
       }
     }
   },
-  "defaultProject": "google-maps-autocomplete"
+  "defaultProject": "google-maps-autocomplete",
+  "cli": {
+    "analytics": "66b4ab45-d3f5-4efa-9eee-c4a0b45e6b77"
+  }
 }
