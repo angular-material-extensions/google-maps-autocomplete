@@ -30,7 +30,7 @@
     "url": "https://github.com/angular-material-extensions/google-maps-autocomplete/issues"
   },
   "scripts": {
-    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/google-maps-autocomplete",
+    "build": "../../../node_modules/.bin/ng build @angular-material-extensions/google-maps-autocomplete --prod",
     "build:watch": "../../../node_modules/.bin/ng build @angular-material-extensions/google-maps-autocomplete --watch",
     "build:schematics": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "clean": "rm -rf ../../../dist",
