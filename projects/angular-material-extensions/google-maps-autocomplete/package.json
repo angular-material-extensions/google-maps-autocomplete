@@ -48,16 +48,16 @@
     "test:watch": "../../../node_modules/.bin/jest --coverage --watch"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14",
-    "@angular/platform-browser": "^8.2.14",
-    "@angular/flex-layout": "^8.0.0-beta.27",
-    "@angular/forms": "^8.2.14",
-    "@angular/cdk": "^8.2.3",
-    "@angular/material": "^8.2.3",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/platform-browser": "^9.0.0",
+    "@angular/flex-layout": "^9.0.0-beta.29",
+    "@angular/forms": "^9.0.0",
+    "@angular/cdk": "^9.0.0",
+    "@angular/material": "^9.0.0",
     "@agm/core": "^1.1.0",
-    "@types/googlemaps": "^3.38.0",
-    "zone.js": "~0.9.1"
+    "@types/googlemaps": "^3.39.2",
+    "zone.js": "~0.10.2"
   },
   "engines": {
     "node": ">=10.0.0"

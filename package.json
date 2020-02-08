@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4510",
-    "build": "ng build",
+    "start": "ng serve --port 4510 --statsJson",
+    "build": "ng build --statsJson",
     "build:client-and-server-bundles:ghpages": "npm run build:prod:ghpages && ng run google-maps-autocomplete:server:production --bundleDependencies all",
     "build:docs": "npx compodoc -p projects/angular-material-extensions/google-maps-autocomplete/tsconfig.lib.json --hideGenerator --disableCoverage -d dist/browser/doc/",
     "build:lib": "ng build @angular-material-extensions/google-maps-autocomplete",
@@ -28,7 +28,8 @@
     "dev:ssr": "ng run google-maps-autocomplete:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run google-maps-autocomplete:server:production",
-    "prerender": "ng run google-maps-autocomplete:prerender"
+    "prerender": "ng run google-maps-autocomplete:prerender",
+    "bundle-report": "webpack-bundle-analyzer dist/browser/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -86,6 +87,7 @@
     "ts-node": "~8.6.2",
     "tslint": "~6.0.0",
     "typescript": "~3.7.5",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.1.0"
   },
   "greenkeeper": {
