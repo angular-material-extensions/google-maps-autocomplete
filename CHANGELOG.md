@@ -1,3 +1,13 @@
+# [4.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.2.0...4.0.0) (2020-02-08)
+
+
+### Bug Fixes
+
+* **lib:** minor ([056a850](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/056a850627e84c60728bf0007c2f6031ee558c27))
+* **lib:** updated the peer dependencies - angular v9 ([33343c1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/33343c1a84cf91b0d8126e5cb4f7589d75860921))
+* **lib:** upgraded the lib to angular v9 ([d6be89c](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/d6be89c26c5ad6ff4475b31e82b70620c5e82f4a))
+* **lib:** upgraded the lib to angular v9 + fixed the schematics ([2dafcee](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/2dafcee2777ddc3ccb888316ee28c414098c05b2))
+
 # [3.2.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/3.1.1...3.2.0) (2020-01-23)
 
 
