@@ -1,14 +1,8 @@
 import {chain, noop, Rule, SchematicContext, Tree} from '@angular-devkit/schematics';
 import {NodePackageInstallTask} from '@angular-devkit/schematics/tasks';
-import {
-  addModuleImportToRootModule,
-  addPackageJsonDependency,
-  getProjectFromWorkspace,
-  getWorkspace,
-  NodeDependency,
-  NodeDependencyType
-} from '../helpers';
-
+import {addPackageJsonDependency, NodeDependency, NodeDependencyType} from '../helpers';
+import {getWorkspace} from '@schematics/angular/utility/config';
+import {addModuleImportToRootModule, getProjectFromWorkspace,} from '@angular/cdk/schematics';
 
 /** Loads the full version from the given Angular package gracefully. */
 function loadPackageVersionGracefully(context: SchematicContext): string | null {
@@ -35,9 +29,9 @@ export function addPackageJsonDependencies(): Rule {
         name: '@angular-material-extensions/google-maps-autocomplete'
       },
       {type: NodeDependencyType.Default, version: '^1.0.0-beta.7', name: '@agm/core'},
-      {type: NodeDependencyType.Default, version: '^3.37.0', name: '@types/googlemaps'},
-      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^8.1.2', name: '@angular/animations'},
-      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '^8.1.2', name: '@angular/forms'}
+      {type: NodeDependencyType.Default, version: '^3.39.2', name: '@types/googlemaps'},
+      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '~9.0.0', name: '@angular/animations'},
+      {type: NodeDependencyType.Default, version: ngCoreVersionTag || '~9.0.0', name: '@angular/forms'}
     ];
 
     dependencies.forEach(dependency => {
@@ -61,11 +55,7 @@ export function installPackageJsonDependencies(): Rule {
 export function addModuleToImports(options: any): Rule {
   return (host: Tree, context: SchematicContext) => {
     const workspace = getWorkspace(host);
-    const project = getProjectFromWorkspace(
-      workspace,
-      // Takes the first project in case it's not provided by CLI
-      options.project ? options.project : Object.keys(workspace.projects)[0]
-    );
+    const project = getProjectFromWorkspace(workspace, options.project);
     const moduleName = 'MatGoogleMapsAutocompleteModule';
     const agmCoreModule = 'AgmCoreModule.forRoot()';
 
