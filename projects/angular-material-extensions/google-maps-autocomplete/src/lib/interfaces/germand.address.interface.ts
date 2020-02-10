@@ -13,7 +13,7 @@ export interface GermanAddress {
   icon?: string;
   displayAddress?: string;
   postalCode?: number;
-  streetNumber?: number;
+  streetNumber?: string;
   streetName?: string;
   sublocality?: string;
   locality?: {
