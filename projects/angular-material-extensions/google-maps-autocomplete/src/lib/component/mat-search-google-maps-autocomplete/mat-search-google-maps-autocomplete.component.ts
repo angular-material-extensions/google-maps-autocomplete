@@ -102,7 +102,7 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
       this.addressFormGroup.get('streetName').patchValue(germanAddress.streetName);
     }
     if (germanAddress.streetNumber) {
-      this.addressFormGroup.get('streetNumber').patchValue(germanAddress.streetNumber);
+      this.addressFormGroup.get('streetNumber').patchValue(germanAddress.streetNumber.toString());
     }
     if (germanAddress.postalCode) {
       this.addressFormGroup.get('postalCode').patchValue(germanAddress.postalCode);

@@ -19,7 +19,7 @@ export class AppComponent {
   public showAsDirective = false;
   public showAsComponent = true;
   addressValue: GermanAddress = {
-    streetNumber: 100,
+    streetNumber: '100',
     streetName: 'Your StreetName',
     vicinity: 'Your vicinity',
     postalCode: 37084,

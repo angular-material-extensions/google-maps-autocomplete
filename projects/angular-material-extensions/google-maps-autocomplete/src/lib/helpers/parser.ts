@@ -24,7 +24,7 @@ export function parseGermanAddress(placeResult: PlaceResult): GermanAddress {
   if (placeResult.address_components && placeResult.address_components.length > 0) {
     placeResult.address_components.forEach(value => {
       if (value.types.indexOf('street_number') > -1) {
-        germanAddress.streetNumber = Number(value.short_name);
+        germanAddress.streetNumber = value.short_name;
       }
       if (value.types.indexOf('route') > -1) {
         germanAddress.streetName = value.long_name;

@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/4.0.0...4.0.1) (2020-02-10)
+
+
+### Bug Fixes
+
+* **project:** minor ([8196389](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/8196389aeb620913e6a14048e8484e150d9576f2))
+
 
 
 
