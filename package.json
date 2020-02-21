@@ -47,7 +47,7 @@
     "@angular/platform-server": "~9.0.0",
     "@angular/router": "~9.0.0",
     "@briebug/jest-schematic": "^2.1.1",
-    "@nguniversal/express-engine": "^9.0.0",
+    "@nguniversal/express-engine": "^9.0.1",
     "angular-cli-ghpages": "^0.6.2",
     "angulartics2": "^8.3.0",
     "express": "^4.15.2",
