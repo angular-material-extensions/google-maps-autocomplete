@@ -64,7 +64,7 @@
     "@angular/compiler-cli": "~9.0.0",
     "@angular/language-service": "~9.0.0",
     "@compodoc/compodoc": "^1.1.11",
-    "@nguniversal/builders": "^9.0.0",
+    "@nguniversal/builders": "9.0.1",
     "@release-it/conventional-changelog": "^1.1.0",
     "@schematics/angular": "^9.0.1",
     "@schematics/update": "^0.900.1",
