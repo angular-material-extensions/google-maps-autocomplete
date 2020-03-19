@@ -148,7 +148,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
           apiKey: 'YOUR_KEY',
           libraries: ['places']
         }),
-     MatGoogleMapsAutocompleteModule.forRoot(), ...],  
+     MatGoogleMapsAutocompleteModule, ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
