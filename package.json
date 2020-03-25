@@ -80,7 +80,7 @@
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "25.1.0",
     "jest-preset-angular": "8.0.0",
-    "ng-packagr": "^9.0.0",
+    "ng-packagr": "9.0.3",
     "protractor": "~5.4.3",
     "release-it": "^12.4.3",
     "ts-loader": "^6.2.1",
