@@ -87,7 +87,7 @@
     "ts-node": "~8.6.2",
     "tslint": "~6.0.0",
     "typescript": "~3.7.5",
-    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-bundle-analyzer": "3.6.1",
     "webpack-cli": "^3.3.11"
   },
   "greenkeeper": {
