@@ -82,7 +82,7 @@
     "jest-preset-angular": "8.0.0",
     "ng-packagr": "^9.0.3",
     "protractor": "~5.4.3",
-    "release-it": "^12.6.3",
+    "release-it": "^13.6.2",
     "ts-loader": "^6.2.1",
     "ts-node": "~8.6.2",
     "tslint": "~6.0.0",
