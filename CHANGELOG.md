@@ -1,3 +1,10 @@
+* fix(lib): support of reactive forms #99 #65 (6bd7196)
+* fix(lib): support of reactive forms #99 #65 (5536972)
+* fix(lib): updated angular to v9.1.7 (c41675e)
+* fix(lib): updated the dependencies (d600c25)
+* fix(lib): updated angular's version to v9.0.7 (268a32f)
+* docs(lib): minor fix in the readme #253 (c28a4f6)
+
 ## [4.0.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/4.0.0...4.0.1) (2020-02-10)
 
 
