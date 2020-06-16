@@ -1,5 +1,5 @@
-import {Directive, ElementRef, EventEmitter, Inject, Input, NgZone, OnInit, Output, PLATFORM_ID} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {Directive, ElementRef, EventEmitter, forwardRef, Inject, Input, NgZone, OnInit, Output, PLATFORM_ID} from '@angular/core';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {MapsAPILoader} from '@agm/core';
 import {Location} from '../interfaces/location.interface';
@@ -11,8 +11,15 @@ import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 @Directive({
   selector: '[matGoogleMapsAutocomplete]',
   exportAs: 'matGoogleMapsAutocomplete',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MatGoogleMapsAutocompleteDirective),
+      multi: true
+    }
+  ]
 })
-export class MatGoogleMapsAutocompleteDirective implements OnInit {
+export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueAccessor {
 
   @Input()
   address: PlaceResult | string;
@@ -47,6 +54,8 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
 
+  value: PlaceResult;
+
   private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
   private addressValidator: MatValidateAddressDirective = new MatValidateAddressDirective();
 
@@ -54,6 +63,9 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
     Validators.required,
     this.addressValidator.validate()])
   );
+
+  propagateChange = (_: any) => {
+  };
 
   constructor(@Inject(PLATFORM_ID) public platformId: string,
               public elemRef: ElementRef,
@@ -151,6 +163,8 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
             } else {
               // show dialog to select a address from the input
               // emit failed event
+              this.value = place;
+              this.propagateChange(this.value)
             }
             this.address = place.formatted_address;
             this.onAutocompleteSelected.emit(place);
@@ -163,6 +177,22 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit {
         });
       })
       .catch((err) => console.log(err));
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+  }
+
+  writeValue(obj: any): void {
+    if (obj) {
+      this.value = obj;
+    }
   }
 
 }

@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Appearance, GermanAddress, Location} from '@angular-material-extensions/google-maps-autocomplete';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
+import {FormControl, FormGroup} from '@angular/forms';
 import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
@@ -8,9 +9,11 @@ import PlaceResult = google.maps.places.PlaceResult;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'google-maps-autocomplete';
+
+  addressFormGroup: FormGroup;
 
   public appearance = Appearance;
   public zoom: number;
@@ -59,5 +62,13 @@ export class AppComponent {
 
   onGermanAddressMapped($event: GermanAddress) {
     console.log('onGermanAddressMapped', $event);
+  }
+
+  ngOnInit(): void {
+    this.addressFormGroup = new FormGroup({
+      address: new FormControl(),
+    });
+
+    this.addressFormGroup.get('address').valueChanges.subscribe(value => console.log('value changed', value))
   }
 }

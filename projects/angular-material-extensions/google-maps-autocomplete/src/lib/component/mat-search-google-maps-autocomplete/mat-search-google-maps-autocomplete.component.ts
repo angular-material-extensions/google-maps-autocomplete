@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
 
 import {parseGermanAddress} from '../../helpers/parser';
 import {GermanAddress} from '../../interfaces';
@@ -10,9 +10,16 @@ import {InputAnimations} from '../../animations';
   selector: 'mat-search-google-maps-autocomplete',
   templateUrl: './mat-search-google-maps-autocomplete.component.html',
   styleUrls: ['./mat-search-google-maps-autocomplete.component.scss'],
-  animations: InputAnimations
+  animations: InputAnimations,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MatSearchGoogleMapsAutocompleteComponent),
+      multi: true
+    }
+  ]
 })
-export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
+export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, ControlValueAccessor {
 
   @Input()
   appearance: string | Appearance = Appearance.STANDARD;
@@ -69,6 +76,8 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
   germanAddress: GermanAddress;
   addressFormGroup: FormGroup;
 
+  propagateChange = (_: any) => {
+  };
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -111,7 +120,25 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit {
       this.addressFormGroup.get('locality.long').patchValue(germanAddress.locality.long);
     }
 
+    this.value = germanAddress;
+    this.propagateChange(this.value);
     this.onGermanAddressMapped.emit(germanAddress);
+  }
+
+  writeValue(obj: any): void {
+    if (obj) {
+      this.value = obj;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  setDisabledState(isDisabled: boolean): void {
   }
 
 }

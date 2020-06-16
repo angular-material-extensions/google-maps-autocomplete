@@ -1,5 +1,5 @@
-import {Component, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {Component, ElementRef, EventEmitter, forwardRef, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {Location} from '../interfaces/location.interface';
@@ -18,9 +18,16 @@ export enum Appearance {
   selector: 'mat-google-maps-autocomplete',
   exportAs: 'matGoogleMapsAutocomplete',
   templateUrl: './mat-google-maps-autocomplete.component.html',
-  styleUrls: ['./mat-google-maps-autocomplete.component.scss']
+  styleUrls: ['./mat-google-maps-autocomplete.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MatGoogleMapsAutocompleteComponent),
+      multi: true
+    }
+  ]
 })
-export class MatGoogleMapsAutocompleteComponent implements OnInit {
+export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueAccessor {
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
@@ -74,6 +81,9 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
 
+  value: PlaceResult;
+
+
   private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
   private addressValidator: MatValidateAddressDirective = new MatValidateAddressDirective();
 
@@ -81,6 +91,9 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
     Validators.required,
     this.addressValidator.validate()])
   );
+
+  propagateChange = (_: any) => {
+  };
 
   constructor(private mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone) {
@@ -174,6 +187,8 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
             } else {
               // show dialog to select a address from the input
               // emit failed event
+              this.value = place;
+              this.propagateChange(this.value)
             }
             this.address = place.formatted_address;
             this.onAutocompleteSelected.emit(place);
@@ -197,6 +212,24 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit {
   private resetAddress() {
     this.address = null;
     this.addressSearchControl.updateValueAndValidity();
+  }
+
+  writeValue(obj: any): void {
+    if (obj) {
+      this.value = obj;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    throw new Error('Method not implemented.');
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    throw new Error('Method not implemented.');
   }
 
 }
