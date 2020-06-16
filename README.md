@@ -66,7 +66,7 @@ View all the directives and components in action at [https://angular-material-ex
 * [Angular](https://angular.io) (*requires* Angular 2 or higher | we are using already V9 ;)
 
 for the directive as standalone you just need to install the agm core module
-- [agm - angular google maps v1.0.0](https://www.npmjs.com/package/@agm/core)
+- [agm - angular google maps v1.1.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
 npm i @agm/core 
@@ -108,6 +108,7 @@ for the ui input component, please consider to install the following packages
 - [angular forms v9.x](https://www.npmjs.com/package/@angular/forms)
 - [angular material v9.x](https://www.npmjs.com/package/@angular/material)
 - [angular cdk v9.x](https://www.npmjs.com/package/@angular/cdk)
+- [agm - angular google maps v1.1.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
@@ -302,6 +303,47 @@ export class HomeComponent implements OnInit {
 
 ```
 
+
+#### Reactive Forms Example
+
+```html
+<form [formGroup]="addressFormGroup">
+    <mat-search-google-maps-autocomplete formControlName="address">
+    </mat-search-google-maps-autocomplete>
+    
+    // OR
+
+    <mat-google-maps-autocomplete formControlName="address">
+    </mat-google-maps-autocomplete>
+
+</form>
+```
+
+```typescript
+
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  addressFormGroup: FormGroup;
+
+  ngOnInit(): void {
+    this.addressFormGroup = new FormGroup({
+      address: new FormControl(),
+    });
+
+    this.addressFormGroup.get('address').valueChanges.subscribe(value => console.log('value changed', value))
+  }
+}
+
+```
+
 <a name="api"/>
 
 ### API - for more info please visit the official documentation [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=en)
@@ -309,6 +351,7 @@ export class HomeComponent implements OnInit {
 ### `matGoogleMapsAutocomplete`
 | option | bind  |  type  |   default    | description  |
 |:-------------------|:--------:|:------:|:------------:|:-------------------------------------------------------------------------------------------------|    
+| value               | `Input()`   |  PlaceResult ;      | - |  
 | address             | `Input()`   |  PlaceResult | string;      | - |  
 | country             | `Input()`   | string | string[];          | - | can be used to restrict results to specific groups. Currently, you can use componentRestrictions to filter by up to 5 countries. Countries must be passed as as a two-character, ISO 3166-1 Alpha-2 compatible country code. Multiple countries must be passed as a list of country codes.  
 | placeIdOnly         | `Input()`   | boolean                     | - | can be used to instruct the Autocomplete widget to retrieve only Place IDs. On calling getPlace() on the Autocomplete object, the PlaceResult made available will only have the place id, types and name properties set. You can use the returned place ID with calls to the Places, Geocoding, Directions or Distance Matrix services.
@@ -318,8 +361,8 @@ export class HomeComponent implements OnInit {
 | autoCompleteOptions | `Input()`   | AutocompleteOptions         | - |  all above inputs in one object! The passed data to this object will be merged with the input if they exists
 | onChange            | `Output()`  | PlaceResult | string | null | - |  event when the input form value changed
 | onAutocompleteSelected   | `Output()`  | PlaceResult            | - |  the event will be fired when a place has been selected via the google maps autocomplete component
+| onGermanAddressMapped  | `Output()`  | GermanAddress               | - |  the event will be fired when a place has been selected and mapped to the german address interface |
 | onLocationSelected  | `Output()`  | Location                    | - |  the event will be fired when a place has been selected via the google maps autocomplete component |
-| onLocationSelected  | `Output()`  | GermanAddress               | - |  the event will be fired when a place has been selected and mapped to the german address interface |
 
 #### Supported Types
 
@@ -463,5 +506,5 @@ $ cd demo && npm i && npm start
 
 ## License
 
-Copyright (c) 2019 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT)
+Copyright (c) 2019-2020 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT)
 

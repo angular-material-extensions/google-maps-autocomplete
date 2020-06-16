@@ -48,6 +48,9 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
   appearance: string | Appearance = Appearance.STANDARD;
 
   @Input()
+  value: PlaceResult;
+
+  @Input()
   address: PlaceResult | string;
 
   @Input()
@@ -80,8 +83,6 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
 
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
-
-  value: PlaceResult;
 
 
   private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
