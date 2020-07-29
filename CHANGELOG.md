@@ -1,3 +1,6 @@
+* fix(lib): support default value in `mat-search-google-maps-autocomplete` (e345c4d)
+* fix(lib): updated angular to v9.1.12 (84c16e2)
+
 * fix(lib): support of reactive forms #99 #65 (6bd7196)
 * fix(lib): support of reactive forms #99 #65 (5536972)
 * fix(lib): updated angular to v9.1.7 (c41675e)
