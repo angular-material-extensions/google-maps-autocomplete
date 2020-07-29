@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   public longitude: number;
   public showAsDirective = false;
   public showAsComponent = true;
+
   addressValue: GermanAddress = {
     streetNumber: '100',
     streetName: 'Your StreetName',
@@ -66,6 +67,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.addressFormGroup = new FormGroup({
+      // address: new FormControl(this.addressValue),
       address: new FormControl(),
     });
 

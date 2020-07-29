@@ -76,6 +76,8 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   germanAddress: GermanAddress;
   addressFormGroup: FormGroup;
 
+  firstInit = true;
+
   propagateChange = (_: any) => {
   };
 
@@ -83,11 +85,11 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   }
 
   ngOnInit() {
-    this.addressFormGroup = this.createAddressFormGroup();
+    this.createAddressFormGroup();
   }
 
-  createAddressFormGroup(): FormGroup {
-    return this.formBuilder.group({
+  createAddressFormGroup(): void {
+    this.addressFormGroup = this.formBuilder.group({
       streetName: [this.value && this.value.streetName ? this.value.streetName : null, Validators.required],
       streetNumber: [this.value && this.value.streetNumber ? this.value.streetNumber : null, Validators.required],
       postalCode: [this.value && this.value.postalCode ? this.value.postalCode : null, Validators.required],
@@ -126,8 +128,17 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   }
 
   writeValue(obj: any): void {
+    let shouldRecreateFG = false;
     if (obj) {
+      if (!this.value && this.firstInit) {
+        shouldRecreateFG = true;
+      }
       this.value = obj;
+      this.propagateChange(this.value);
+      if (shouldRecreateFG) {
+        this.createAddressFormGroup();
+        this.firstInit = false;
+      }
     }
   }
 
