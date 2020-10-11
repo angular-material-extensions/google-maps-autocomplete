@@ -22,20 +22,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
+      # Runs 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
-
-
-      # Runs a set of commands using the runners shell
-      - name: Run npm install
-        run: npm install
-      - name: Build root
+      - run: npm install
       - run: ng build
       - run: cd projects/angular-material-extensions/google-maps-autocomplete
-      - name: Build package
       - run: npm run build
         
+      # Uploads
       - uses: actions/upload-artifact@v2
         with:
           name: angular-material-extensions-google-maps-autocomplete
