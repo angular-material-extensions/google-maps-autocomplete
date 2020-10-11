@@ -1,0 +1,97 @@
+{
+  "name": "@angular-material-extensions/google-maps-autocomplete",
+  "description": "Autocomplete input component and directive for google-maps built with angular and material design",
+  "version": "4.1.1",
+  "homepage": "https://angular-material-extensions.github.io/google-maps-autocomplete",
+  "author": {
+    "name": "Anthony Nahas",
+    "url": "https://github.com/angular-material-extensions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular-material-extensions/google-maps-autocomplete.git"
+  },
+  "license": "MIT",
+  "schematics": "./schematics/collection.json",
+  "keywords": [
+    "angular",
+    "material design",
+    "google maps",
+    "autocomplete",
+    "places",
+    "locations",
+    "parse",
+    "street name",
+    "location",
+    "country",
+    "city"
+  ],
+  "bugs": {
+    "url": "https://github.com/angular-material-extensions/google-maps-autocomplete/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0",
+    "@angular/platform-browser": "^10.0.0",
+    "@angular/flex-layout": "^10.0.0-beta.32",
+    "@angular/forms": "^10.0.0",
+    "@angular/cdk": "^10.0.0",
+    "@angular/material": "^10.0.0",
+    "@agm/core": "^3.0.0-beta.0",
+    "@types/googlemaps": "3.39.12",
+    "zone.js": "~0.11.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": true,
+      "publishPath": "../../../dist/angular-material-extensions/google-maps-autocomplete"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "../../../CHANGELOG.md"
+      }
+    },
+    "hooks": {
+      "before:init": [
+        "npm run clean"
+      ],
+      "after:bump": "echo \"building lib v${version}... \" && npm run build",
+      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -a -m \"docs(project): Updating CHANGELOG.md for v${version} \" && git push",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
+      "before:npm": "echo building the library..."
+    }
+  },
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "<rootDir>/tsconfig.spec.json",
+      "stringifyContentPathRegex": "\\.html$",
+      "astTransformers": [
+        "jest-preset-angular/build/InlineFilesTransformer",
+        "jest-preset-angular/build/StripStylesTransformer"
+      ]
+    }
+  },
+  "main": "bundles/angular-material-extensions-google-maps-autocomplete.umd.js",
+  "module": "fesm5/angular-material-extensions-google-maps-autocomplete.js",
+  "es2015": "fesm2015/angular-material-extensions-google-maps-autocomplete.js",
+  "esm5": "esm5/angular-material-extensions-google-maps-autocomplete.js",
+  "esm2015": "esm2015/angular-material-extensions-google-maps-autocomplete.js",
+  "fesm5": "fesm5/angular-material-extensions-google-maps-autocomplete.js",
+  "fesm2015": "fesm2015/angular-material-extensions-google-maps-autocomplete.js",
+  "typings": "angular-material-extensions-google-maps-autocomplete.d.ts",
+  "metadata": "angular-material-extensions-google-maps-autocomplete.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
