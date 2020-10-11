@@ -22,17 +22,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs 
+      # Runs
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
       - run: npm ci
       - run: npm run build:lib
       - run: cd projects/angular-material-extensions/google-maps-autocomplete
       - run: npm run build
-        
+      - run: cd ../../../dist/angular-material-extensions/google-maps-autocomplete
+      - run: npm pack
+
       # Uploads
       - uses: actions/upload-artifact@v2
         with:
           name: angular-material-extensions-google-maps-autocomplete
-          path: dist/angular-material-extensions/google-maps-autocomplete 
+          path: dist/angular-material-extensions/google-maps-autocomplete/*.tgz
 
