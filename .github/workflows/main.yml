@@ -25,8 +25,7 @@ jobs:
       # Runs 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
-      - run: npm install
-      - run: npm run build
+      - run: npm ci
       - run: cd projects/angular-material-extensions/google-maps-autocomplete
       - run: npm run build
         
