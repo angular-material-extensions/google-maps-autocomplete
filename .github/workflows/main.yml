@@ -27,10 +27,12 @@ jobs:
         uses: actions/setup-node@v2.1.2
       - run: npm ci
       - run: npm run build:lib
-      - run: cd projects/angular-material-extensions/google-maps-autocomplete
-      - run: npm run build
-      - run: cd ../../../dist/angular-material-extensions/google-maps-autocomplete
-      - run: npm pack
+      - run: |
+          cd projects/angular-material-extensions/google-maps-autocomplete
+          npm run build
+      - run: |
+          cd dist/angular-material-extensions/google-maps-autocomplete
+          npm pack
 
       # Uploads
       - uses: actions/upload-artifact@v2
