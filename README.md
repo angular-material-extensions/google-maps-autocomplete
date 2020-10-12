@@ -490,6 +490,7 @@ $ cd demo && npm i && npm start
 - [@angular-material-extensions/link-preview](https://github.com/angular-material-extensions/link-preview)
 - [@angular-material-extensions/password-strength](https://github.com/angular-material-extensions/password-strength)
 - [@angular-material-extensions/select-country](https://github.com/angular-material-extensions/select-country)
+- [@angular-material-extensions/select-icon](https://github.com/angular-material-extensions/select-icon)
 - [@angular-material-extensions/fab-menu](https://github.com/angular-material-extensions/fab-menu)
 - [@angular-material-extensions/faq](https://github.com/angular-material-extensions/faq)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
@@ -506,5 +507,8 @@ $ cd demo && npm i && npm start
 
 ## License
 
-Copyright (c) 2019-2020 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT)
-
+Copyright (c) 2019-2020 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (MIT) <p align="center">
+                                                                                                            <img alt="angular-material-extensions's logo"
+                                                                                                             height="92px" width="92px" style="text-align: center;" 
+                                                                                                             src="https://cdn.jsdelivr.net/gh/angular-material-extensions/google-maps-autocomplete@master/assets/badge_made-in-germany.svg">
+                                                                                                          </p>
