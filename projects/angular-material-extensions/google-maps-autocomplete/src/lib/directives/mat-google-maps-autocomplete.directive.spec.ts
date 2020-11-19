@@ -1,5 +1,5 @@
 import {MatGoogleMapsAutocompleteDirective} from './mat-google-maps-autocomplete.directive';
-import {async, TestBed} from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import {Component, DebugElement, ElementRef, NgZone, PLATFORM_ID} from '@angular/core';
 import {MapsAPILoader} from '@agm/core';
 import {MockNgZone} from '../testing/mock-ng-zone';
@@ -29,7 +29,7 @@ describe('MatGoogleMapsAutocompleteDirective', () => {
     // region: 'DE'
   };
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       // imports: [AgmCoreModule.forRoot(googleMapsParams)],
