@@ -1,3 +1,9 @@
+* fix(lib): updated peer deps (ecbbd0d)
+* fix(lib): updated schematics related code (ad6afa0)
+* feat(lib): upgraded nguniversal to v11 (0e86ff0)
+* fix(lib): upgraded angular material to v11 (fdcff5e)
+* fix(lib): upgraded angular to v11 (4fb772c)
+
 * docs(project): minor (ae98312)
 * Merge pull request #298 from zacuke/master (38700f1)
 * update:build (b3a0f8c)
