@@ -5,6 +5,8 @@ import {parseGermanAddress} from '../../helpers/parser';
 import {GermanAddress} from '../../interfaces';
 import {Appearance} from '../mat-google-maps-autocomplete.component';
 import {InputAnimations} from '../../animations';
+import {debounceTime, distinctUntilChanged, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'mat-search-google-maps-autocomplete',
@@ -20,6 +22,11 @@ import {InputAnimations} from '../../animations';
   ]
 })
 export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, ControlValueAccessor {
+
+  constructor(private formBuilder: FormBuilder) {
+    // Set the private defaults
+    this._unsubscribeAll = new Subject();
+  }
 
   @Input()
   appearance: string | Appearance = Appearance.STANDARD;
@@ -67,8 +74,7 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   @Input()
   disableSearch: boolean;
 
-  @Input()
-  value: GermanAddress;
+  @Input() private _value: GermanAddress;
 
   @Output()
   onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();
@@ -78,14 +84,26 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
 
   firstInit = true;
 
+  // Private
+  private _unsubscribeAll: Subject<any>;
+
   propagateChange = (_: any) => {
   };
 
-  constructor(private formBuilder: FormBuilder) {
+
+  get value(): GermanAddress {
+    return this._value;
+  }
+
+  @Input()
+  set value(value: GermanAddress) {
+    this._value = value;
+    this.propagateChange(this.value);
   }
 
   ngOnInit() {
     this.createAddressFormGroup();
+    this.enableCustomInput();
   }
 
   createAddressFormGroup(): void {
@@ -100,6 +118,59 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
     });
   }
 
+  enableCustomInput() {
+    this.addressFormGroup
+      .get('streetName')
+      .valueChanges
+      .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
+      .subscribe(streetName => {
+        console.log('custom input for street Name', streetName);
+        console.log('custom input - new german address', this.value);
+        !this.value ? this.value = {streetName} : this.value.streetName = streetName;
+        this.value.displayAddress = this.parseDisplayAddress();
+      });
+    this.addressFormGroup
+      .get('streetNumber')
+      .valueChanges
+      .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
+      .subscribe(streetNumber => {
+        !this.value ? this.value = {streetNumber} : this.value.streetNumber = streetNumber;
+        console.log('custom input - new german address', this.value);
+        this.value.displayAddress = this.parseDisplayAddress();
+      });
+    this.addressFormGroup
+      .get('postalCode')
+      .valueChanges
+      .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
+      .subscribe(postalCode => {
+        !this.value ? this.value = {postalCode} : this.value.postalCode = postalCode;
+        console.log('custom input - new german address', this.value);
+        this.value.displayAddress = this.parseDisplayAddress();
+      });
+    this.addressFormGroup
+      .get('vicinity')
+      .valueChanges
+      .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
+      .subscribe(vicinity => {
+        !this.value ? this.value = {vicinity} : this.value.vicinity = vicinity;
+        console.log('custom input - new german address', this.value);
+        this.value.displayAddress = this.parseDisplayAddress();
+      });
+    this.addressFormGroup
+      .get('locality')
+      .valueChanges
+      .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
+      .subscribe(locality => {
+        !this.value ? this.value = {locality} : this.value.locality = locality;
+        console.log('custom input - new german address', this.value);
+        this.value.displayAddress = this.parseDisplayAddress();
+      });
+  }
+
+  parseDisplayAddress() {
+    return `${this.value?.streetName} ${this.value?.streetNumber}, ${this.value?.postalCode} ${this.value?.locality?.long}`
+  }
+
   syncAutoComplete($event: google.maps.places.PlaceResult) {
     if (this.germanAddress) {
       this.addressFormGroup.reset();
@@ -107,23 +178,22 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
     const germanAddress: GermanAddress = parseGermanAddress($event);
     this.germanAddress = germanAddress;
     if (germanAddress.vicinity) {
-      this.addressFormGroup.get('vicinity').patchValue(germanAddress.vicinity);
+      this.addressFormGroup.get('vicinity').patchValue(germanAddress.vicinity, {emitEvent: false, onlySelf: true});
     }
     if (germanAddress.streetName) {
-      this.addressFormGroup.get('streetName').patchValue(germanAddress.streetName);
+      this.addressFormGroup.get('streetName').patchValue(germanAddress.streetName, {emitEvent: false, onlySelf: true});
     }
     if (germanAddress.streetNumber) {
-      this.addressFormGroup.get('streetNumber').patchValue(germanAddress.streetNumber.toString());
+      this.addressFormGroup.get('streetNumber').patchValue(germanAddress.streetNumber.toString(), {emitEvent: false, onlySelf: true});
     }
     if (germanAddress.postalCode) {
-      this.addressFormGroup.get('postalCode').patchValue(germanAddress.postalCode);
+      this.addressFormGroup.get('postalCode').patchValue(germanAddress.postalCode, {emitEvent: false, onlySelf: true});
     }
     if (germanAddress.locality && germanAddress.locality.long) {
-      this.addressFormGroup.get('locality.long').patchValue(germanAddress.locality.long);
+      this.addressFormGroup.get('locality.long').patchValue(germanAddress.locality.long, {emitEvent: false, onlySelf: true});
     }
 
     this.value = germanAddress;
-    this.propagateChange(this.value);
     this.onGermanAddressMapped.emit(germanAddress);
   }
 
@@ -134,7 +204,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
         shouldRecreateFG = true;
       }
       this.value = obj;
-      this.propagateChange(this.value);
       if (shouldRecreateFG) {
         this.createAddressFormGroup();
         this.firstInit = false;

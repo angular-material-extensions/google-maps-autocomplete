@@ -71,6 +71,9 @@ export class AppComponent implements OnInit {
       address: new FormControl(),
     });
 
-    this.addressFormGroup.get('address').valueChanges.subscribe(value => console.log('value changed', value))
+    this.addressFormGroup
+      .get('address')
+      .valueChanges
+      .subscribe(value => console.log('value changed', value))
   }
 }
