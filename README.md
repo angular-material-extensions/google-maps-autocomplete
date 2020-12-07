@@ -63,10 +63,10 @@ View all the directives and components in action at [https://angular-material-ex
 <a name="dependencies"/>
 
 ## Dependencies
-* [Angular](https://angular.io) (*requires* Angular 2 or higher | we are using already V9 ;)
+* [Angular](https://angular.io) (*requires* Angular 2 or higher | we are using already V11 ;)
 
 for the directive as standalone you just need to install the agm core module
-- [agm - angular google maps v1.1.0](https://www.npmjs.com/package/@agm/core)
+- [agm - angular google maps v3.0.0-beta.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
 npm i @agm/core 
@@ -103,12 +103,12 @@ npm install --save @angular-material-extensions/google-maps-autocomplete
 
 ### Requirements (peer dependencies):
 
-for the ui input component, please consider to install the following packages
-- [angular animations v9.x](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v9.x](https://www.npmjs.com/package/@angular/forms)
-- [angular material v9.x](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v9.x](https://www.npmjs.com/package/@angular/cdk)
-- [agm - angular google maps v1.1.0](https://www.npmjs.com/package/@agm/core)
+for the ui input component, please consider installing the following packages
+- [angular animations v11.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v11.x](https://www.npmjs.com/package/@angular/forms)
+- [angular material v11.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v11.x](https://www.npmjs.com/package/@angular/cdk)
+- [agm - angular google maps v3.0.0-beta.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
 npm i @angular/cdk @angular/material @angular/animations @angular/forms 
