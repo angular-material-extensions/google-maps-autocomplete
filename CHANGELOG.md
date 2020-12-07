@@ -1,3 +1,7 @@
+* fix(lib): added custom input functionality for the search component (1195376)
+* docs(project): updated the reamde (a416d86)
+* fix(lib): updated angular and other depenencies (a3ccd21)
+
 * fix(lib): updated peer deps (ecbbd0d)
 * fix(lib): updated schematics related code (ad6afa0)
 * feat(lib): upgraded nguniversal to v11 (0e86ff0)
