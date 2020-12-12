@@ -1,7 +1,7 @@
 <div fxLayout="column">
   <div *ngIf="!disableSearch" fxFlex="100">
     <!--search address-->
-    <mat-form-field fxFlex="auto" [appearance]="appearance" [@animate]="{ value: '*', params: { y: '100%' } }">
+    <mat-form-field fxFlex="auto" [appearance]="searchBarAppearance" [@animate]="{ value: '*', params: { y: '100%' } }">
       <mat-label>{{searchAddressLabel}}</mat-label>
       <input
         (onAutocompleteSelected)="syncAutoComplete($event)"
@@ -52,6 +52,7 @@
         <input
           [readonly]="readonly"
           formControlName="postalCode"
+          type="number"
           matInput
           required
         />

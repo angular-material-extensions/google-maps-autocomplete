@@ -29,6 +29,9 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   }
 
   @Input()
+  searchBarAppearance: string | Appearance;
+
+  @Input()
   appearance: string | Appearance = Appearance.STANDARD;
 
   @Input()
