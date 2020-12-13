@@ -68,6 +68,62 @@
             }
           }
         },
+        "build_ghpages": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "baseHref": "/google-maps-autocomplete/",
+            "deployUrl": "/google-maps-autocomplete/",
+            "outputPath": "dist/browser",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/prismjs/themes/prism-okaidia.css"
+            ],
+            "scripts": [
+              "./node_modules/prismjs/prism.js",
+              "./node_modules/prismjs/components/prism-typescript.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
@@ -173,6 +229,19 @@
           "builder": "@nguniversal/builders:prerender",
           "options": {
             "browserTarget": "google-maps-autocomplete:build:production",
+            "serverTarget": "google-maps-autocomplete:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "prerender_ghpages": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "google-maps-autocomplete:build_ghpages:production",
             "serverTarget": "google-maps-autocomplete:server:production",
             "routes": [
               "/"

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "postinstall": "ngcc",
     "start": "ng serve --port 4510",
     "build": "ng build --statsJson",
     "build:client-and-server-bundles:ghpages": "npm run build:prod:ghpages && ng run google-maps-autocomplete:server:production --bundleDependencies all",
@@ -21,7 +22,7 @@
     "serve:prerender": "cd dist/browser && http-server",
     "release": "release-it",
     "test:watch": "jest --watch",
-    "compile:server_bak": "webpack --config webpack.server.config.js --progress --colors",
+    "compile:server": "webpack --config webpack.server.config.js --progress --color",
     "build:ssr_bak": "npm run build:client-and-server-bundles && npm run compile:server",
     "serve:ssr_bak": "node dist/server",
     "build:client-and-server-bundles_bak": "ng build --prod && ng run google-maps-autocomplete:server:production --bundleDependencies all",
@@ -29,11 +30,12 @@
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run google-maps-autocomplete:server:production",
     "prerender": "ng run google-maps-autocomplete:prerender",
+    "prerender:ghpages": "ng run google-maps-autocomplete:prerender_ghpages",
     "bundle-report": "webpack-bundle-analyzer dist/browser/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^3.0.0-beta.0",
+    "@agm/core": "^1.1.0",
     "@angular-devkit/core": "^11.0.4",
     "@angular-devkit/schematics": "^11.0.4",
     "@angular/animations": "^11.0.4",
@@ -50,6 +52,7 @@
     "@angular/router": "^11.0.4",
     "@briebug/jest-schematic": "^3.1.0",
     "@nguniversal/express-engine": "^11.0.1",
+    "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
     "angular-cli-ghpages": "^0.6.2",
     "angulartics2": "^10.0.0",
     "express": "^4.17.1",

@@ -1,3 +1,5 @@
+* feat(lib): added | searchBarAppearance input (ee112ee)
+
 * fix(lib): added custom input functionality for the search component (1195376)
 * docs(project): updated the reamde (a416d86)
 * fix(lib): updated angular and other depenencies (a3ccd21)
