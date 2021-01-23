@@ -6,7 +6,7 @@ import {GermanAddress} from '../../interfaces';
 import {Appearance} from '../mat-google-maps-autocomplete.component';
 import {InputAnimations} from '../../animations';
 import {debounceTime, distinctUntilChanged, takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs/internal/Subject';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'mat-search-google-maps-autocomplete',
