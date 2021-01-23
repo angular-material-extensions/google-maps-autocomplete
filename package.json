@@ -31,11 +31,12 @@
     "build:ssr": "ng build --prod && ng run google-maps-autocomplete:server:production",
     "prerender": "ng run google-maps-autocomplete:prerender",
     "prerender:ghpages": "ng run google-maps-autocomplete:prerender_ghpages",
-    "bundle-report": "webpack-bundle-analyzer dist/browser/stats-es2015.json"
+    "bundle-report": "webpack-bundle-analyzer dist/browser/stats-es2015.json",
+    "server:prerender": "http-server dist/browser"
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.1.0",
+    "@agm/core": "^3.0.0-beta.0",
     "@angular-devkit/core": "^11.0.4",
     "@angular-devkit/schematics": "^11.0.4",
     "@angular/animations": "^11.0.4",
