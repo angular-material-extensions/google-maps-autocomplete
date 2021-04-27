@@ -1,3 +1,11 @@
+* fix(lib): merged master (107c963)
+* fix(lib): improved the reactive forms mechanism (829a3f4)
+* fix(lib): updated the dependencies (a6c8e8e)
+* fix(lib): updated the dependencies (c438082)
+* fix(lib): updated the dependencies (4500a46)
+* Merge pull request #308 from andreialecu/fix-import (8edc4e5)
+* fix: rxjs deep import (f4d5f77)
+
 * feat(lib): added | searchBarAppearance input (ee112ee)
 
 * fix(lib): added custom input functionality for the search component (1195376)
