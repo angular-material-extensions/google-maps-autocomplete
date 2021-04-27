@@ -7,12 +7,12 @@ import {AgmCoreModule} from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatCardModule } from '@angular/material/card';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatInputModule } from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatTabsModule } from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTabsModule} from '@angular/material/tabs';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConfigComponent} from '../config/config.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,6 +20,7 @@ import {environment} from '../environments/environment';
 import {Angulartics2Module} from 'angulartics2';
 import {MarkdownModule} from 'ngx-markdown';
 import {RouterModule} from '@angular/router';
+import {CommonModule} from '@angular/common';
 
 const googleMapsParams = {
   apiKey: environment.GOOGLE_MAPS_API_KEY,
@@ -34,12 +35,13 @@ const googleMapsParams = {
     ConfigComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     BrowserAnimationsModule,
     RouterModule.forRoot([], {
-    initialNavigation: 'enabled',
-    relativeLinkResolution: 'legacy'
-}),
+      initialNavigation: 'enabled',
+      relativeLinkResolution: 'legacy'
+    }),
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
     AgmCoreModule.forRoot(googleMapsParams),
