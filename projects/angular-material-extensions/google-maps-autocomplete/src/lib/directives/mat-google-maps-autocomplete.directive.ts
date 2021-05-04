@@ -1,4 +1,4 @@
-import {Directive, ElementRef, EventEmitter, forwardRef, Inject, Input, NgZone, OnInit, Output, PLATFORM_ID} from '@angular/core';
+import {Directive, ElementRef, EventEmitter, forwardRef, HostListener, Inject, Input, NgZone, OnInit, Output, PLATFORM_ID} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {MapsAPILoader} from '@agm/core';
@@ -71,6 +71,11 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
               public elemRef: ElementRef,
               public mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone) {
+  }
+
+  @HostListener('input', ['$event'])
+  onInputChange(event) {
+    this.onChange.emit(event?.target?.value);
   }
 
   ngOnInit(): void {
