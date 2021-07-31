@@ -13,14 +13,15 @@ export class AppComponent implements OnInit {
 
   title = 'google-maps-autocomplete';
 
+  addressFC: FormControl = new FormControl('Zollstock 34');
   addressFormGroup: FormGroup;
 
   public appearance = Appearance;
   public zoom: number;
   public latitude: number;
   public longitude: number;
-  public showAsDirective = false;
-  public showAsComponent = true;
+  public showAsDirective = true;
+  public showAsComponent = false;
 
   addressValue: GermanAddress = {
     streetNumber: '100',
@@ -63,17 +64,24 @@ export class AppComponent implements OnInit {
 
   onGermanAddressMapped($event: GermanAddress) {
     console.log('onGermanAddressMapped', $event);
+    console.log('default value --> ', this.addressFC.value)
   }
 
   ngOnInit(): void {
     this.addressFormGroup = new FormGroup({
-      // address: new FormControl(this.addressValue),
-      address: new FormControl(),
+      address: new FormControl(this.addressValue),
+      // address: new FormControl(),
     });
 
     this.addressFormGroup
       .get('address')
       .valueChanges
       .subscribe(value => console.log('value changed', value))
+
+    this.addressFC
+      .valueChanges
+      .subscribe(value => console.log('value changed', value))
+
+    console.log('default value --> ', this.addressFC.value)
   }
 }

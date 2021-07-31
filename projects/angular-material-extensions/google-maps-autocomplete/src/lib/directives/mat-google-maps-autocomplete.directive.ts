@@ -1,6 +1,18 @@
-import {Directive, ElementRef, EventEmitter, forwardRef, Inject, Input, NgZone, OnInit, Output, PLATFORM_ID} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
-import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
+import {
+  ChangeDetectorRef,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  HostListener,
+  Inject,
+  Input,
+  NgZone,
+  OnInit,
+  Output,
+  PLATFORM_ID
+} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
 import {Location} from '../interfaces/location.interface';
 import {isPlatformBrowser} from '@angular/common';
@@ -54,28 +66,43 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
 
-  value: PlaceResult;
+  disabled: boolean
+
+  _value: string;
+
+  get value(): string {
+    return this._value;
+  }
+
+  @Input()
+  set value(value: string) {
+    this._value = value;
+    this.propagateChange(this.value);
+    this.cf.markForCheck();
+  }
 
   private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
-  private addressValidator: MatValidateAddressDirective = new MatValidateAddressDirective();
-
-  public addressSearchControl: FormControl = new FormControl({value: null}, Validators.compose([
-    Validators.required,
-    this.addressValidator.validate()])
-  );
 
   propagateChange = (_: any) => {
   };
 
   constructor(@Inject(PLATFORM_ID) public platformId: string,
+              // @Optional() @Self() public ngControl: NgControl,
               public elemRef: ElementRef,
               public mapsAPILoader: MapsAPILoader,
+              private cf: ChangeDetectorRef,
               private ngZone: NgZone) {
+    // Replace the provider from above with this.
+    // if (this.ngControl != null) {
+    // Setting the value accessor directly (instead of using
+    // the providers) to avoid running into a circular import.
+    // this.ngControl.valueAccessor = this;
+    // }
   }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
     if (isPlatformBrowser(this.platformId)) {
-      this.addressValidator.subscribe(this.onNewPlaceResult);
       const options: AutocompleteOptions = {
         // types: ['address'],
         // componentRestrictions: {country: this.country},
@@ -92,8 +119,19 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
 
       this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
       this.initGoogleMapsAutocomplete();
-    }
 
+      // console.log('this.ngControl.value', this.ngControl?.control?.value)
+      // console.log('this.ngControl.value', this.ngControl.control.setValue('test'))
+      // this.cf.markForCheck();
+    }
+  }
+
+  @HostListener('change')
+  onChangeInputValue(): void {
+    console.log('in change InputTextFilterDirective');
+    const value = (this.elemRef.nativeElement as HTMLInputElement)?.value;
+    console.log('value --> ', value)
+    this.value = value;
   }
 
   public initGoogleMapsAutocomplete() {
@@ -157,15 +195,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
 
             this.onGermanAddressMapped.emit(germanAddress);
 
-            if (!place.place_id || place.geometry === undefined || place.geometry === null) {
-              // place result is not valid
-              return;
-            } else {
-              // show dialog to select a address from the input
-              // emit failed event
-              this.value = place;
-              this.propagateChange(this.value)
-            }
+            this.value = place.formatted_address;
             this.address = place.formatted_address;
             this.onAutocompleteSelected.emit(place);
             this.onLocationSelected.emit(
@@ -187,12 +217,16 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
   }
 
   setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   writeValue(obj: any): void {
     if (obj) {
+      console.log('obj --> ');
       this.value = obj;
+      // this.cf.markForCheck();
     }
+    console.log('write value', this.value);
   }
 
 }

@@ -459,10 +459,10 @@
 
                 <div fxLayout="column" *ngIf="showAsDirective">
                   <mat-form-field class="full-width" [appearance]="config.appearance">
-                    <mat-label>Address << using the directive >></mat-label>
+                    <mat-label>Address using the directive</mat-label>
                     <input matInput
-                           matValidateAddress
                            matGoogleMapsAutocomplete
+                           [formControl]="this.addressFC"
                            #matGoogleMapsAutocomplete="matGoogleMapsAutocomplete"
                            placeholder="{{config.placeholderText}}"
                            class="form-control"
@@ -471,14 +471,7 @@
                            (onLocationSelected)="onLocationSelected($event)"
                            (onGermanAddressMapped)="onGermanAddressMapped($event)"
                            required>
-                    <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
-                      {{config.requiredErrorText}}
-                    </mat-error>
-                    <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('validateAddress')">
-                      {{config.invalidErrorText}}
-                    </mat-error>
                   </mat-form-field>
-
                 </div>
 
                 <div *ngIf="showAsComponent">
