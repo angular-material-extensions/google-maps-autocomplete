@@ -1,3 +1,10 @@
+* fix(lib): adjusted the main directive's methods (f74f85e)
+* fix(lib): minor (d8eb106)
+* fix(lib): upgraded angular material to v12 (83e2dca)
+* fix(lib): upgraded angular to v12 (311e23b)
+* fix(lib): upgraded angular to v12 (593378b)
+* fix(lib): minor (f5ea8ea)
+
 * fix(lib): merged master (107c963)
 * fix(lib): improved the reactive forms mechanism (829a3f4)
 * fix(lib): updated the dependencies (a6c8e8e)
