@@ -102,7 +102,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   set value(value: GermanAddress) {
     this._value = value;
     this.propagateChange(this.value);
-    console.log('setValue', this._value);
   }
 
   ngOnInit() {
@@ -128,8 +127,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
       .valueChanges
       .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
       .subscribe(streetName => {
-        console.log('custom input for street Name', streetName);
-        console.log('custom input - new german address streetName', this.value);
         !this.value ? this.value = {streetName} : this.value.streetName = streetName;
         this.value.displayAddress = this.parseDisplayAddress();
         this.propagateChange(this.value);
@@ -140,7 +137,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
       .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
       .subscribe(streetNumber => {
         !this.value ? this.value = {streetNumber} : this.value.streetNumber = streetNumber;
-        console.log('custom input - new german address streetNumber', this.value);
         this.value.displayAddress = this.parseDisplayAddress();
         this.propagateChange(this.value);
       });
@@ -150,7 +146,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
       .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
       .subscribe(postalCode => {
         !this.value ? this.value = {postalCode} : this.value.postalCode = postalCode;
-        console.log('custom input - new german address postalCode', this.value);
         this.value.displayAddress = this.parseDisplayAddress();
         this.propagateChange(this.value);
       });
@@ -160,7 +155,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
       .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
       .subscribe(vicinity => {
         !this.value ? this.value = {vicinity} : this.value.vicinity = vicinity;
-        console.log('custom input - new german address vicinity', this.value);
         this.value.displayAddress = this.parseDisplayAddress();
         this.propagateChange(this.value);
       });
@@ -170,7 +164,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
       .pipe(distinctUntilChanged(), debounceTime(400), takeUntil(this._unsubscribeAll))
       .subscribe(locality => {
         !this.value ? this.value = {locality} : this.value.locality = locality;
-        console.log('custom input - new german address locality', this.value);
         this.value.displayAddress = this.parseDisplayAddress();
         this.propagateChange(this.value);
       });

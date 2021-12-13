@@ -101,7 +101,6 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
     if (isPlatformBrowser(this.platformId)) {
       const options: AutocompleteOptions = {
         // types: ['address'],
@@ -128,9 +127,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
 
   @HostListener('change')
   onChangeInputValue(): void {
-    console.log('in change InputTextFilterDirective');
     const value = (this.elemRef.nativeElement as HTMLInputElement)?.value;
-    console.log('value --> ', value)
     this.value = value;
   }
 
@@ -222,11 +219,9 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
 
   writeValue(obj: any): void {
     if (obj) {
-      console.log('obj --> ');
       this.value = obj;
       // this.cf.markForCheck();
     }
-    console.log('write value', this.value);
   }
 
 }
