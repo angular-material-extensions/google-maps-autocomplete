@@ -1,3 +1,5 @@
+* fix(project): removed unwanted logs #324 (12bca04)
+
 * Merge remote-tracking branch 'origin/master' (7232435)
 * fix(project): minor (0ac2f2a)
 * docs(project): Updating CHANGELOG.md for v7.0.0 (57eafbd)
