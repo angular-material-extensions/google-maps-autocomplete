@@ -48,11 +48,10 @@ export class AppComponent implements OnInit {
   }
 
   onAutocompleteSelected(result: PlaceResult) {
-    console.log('onAddressSelected: ', result);
+    // console.log('onAddressSelected: ', result);
   }
 
   onLocationSelected(location: Location) {
-    console.log('onLocationSelected: ', location);
     this.latitude = location.latitude;
     this.longitude = location.longitude;
   }

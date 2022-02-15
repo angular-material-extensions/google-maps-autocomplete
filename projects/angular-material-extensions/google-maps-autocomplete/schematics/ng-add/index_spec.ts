@@ -11,7 +11,6 @@ describe('schematics', () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
     const tree = await runner.runSchematicAsync('schematics', {}, Tree.empty());
     tree.subscribe(tree=>{
-      console.log(tree);
       expect(tree.files).toEqual([]);
     });
   });
