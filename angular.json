@@ -53,7 +53,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -115,7 +114,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -172,19 +170,6 @@
             "scripts": [
               "./node_modules/prismjs/prism.js",
               "./node_modules/prismjs/components/prism-typescript.min.js"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         },
@@ -292,18 +277,6 @@
             "main": "projects/angular-material-extensions/google-maps-autocomplete/src/test.ts",
             "tsConfig": "projects/angular-material-extensions/google-maps-autocomplete/tsconfig.spec.json",
             "karmaConfig": "projects/angular-material-extensions/google-maps-autocomplete/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/angular-material-extensions/google-maps-autocomplete/tsconfig.lib.json",
-              "projects/angular-material-extensions/google-maps-autocomplete/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
