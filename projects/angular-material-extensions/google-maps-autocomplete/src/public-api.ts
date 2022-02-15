@@ -2,6 +2,7 @@
  * Public API Surface of google-maps-autocomplete
  */
 
+export * from './lib/helpers/parser';
 export * from './lib/interfaces';
 export * from './lib/component';
 export * from './lib/directives/mat-google-maps-autocomplete.directive';
