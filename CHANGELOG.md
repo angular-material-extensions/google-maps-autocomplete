@@ -1,3 +1,8 @@
+* fix(project): upgraded unviversal express engine (28fb3fa)
+* fix(project): upgraded angular material from v12 to v13 (6f9a1ea)
+* fix(project): upgraded angular from v12 to v13 (78ab428)
+* fix(lib): parseGermanAddress is now public (8118eef)
+
 * fix(lib): adjusted the main directive's methods (f74f85e)
 * fix(lib): minor (d8eb106)
 * fix(lib): upgraded angular material to v12 (83e2dca)
