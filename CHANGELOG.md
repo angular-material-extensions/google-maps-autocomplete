@@ -1,3 +1,7 @@
+* fix(project): updated the lib (d69deb5)
+* Merge pull request #326 from bittlerr/fix-address-components-error (4aaf185)
+* fix(lib): safe access address components (03f8b42)
+
 * fix(project): removed unwanted logs #324 (12bca04)
 
 * Merge remote-tracking branch 'origin/master' (7232435)
