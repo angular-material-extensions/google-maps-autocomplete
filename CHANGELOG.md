@@ -1,3 +1,12 @@
+* Merge remote-tracking branch 'origin/master' (7232435)
+* fix(project): minor (0ac2f2a)
+* docs(project): Updating CHANGELOG.md for v7.0.0 (57eafbd)
+* fix(project): upgraded unviversal express engine (28fb3fa)
+* fix(project): upgraded angular material from v12 to v13 (6f9a1ea)
+* fix(project): upgraded angular from v12 to v13 (78ab428)
+* fix(lib): parseGermanAddress is now public (8118eef)
+* Creating FUNDING.yml (e458f9b)
+
 * fix(project): upgraded unviversal express engine (28fb3fa)
 * fix(project): upgraded angular material from v12 to v13 (6f9a1ea)
 * fix(project): upgraded angular from v12 to v13 (78ab428)
