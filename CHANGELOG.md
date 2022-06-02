@@ -1,3 +1,6 @@
+* docs(project): Updating CHANGELOG.md for v8.0.0 (3063008)
+* fix(project): adapted the ivy config to publish the lib on npm (1fa3551)
+
 * fix(project): adapted the ivy config to publish the lib on npm (1fa3551)
 
 * fix(project): bug fixed with validation (5fed9db)
