@@ -1,3 +1,5 @@
+* fix(project): adapted the ivy config to publish the lib on npm (1fa3551)
+
 * fix(project): bug fixed with validation (5fed9db)
 * fix(project): minor (5ddffb2)
 * fix(project): upgraded universal (22221de)
