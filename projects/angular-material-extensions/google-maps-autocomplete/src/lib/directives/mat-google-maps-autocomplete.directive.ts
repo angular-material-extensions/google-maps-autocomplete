@@ -12,10 +12,10 @@ import {
   Output,
   PLATFORM_ID
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormControl, NG_VALIDATORS, Validators} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
-import {isPlatformBrowser} from '@angular/common';
 import {GermanAddress, Location} from '../interfaces';
+import {isPlatformBrowser} from '@angular/common';
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
@@ -24,7 +24,7 @@ import AutocompleteOptions = google.maps.places.AutocompleteOptions;
   exportAs: 'matGoogleMapsAutocomplete',
   providers: [
     {
-      provide: NG_VALUE_ACCESSOR,
+      provide: NG_VALIDATORS,
       useExisting: forwardRef(() => MatGoogleMapsAutocompleteDirective),
       multi: true
     }
@@ -86,7 +86,6 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
   };
 
   constructor(@Inject(PLATFORM_ID) public platformId: string,
-              // @Optional() @Self() public ngControl: NgControl,
               public elemRef: ElementRef,
               public mapsAPILoader: MapsAPILoader,
               private cf: ChangeDetectorRef,
@@ -94,6 +93,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
   }
 
   ngOnInit(): void {
+    console.log('validator', this)
     if (isPlatformBrowser(this.platformId)) {
       const options: AutocompleteOptions = {
         // types: ['address'],
@@ -112,6 +112,10 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
       this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
       this.initGoogleMapsAutocomplete();
     }
+  }
+
+  validate(fc: FormControl) {
+    return fc.hasValidator(Validators.required) ? !!fc?.value : true;
   }
 
   @HostListener('change')
