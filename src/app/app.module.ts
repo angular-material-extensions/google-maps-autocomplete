@@ -39,7 +39,7 @@ const googleMapsParams = {
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     BrowserAnimationsModule,
     RouterModule.forRoot([], {
-      initialNavigation: 'enabled',
+      initialNavigation: 'enabledBlocking',
       relativeLinkResolution: 'legacy'
     }),
     Angulartics2Module.forRoot(),

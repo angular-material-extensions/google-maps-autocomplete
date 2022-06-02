@@ -14,9 +14,8 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
-import {Location} from '../interfaces/location.interface';
 import {isPlatformBrowser} from '@angular/common';
-import {GermanAddress} from '../interfaces/germand.address.interface';
+import {GermanAddress, Location} from '../interfaces';
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
