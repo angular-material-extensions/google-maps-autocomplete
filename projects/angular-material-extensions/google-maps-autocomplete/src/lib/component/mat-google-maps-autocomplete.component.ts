@@ -1,5 +1,5 @@
 import {Component, ElementRef, EventEmitter, forwardRef, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {Location} from '../interfaces/location.interface';
@@ -88,7 +88,7 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
   private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
   private addressValidator: MatValidateAddressDirective = new MatValidateAddressDirective();
 
-  public addressSearchControl: FormControl = new FormControl({value: null}, Validators.compose([
+  public addressSearchControl: UntypedFormControl = new UntypedFormControl({value: null}, Validators.compose([
     Validators.required,
     this.addressValidator.validate()])
   );

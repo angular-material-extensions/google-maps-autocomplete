@@ -282,7 +282,6 @@
       }
     }
   },
-  "defaultProject": "google-maps-autocomplete",
   "cli": {
     "analytics": "66b4ab45-d3f5-4efa-9eee-c4a0b45e6b77"
   }
