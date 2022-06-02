@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Appearance, GermanAddress, Location} from '@angular-material-extensions/google-maps-autocomplete';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
-import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import PlaceResult = google.maps.places.PlaceResult;
 
 @Component({
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   title = 'google-maps-autocomplete';
 
-  addressFC: UntypedFormControl = new UntypedFormControl('Zollstock 34');
+  addressFC: UntypedFormControl = new UntypedFormControl(null, [Validators.required]);
   addressFormGroup: UntypedFormGroup;
 
   public appearance = Appearance;
@@ -72,10 +72,10 @@ export class AppComponent implements OnInit {
       // address: new FormControl(),
     });
 
-    this.addressFormGroup
-      .get('address')
-      .valueChanges
-      .subscribe(value => console.log('value changed', value))
+    // this.addressFormGroup
+    //   .get('address')
+    //   .valueChanges
+    //   .subscribe(value => console.log('value changed', value))
 
     this.addressFC
       .valueChanges
