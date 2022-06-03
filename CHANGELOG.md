@@ -1,3 +1,9 @@
+* fix(project): minor (148de46)
+* fix(project): updated deps (f1076e0)
+* docs(project): Updating CHANGELOG.md for v8.0.0 (b4f263e)
+* docs(project): Updating CHANGELOG.md for v8.0.0 (3063008)
+* fix(project): adapted the ivy config to publish the lib on npm (1fa3551)
+
 * docs(project): Updating CHANGELOG.md for v8.0.0 (3063008)
 * fix(project): adapted the ivy config to publish the lib on npm (1fa3551)
 
