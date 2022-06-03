@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Appearance, GermanAddress, Location} from '@angular-material-extensions/google-maps-autocomplete';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import PlaceResult = google.maps.places.PlaceResult;
+import {Angulartics2GoogleAnalytics} from 'angulartics2';
 
 @Component({
   selector: 'app-root',

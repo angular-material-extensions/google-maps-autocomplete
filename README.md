@@ -12,8 +12,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/angular-material-extensions/google-maps-autocomplete/badge.svg?branch=master)](https://coveralls.io/github/angular-material-extensions/google-maps-autocomplete?branch=master)
 [![Build Status](https://travis-ci.org/angular-material-extensions/google-maps-autocomplete.svg?branch=master)](https://travis-ci.org/angular-material-extensions/google-maps-autocomplete)
 [![CircleCI branch](https://img.shields.io/circleci/project/github/angular-material-extensions/google-maps-autocomplete/master.svg?label=circleci)](https://circleci.com/gh/angular-material-extensions/google-maps-autocomplete)
-[![dependency Status](https://david-dm.org/angular-material-extensions/google-maps-autocomplete/status.svg)](https://david-dm.org/angular-material-extensions/google-maps-autocomplete)
-[![devDependency Status](https://david-dm.org/angular-material-extensions/google-maps-autocomplete/dev-status.svg?branch=master)](https://david-dm.org/angular-material-extensions/google-maps-autocomplete#info=devDependencies)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/angular-material-extensions/google-maps-autocomplete.svg)](https://greenkeeper.io/)
 [![license](https://img.shields.io/github/license/angular-material-extensions/google-maps-autocomplete.svg?style=flat-square)](https://github.com/angular-material-extensions/google-maps-autocomplete/blob/master/LICENSE)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/gdi2290/awesome-angular)
@@ -29,9 +27,8 @@
    src="https://raw.githubusercontent.com/angular-material-extensions/google-maps-autocomplete/HEAD/assets/v3.0.0/search.gif">
 </p>
 
-Stating with v1.3.0, you can now use this library without material2's dependency! To enable this goolgle maps
-autocomplate api as feature, you can just add `matGoogleMapsAutocomplete`
-to any html input element!
+
+`Please use lib v8 only with angular v14`
 
 ## Built by and for developers :heart:
 
@@ -68,7 +65,7 @@ at [https://angular-material-extensions.github.io/google-maps-autocomplete](http
 
 ## Dependencies
 
-* [Angular](https://angular.io) (*requires* Angular 2 or higher | we are using already V11 ;)
+* [Angular](https://angular.io) (*requires* Angular latest | we are using already V14 ;)
 
 for the directive as standalone you just need to install the agm core module
 
@@ -113,10 +110,10 @@ npm install --save @angular-material-extensions/google-maps-autocomplete
 
 for the ui input component, please consider installing the following packages
 
-- [angular animations v11.x](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v11.x](https://www.npmjs.com/package/@angular/forms)
-- [angular material v11.x](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v11.x](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v14.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v14.x](https://www.npmjs.com/package/@angular/forms)
+- [angular material v14.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v14.x](https://www.npmjs.com/package/@angular/cdk)
 - [agm - angular google maps v3.0.0-beta.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
@@ -537,7 +534,7 @@ Built by and for developers :heart: we will help you :punch:
 
 ## License
 
-Copyright (c) 2019-2020 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (
+Copyright (c) 2019-2022 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (
 MIT) <p align="center">
 <img alt="angular-material-extensions's logo"
 height="92px" width="92px" style="text-align: center;"
