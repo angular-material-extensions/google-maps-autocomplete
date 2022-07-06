@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "postinstall": "ngcc",
     "start": "ng serve --port 4510",
     "build": "ng build --statsJson",
     "build:client-and-server-bundles:ghpages": "npm run build:prod:ghpages && ng run google-maps-autocomplete:server:production --bundleDependencies all",
