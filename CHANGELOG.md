@@ -1,3 +1,10 @@
+* fix(project): upgraded angular universal (6589d71)
+* fix(project): upgraded angular material (8155cb7)
+* fix(project): upgraded angular material (1c43348)
+* fix(project): upgraded angular (991896f)
+* fix(project): minor (5e8864c)
+* fix(project): minor (7f3365a)
+
 * fix(project): minor (148de46)
 * fix(project): updated deps (f1076e0)
 * docs(project): Updating CHANGELOG.md for v8.0.0 (b4f263e)
