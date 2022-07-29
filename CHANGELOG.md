@@ -1,3 +1,8 @@
+* fix(project): upgraded angular material (7475144)
+* fix(project): upgraded angular core and cli (875bd36)
+* fix(project): upgraded angular core and cli (e3ed7d3)
+* fix(project): minor (30aecda)
+
 * fix(project): upgraded angular universal (6589d71)
 * fix(project): upgraded angular material (8155cb7)
 * fix(project): upgraded angular material (1c43348)
