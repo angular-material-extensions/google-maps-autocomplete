@@ -532,6 +532,15 @@ $ cd demo && npm i && npm start
 
 Built by and for developers :heart: we will help you :punch:
 
+## Who is using ngx-mailto? Awesome apps?
+
+1. [Nahaus.de](https://nahaus.de)
+
+
+Are you missing your project or you app? PR me to publish it on the README
+
+---
+
 ## License
 
 Copyright (c) 2019-2022 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (
