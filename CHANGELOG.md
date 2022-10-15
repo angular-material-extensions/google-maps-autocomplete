@@ -1,3 +1,8 @@
+* fix(project): upgraded deps (f6e5931)
+* fix(project): upgraded angular and material (782a9b6)
+* fix(project): docs (ea1e37d)
+* fix(project): docs (4245bc8)
+
 * fix(project): upgraded angular material (7475144)
 * fix(project): upgraded angular core and cli (875bd36)
 * fix(project): upgraded angular core and cli (e3ed7d3)
