@@ -505,6 +505,10 @@ $ cd demo && npm i && npm start
 3. go to lib directory under `projects/angular-material-extensions/google-maps-autocomplete`
 4. build the library `npm run build`
 
+
+---
+
+
 <a name="other-angular-libraries"/>
 
 ## Other Angular Libraries
@@ -521,6 +525,7 @@ $ cd demo && npm i && npm start
 - [@angular-material-extensions/fab-menu](https://github.com/angular-material-extensions/fab-menu)
 - [@angular-material-extensions/faq](https://github.com/angular-material-extensions/faq)
 - [@angular-material-extensions/contacts](https://github.com/angular-material-extensions/contacts)
+---
 
 <a name="support"/>
 
@@ -531,6 +536,9 @@ $ cd demo && npm i && npm start
 + let us chat on [Gitter](https://gitter.im/angular-material-extensions/Lobby)
 
 Built by and for developers :heart: we will help you :punch:
+
+---
+
 
 ## Who is using ngx-mailto? Awesome apps?
 
