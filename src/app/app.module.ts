@@ -8,11 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatLegacyCardModule as MatCardModule} from '@angular/material/legacy-card';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-import {MatLegacyRadioModule as MatRadioModule} from '@angular/material/legacy-radio';
-import {MatLegacyTabsModule as MatTabsModule} from '@angular/material/legacy-tabs';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConfigComponent} from '../config/config.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -21,6 +17,10 @@ import {Angulartics2Module} from 'angulartics2';
 import {MarkdownModule} from 'ngx-markdown';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatRadioModule} from '@angular/material/radio';
 
 const googleMapsParams = {
   apiKey: environment.GOOGLE_MAPS_API_KEY,
@@ -40,7 +40,7 @@ const googleMapsParams = {
     BrowserAnimationsModule,
     RouterModule.forRoot([], {
       initialNavigation: 'enabledBlocking',
-      relativeLinkResolution: 'legacy'
+      // relativeLinkResolution: 'legacy'
     }),
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
