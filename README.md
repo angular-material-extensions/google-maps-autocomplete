@@ -28,7 +28,7 @@
 </p>
 
 
-`Please use lib v8 only with angular v14`
+`Please use lib v8 only with angular v15`
 
 ## Built by and for developers :heart:
 
@@ -65,7 +65,7 @@ at [https://angular-material-extensions.github.io/google-maps-autocomplete](http
 
 ## Dependencies
 
-* [Angular](https://angular.io) (*requires* Angular latest | we are using already V14 ;)
+* [Angular](https://angular.io) (*requires* Angular latest | we are using already v15 ;)
 
 for the directive as standalone you just need to install the agm core module
 
@@ -110,10 +110,10 @@ npm install --save @angular-material-extensions/google-maps-autocomplete
 
 for the ui input component, please consider installing the following packages
 
-- [angular animations v14.x](https://www.npmjs.com/package/@angular/animations)
-- [angular forms v14.x](https://www.npmjs.com/package/@angular/forms)
-- [angular material v14.x](https://www.npmjs.com/package/@angular/material)
-- [angular cdk v14.x](https://www.npmjs.com/package/@angular/cdk)
+- [angular animations v15.x](https://www.npmjs.com/package/@angular/animations)
+- [angular forms v15.x](https://www.npmjs.com/package/@angular/forms)
+- [angular material v15.x](https://www.npmjs.com/package/@angular/material)
+- [angular cdk v15.x](https://www.npmjs.com/package/@angular/cdk)
 - [agm - angular google maps v3.0.0-beta.0](https://www.npmjs.com/package/@agm/core)
 
 ```bash
