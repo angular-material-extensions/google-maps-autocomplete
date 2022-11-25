@@ -8,11 +8,11 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatCardModule} from '@angular/material/card';
+import {MatLegacyCardModule as MatCardModule} from '@angular/material/legacy-card';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatInputModule} from '@angular/material/input';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatTabsModule} from '@angular/material/tabs';
+import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
+import {MatLegacyRadioModule as MatRadioModule} from '@angular/material/legacy-radio';
+import {MatLegacyTabsModule as MatTabsModule} from '@angular/material/legacy-tabs';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConfigComponent} from '../config/config.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
