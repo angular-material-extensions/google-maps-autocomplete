@@ -1,5 +1,12 @@
 
 
+## [9.0.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/9.0.0...9.0.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* **project:** adapted the readme ([c65ec27](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/c65ec27963674112d6e888956562c80166292d6b))
+
 # [9.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/8.1.3...9.0.0) (2022-11-25)
 
 
