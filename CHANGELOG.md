@@ -1,3 +1,15 @@
+
+
+# [9.0.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/8.1.3...9.0.0) (2022-11-25)
+
+
+### Bug Fixes
+
+* **project:** minor ([46aaae8](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/46aaae833dff4cd4832f52fb5217da11cf2966ae))
+* **project:** upgraded angular cli and core to v15 ([0349f08](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/0349f087e1f522430d13d01442c3f272dd45410f))
+* **project:** upgraded angular material to v15 ([9e66c77](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/9e66c77e940bb301ce97e75f135bce0485e241ba))
+* **project:** upgraded angular material to v15 ([3774ee7](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/3774ee739853b022069fe89c26a5ebb961665052))
+
 * fix(project): upgraded deps (f6e5931)
 * fix(project): upgraded angular and material (782a9b6)
 * fix(project): docs (ea1e37d)
@@ -420,6 +432,3 @@
 * **package:** added MatGoogleMapsAutocompleteComponent | `mat-google-maps-autocomplete` ([5584cae](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5584cae))
 * **package:** added MatGoogleMapsAutocompleteModule ([dadcddd](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/dadcddd))
 * **package:** added MatValidateAddressDirective | `matValidateAddress` ([60e44cd](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/60e44cd))
-
-
-
