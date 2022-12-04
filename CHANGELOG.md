@@ -1,5 +1,14 @@
 
 
+## [9.0.2](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/9.0.1...9.0.2) (2022-12-04)
+
+
+### Bug Fixes
+
+* **project:** upgraded angular cdk and material ([ed8af45](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/ed8af45c6ca2654b065a48b7b5c4818cfc2e02b2))
+* **project:** upgraded angular cdk and material ([c04de57](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/c04de5710c9a0f026679e02457d9e29f24c6544a))
+* **project:** upgraded angular cli and core ([5c357c9](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/5c357c954e5e8f28212efbdc7e35931057739eb7))
+
 ## [9.0.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/9.0.0...9.0.1) (2022-11-25)
 
 
