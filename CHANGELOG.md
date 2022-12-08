@@ -1,5 +1,14 @@
 
 
+## [9.0.3](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/9.0.2...9.0.3) (2022-12-08)
+
+
+### Bug Fixes
+
+* **project:** solved problem with peer deps for flex-layout [#328](https://github.com/angular-material-extensions/google-maps-autocomplete/issues/328) ([e034068](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/e034068654bc08a5f3ae90c343ee71f86c04ff4f))
+* **project:** upgraded angular deps ([e1b624d](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/e1b624d5942634f98db6bc758120a637eb8dd0b3))
+* **project:** upgraded angular material ([efbf75e](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/efbf75ee60e818cd47d6d7c28094a8da3bec9f8c))
+
 ## [9.0.2](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/9.0.1...9.0.2) (2022-12-04)
 
 
