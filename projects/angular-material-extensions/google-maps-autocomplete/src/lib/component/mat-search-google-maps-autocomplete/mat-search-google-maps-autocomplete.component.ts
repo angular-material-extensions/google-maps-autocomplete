@@ -102,7 +102,6 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
   set value(value: GermanAddress) {
     this._value = value;
     this.propagateChange(this.value);
-    // console.log('setValue', this._value);
   }
 
   ngOnInit() {
