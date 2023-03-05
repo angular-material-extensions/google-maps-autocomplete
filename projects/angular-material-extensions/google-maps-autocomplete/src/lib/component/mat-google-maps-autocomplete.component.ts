@@ -195,7 +195,6 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
             }
             this.address = place.formatted_address;
             this.onAutocompleteSelected.emit(place);
-            // console.log('onAutocompleteSelected -> ', place);
             this.onLocationSelected.emit(
               {
                 latitude: place.geometry.location.lat(),
@@ -208,7 +207,6 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
   }
 
   public onQuery(event: any) {
-    // console.log('onChange()', event);
     this.onChange.emit(this.address);
   }
 

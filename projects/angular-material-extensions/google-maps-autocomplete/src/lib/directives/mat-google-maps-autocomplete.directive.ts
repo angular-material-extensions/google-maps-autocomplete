@@ -93,7 +93,6 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, ControlValueA
   }
 
   ngOnInit(): void {
-    console.log('validator', this)
     if (isPlatformBrowser(this.platformId)) {
       const options: AutocompleteOptions = {
         // types: ['address'],
