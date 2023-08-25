@@ -542,7 +542,7 @@ Built by and for developers :heart: we will help you :punch:
 
 ## Who is using ngx-mailto? Awesome apps?
 
-1. [Nahaus.de](https://nahaus.de)
+1. [Nahaus.de - Digitale und automatisierte Immobilienverwaltung Software für privat Vermieter und Hausverwaltungen](https://nahaus.de)
 
 
 Are you missing your project or you app? PR me to publish it on the README
@@ -551,7 +551,7 @@ Are you missing your project or you app? PR me to publish it on the README
 
 ## License
 
-Copyright (c) 2019-2022 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (
+Copyright (c) 2019-2023 [Anthony Nahas](https://github.com/AnthonyNahas). Licensed under the MIT License (
 MIT) <p align="center">
 <img alt="angular-material-extensions's logo"
 height="92px" width="92px" style="text-align: center;"
