@@ -104,7 +104,9 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
   }
 
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    if (this.autocomplete) {
+      google.maps.event.clearInstanceListeners(this.autocomplete);
+    }
   }
 
   ngAfterViewInit(): void {

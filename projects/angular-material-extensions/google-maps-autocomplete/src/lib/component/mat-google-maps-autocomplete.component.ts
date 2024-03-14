@@ -6,6 +6,7 @@ import {
   Inject,
   Input,
   NgZone,
+  OnDestroy,
   OnInit,
   Output,
   ViewChild
@@ -39,7 +40,9 @@ export enum Appearance {
     }
   ]
 })
-export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueAccessor {
+export class MatGoogleMapsAutocompleteComponent implements OnInit, OnDestroy, ControlValueAccessor {
+
+  autocomplete: google.maps.places.Autocomplete | undefined;
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
@@ -135,15 +138,21 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
     this.initGoogleMapsAutocomplete();
   }
 
+  ngOnDestroy(): void {
+    if (this.autocomplete) {
+      google.maps.event.clearInstanceListeners(this.autocomplete);
+    }
+  }
+
   public initGoogleMapsAutocomplete() {
     this.loaderService
       .loadScript(`https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places`)
       .then(() => {
-        const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, this.autoCompleteOptions);
-        autocomplete.addListener('place_changed', () => {
+        this.autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, this.autoCompleteOptions);
+        this.autocomplete.addListener('place_changed', () => {
           this.ngZone.run(() => {
             // get the place result
-            const place: PlaceResult = autocomplete.getPlace();
+            const place: PlaceResult = this.autocomplete.getPlace();
 
             const germanAddress: GermanAddress = {
               gmID: place.id,
