@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
+import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
@@ -8,6 +8,8 @@ import {MatValidateAddressDirective} from './directives/address-validator/mat-ad
 // tslint:disable-next-line:max-line-length
 import {MatGoogleMapsAutocompleteComponent, MatSearchGoogleMapsAutocompleteComponent} from './component';
 import {MatInputModule} from '@angular/material/input';
+import {ApiKeyToken} from "./tokens";
+
 
 
 @NgModule({
@@ -41,4 +43,23 @@ import {MatInputModule} from '@angular/material/input';
   ]
 })
 export class MatGoogleMapsAutocompleteModule {
+
+  constructor() {
+  }
+
+  static forRoot(
+    apiKey: string,
+  ): ModuleWithProviders<MatGoogleMapsAutocompleteModule> {
+
+    return {
+      ngModule: MatGoogleMapsAutocompleteModule,
+      providers:
+        [
+          {
+            provide: ApiKeyToken,
+            useValue: apiKey
+          },
+        ]
+    };
+  }
 }

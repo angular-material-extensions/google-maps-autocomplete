@@ -45,6 +45,7 @@
     "@angular/flex-layout": "^14.0.0-beta.41",
     "@angular/forms": "^16.2.2",
     "@angular/material": "^16.2.1",
+    "@angular/google-maps": "^16.2.1",
     "@angular/platform-browser": "^16.2.2",
     "@angular/platform-browser-dynamic": "^16.2.2",
     "@angular/platform-server": "^16.2.2",
@@ -58,7 +59,7 @@
     "gulp": "^4.0.2",
     "http-server": "^0.12.3",
     "karma": "^6.3.4",
-    "ngx-markdown": "^10.1.1",
+    "ngx-markdown": "^16.0.0",
     "rxjs": "^6.6.7",
     "tslib": "^2.2.0",
     "zone.js": "~0.13.1"

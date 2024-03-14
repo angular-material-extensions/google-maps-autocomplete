@@ -3,7 +3,6 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core'
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AgmCoreModule} from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
@@ -44,8 +43,7 @@ const googleMapsParams = {
     }),
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
-    AgmCoreModule.forRoot(googleMapsParams),
-    MatGoogleMapsAutocompleteModule,
+    MatGoogleMapsAutocompleteModule.forRoot('YOUR API KEY'),
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
