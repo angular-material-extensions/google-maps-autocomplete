@@ -1,5 +1,12 @@
 
 
+## [16.3.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.3.0...16.3.1) (2024-03-14)
+
+
+### Bug Fixes
+
+* **project:** updated peer dep of zonejs ([4b21992](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/4b219923aeb90139b23ee1a707f7785194555a80))
+
 # [16.3.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.2.3...16.3.0) (2024-03-14)
 
 
