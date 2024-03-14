@@ -112,7 +112,6 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
   }
 
   ngOnInit(): void {
-    console.log("this.apiKey = ", this.apiKey)
   }
 
   validate(fc: FormControl) {

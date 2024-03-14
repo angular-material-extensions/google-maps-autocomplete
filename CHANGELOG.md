@@ -1,5 +1,7 @@
 
 
+## [16.2.2](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.2.1...16.2.2) (2024-03-14)
+
 ## [16.2.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.1.0...16.2.1) (2024-03-14)
 
 
