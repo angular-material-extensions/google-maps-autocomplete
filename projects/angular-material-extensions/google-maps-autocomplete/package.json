@@ -58,7 +58,7 @@
     "@angular/material": "^16.x",
     "@types/googlemaps": "~3.43.3",
     "rxjs": "^7.x",
-    "zone.js": "~0.11.x"
+    "zone.js": "~0.13.x"
   },
   "engines": {
     "node": ">=16.0.0"
