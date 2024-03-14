@@ -1,5 +1,12 @@
 
 
+## [16.2.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.1.0...16.2.1) (2024-03-14)
+
+
+### Bug Fixes
+
+* **project:** removed agm core logic ([98030c3](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/98030c3e98d78581fa432cbaef3766d5132f6a0f))
+
 # [16.1.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/9.0.3...16.1.0) (2024-03-14)
 
 
