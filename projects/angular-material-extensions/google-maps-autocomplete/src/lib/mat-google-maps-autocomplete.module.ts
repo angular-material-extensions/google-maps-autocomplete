@@ -9,6 +9,7 @@ import {MatValidateAddressDirective} from './directives/address-validator/mat-ad
 import {MatGoogleMapsAutocompleteComponent, MatSearchGoogleMapsAutocompleteComponent} from './component';
 import {MatInputModule} from '@angular/material/input';
 import {ApiKeyToken} from "./tokens";
+import {ScriptLoaderService} from "./services/script-loader.service";
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {ApiKeyToken} from "./tokens";
     MatGoogleMapsAutocompleteComponent,
     MatGoogleMapsAutocompleteDirective,
     MatValidateAddressDirective,
-    MatSearchGoogleMapsAutocompleteComponent
+    MatSearchGoogleMapsAutocompleteComponent,
   ],
   declarations: [
     MatGoogleMapsAutocompleteComponent,
