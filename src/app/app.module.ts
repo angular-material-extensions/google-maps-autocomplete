@@ -43,7 +43,7 @@ const googleMapsParams = {
     }),
     Angulartics2Module.forRoot(),
     MarkdownModule.forRoot(),
-    MatGoogleMapsAutocompleteModule.forRoot('YOUR API KEY'),
+    MatGoogleMapsAutocompleteModule.forRoot('YOUR_API_KEY'),
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
