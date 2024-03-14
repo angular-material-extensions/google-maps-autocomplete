@@ -1,5 +1,11 @@
 import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
-import {ControlValueAccessor, UntypedFormBuilder, UntypedFormGroup, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 
 import {parseGermanAddress} from '../../helpers/parser';
 import {GermanAddress} from '../../interfaces';
@@ -186,13 +192,19 @@ export class MatSearchGoogleMapsAutocompleteComponent implements OnInit, Control
       this.addressFormGroup.get('streetName').patchValue(germanAddress.streetName, {emitEvent: false, onlySelf: true});
     }
     if (germanAddress.streetNumber) {
-      this.addressFormGroup.get('streetNumber').patchValue(germanAddress.streetNumber.toString(), {emitEvent: false, onlySelf: true});
+      this.addressFormGroup.get('streetNumber').patchValue(germanAddress.streetNumber.toString(), {
+        emitEvent: false,
+        onlySelf: true
+      });
     }
     if (germanAddress.postalCode) {
       this.addressFormGroup.get('postalCode').patchValue(germanAddress.postalCode, {emitEvent: false, onlySelf: true});
     }
     if (germanAddress.locality && germanAddress.locality.long) {
-      this.addressFormGroup.get('locality.long').patchValue(germanAddress.locality.long, {emitEvent: false, onlySelf: true});
+      this.addressFormGroup.get('locality.long').patchValue(germanAddress.locality.long, {
+        emitEvent: false,
+        onlySelf: true
+      });
     }
 
     this.value = germanAddress;

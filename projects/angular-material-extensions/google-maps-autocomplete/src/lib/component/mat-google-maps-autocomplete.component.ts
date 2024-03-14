@@ -1,10 +1,21 @@
-import {Component, ElementRef, EventEmitter, forwardRef, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
-import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
-import {MapsAPILoader} from '@agm/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Inject,
+  Input,
+  NgZone,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, UntypedFormControl, Validators} from '@angular/forms';
 import {MatValidateAddressDirective} from '../directives/address-validator/mat-address-validator.directive';
 import {Location} from '../interfaces/location.interface';
 import {GermanAddress} from '../interfaces';
-
+import {ScriptLoaderService} from "../services/script-loader.service";
+import {ApiKeyToken} from "../tokens";
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
@@ -97,8 +108,10 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
   propagateChange = (_: any) => {
   };
 
-  constructor(private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) {
+  constructor(private ngZone: NgZone,
+              @Inject(ApiKeyToken)
+              public apiKey: string,
+              private loaderService: ScriptLoaderService,) {
   }
 
   ngOnInit(): void {
@@ -123,8 +136,8 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
   }
 
   public initGoogleMapsAutocomplete() {
-    this.mapsAPILoader
-      .load()
+    this.loaderService
+      .loadScript(`https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places`)
       .then(() => {
         const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, this.autoCompleteOptions);
         autocomplete.addListener('place_changed', () => {
@@ -151,7 +164,7 @@ export class MatGoogleMapsAutocompleteComponent implements OnInit, ControlValueA
               germanAddress.geoLocation.longitude = place.geometry.location.lng();
             }
 
-            if(place.address_components) {
+            if (place.address_components) {
               place.address_components.forEach(value => {
                 if (value.types.indexOf('street_number') > -1) {
                   germanAddress.streetNumber = value.short_name;

@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
@@ -9,7 +9,6 @@ import {MatValidateAddressDirective} from './directives/address-validator/mat-ad
 import {MatGoogleMapsAutocompleteComponent, MatSearchGoogleMapsAutocompleteComponent} from './component';
 import {MatInputModule} from '@angular/material/input';
 import {ApiKeyToken} from "./tokens";
-
 
 
 @NgModule({
