@@ -224,8 +224,6 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
   initMap() {
     if (isPlatformBrowser(this.platformId)) {
 
-      console.log("on after view init --> ", this.elemRef.nativeElement)
-
       this.autocomplete = new google.maps.places.Autocomplete(
         this.elemRef.nativeElement
       );
