@@ -1,5 +1,12 @@
 
 
+# [16.4.0](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.3.1...16.4.0) (2024-09-21)
+
+
+### Bug Fixes
+
+* **project:** fixed postal code (number to string) ([89709f1](https://github.com/angular-material-extensions/google-maps-autocomplete/commit/89709f19ec589769ac697bc3a751d7724d1ec3c9))
+
 ## [16.3.1](https://github.com/angular-material-extensions/google-maps-autocomplete/compare/16.3.0...16.3.1) (2024-03-14)
 
 
