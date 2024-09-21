@@ -152,6 +152,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
           germanAddress.geoLocation.longitude = place.geometry.location.lng();
         }
 
+        // console.log("place.address_components --> ", place.address_components);
         place.address_components.forEach(value => {
           if (value.types.indexOf('street_number') > -1) {
             germanAddress.streetNumber = value.short_name;
@@ -160,7 +161,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
             germanAddress.streetName = value.long_name;
           }
           if (value.types.indexOf('postal_code') > -1) {
-            germanAddress.postalCode = Number(value.short_name);
+            germanAddress.postalCode = value.short_name;
           }
           if (value.types.indexOf('sublocality') > -1) {
             germanAddress.sublocality = value.long_name;

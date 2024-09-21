@@ -12,7 +12,7 @@ export interface GermanAddress {
   name?: string;
   icon?: string;
   displayAddress?: string;
-  postalCode?: number;
+  postalCode?: string;
   streetNumber?: string;
   streetName?: string;
   sublocality?: string;

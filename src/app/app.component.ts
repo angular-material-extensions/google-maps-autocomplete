@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     streetNumber: '100',
     streetName: 'Your StreetName',
     vicinity: 'Your vicinity',
-    postalCode: 37084,
+    postalCode: '37084',
     locality: {
       long: 'your locality'
     }
