@@ -13,30 +13,36 @@ import {
   OnInit,
   Output,
   PLATFORM_ID,
-  ViewChild
-} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALIDATORS, Validators} from '@angular/forms';
-import {GermanAddress, Location} from '../interfaces';
-import {isPlatformBrowser} from '@angular/common';
-import {ScriptLoaderService} from "../services/script-loader.service";
-import {ApiKeyToken} from "../tokens";
+  ViewChild,
+} from "@angular/core";
+import {
+  ControlValueAccessor,
+  FormControl,
+  NG_VALIDATORS,
+  Validators,
+} from "@angular/forms";
+import { GermanAddress, Location } from "../interfaces";
+import { isPlatformBrowser } from "@angular/common";
+import { ScriptLoaderService } from "../services/script-loader.service";
+import { ApiKeyToken } from "../tokens";
 import PlaceResult = google.maps.places.PlaceResult;
 import AutocompleteOptions = google.maps.places.AutocompleteOptions;
 
 @Directive({
-  selector: '[matGoogleMapsAutocomplete]',
-  exportAs: 'matGoogleMapsAutocomplete',
+  selector: "[matGoogleMapsAutocomplete]",
+  exportAs: "matGoogleMapsAutocomplete",
   providers: [
     {
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => MatGoogleMapsAutocompleteDirective),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor {
-
-  @ViewChild('inputField')
+export class MatGoogleMapsAutocompleteDirective
+  implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor
+{
+  @ViewChild("inputField")
   inputField!: ElementRef;
 
   autocomplete: google.maps.places.Autocomplete | undefined;
@@ -63,18 +69,22 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
   autoCompleteOptions: AutocompleteOptions = {};
 
   @Output()
-  onChange: EventEmitter<PlaceResult | string | null> = new EventEmitter<PlaceResult | string | null>();
+  onChange: EventEmitter<PlaceResult | string | null> = new EventEmitter<
+    PlaceResult | string | null
+  >();
 
   @Output()
-  onAutocompleteSelected: EventEmitter<PlaceResult> = new EventEmitter<PlaceResult>();
+  onAutocompleteSelected: EventEmitter<PlaceResult> =
+    new EventEmitter<PlaceResult>();
 
   @Output()
-  onGermanAddressMapped: EventEmitter<GermanAddress> = new EventEmitter<GermanAddress>();
+  onGermanAddressMapped: EventEmitter<GermanAddress> =
+    new EventEmitter<GermanAddress>();
 
   @Output()
   onLocationSelected: EventEmitter<Location> = new EventEmitter<Location>();
 
-  disabled: boolean
+  disabled: boolean;
 
   _value: string;
 
@@ -91,17 +101,17 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
 
   private onNewPlaceResult: EventEmitter<any> = new EventEmitter();
 
-  propagateChange = (_: any) => {
-  };
+  propagateChange = (_: any) => {};
 
-  constructor(@Inject(PLATFORM_ID) public platformId: string,
-              @Inject(ApiKeyToken)
-              public apiKey: string,
-              public elemRef: ElementRef,
-              private cf: ChangeDetectorRef,
-              private loaderService: ScriptLoaderService,
-              private ngZone: NgZone) {
-  }
+  constructor(
+    @Inject(PLATFORM_ID) public platformId: string,
+    @Inject(ApiKeyToken)
+    public apiKey: string,
+    public elemRef: ElementRef,
+    private cf: ChangeDetectorRef,
+    private loaderService: ScriptLoaderService,
+    private ngZone: NgZone
+  ) {}
 
   ngOnDestroy(): void {
     if (this.autocomplete) {
@@ -113,28 +123,29 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
     this.loadMap();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   validate(fc: FormControl) {
     return fc.hasValidator(Validators.required) ? !!fc?.value : true;
   }
 
-  @HostListener('change')
+  @HostListener("change")
   onChangeInputValue(): void {
     const value = (this.elemRef.nativeElement as HTMLInputElement)?.value;
     this.value = value;
   }
 
   public initGoogleMapsAutocomplete() {
-    const autocomplete = new google.maps.places.Autocomplete(this.elemRef.nativeElement, this.autoCompleteOptions);
-    autocomplete.addListener('place_changed', () => {
+    const autocomplete = new google.maps.places.Autocomplete(
+      this.elemRef.nativeElement,
+      this.autoCompleteOptions
+    );
+    autocomplete.addListener("place_changed", () => {
       this.ngZone.run(() => {
         // get the place result
         const place: PlaceResult = autocomplete.getPlace();
 
         const germanAddress: GermanAddress = {
-          gmID: place.id,
           icon: place.icon,
           url: place.url,
           placeID: place.place_id,
@@ -144,7 +155,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
           locality: {},
           state: {},
           country: {},
-          geoLocation: {latitude: -1, longitude: -1},
+          geoLocation: { latitude: -1, longitude: -1 },
         };
 
         if (place.geometry && place.geometry.location) {
@@ -153,32 +164,32 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
         }
 
         // console.log("place.address_components --> ", place.address_components);
-        place.address_components.forEach(value => {
-          if (value.types.indexOf('street_number') > -1) {
+        place.address_components.forEach((value) => {
+          if (value.types.indexOf("street_number") > -1) {
             germanAddress.streetNumber = value.short_name;
           }
-          if (value.types.indexOf('route') > -1) {
+          if (value.types.indexOf("route") > -1) {
             germanAddress.streetName = value.long_name;
           }
-          if (value.types.indexOf('postal_code') > -1) {
+          if (value.types.indexOf("postal_code") > -1) {
             germanAddress.postalCode = value.short_name;
           }
-          if (value.types.indexOf('sublocality') > -1) {
+          if (value.types.indexOf("sublocality") > -1) {
             germanAddress.sublocality = value.long_name;
           }
-          if (value.types.indexOf('locality') > -1) {
+          if (value.types.indexOf("locality") > -1) {
             germanAddress.locality.long = value.long_name;
             germanAddress.locality.short = value.short_name;
           }
-          if (value.types.indexOf('administrative_area_level_1') > -1) {
+          if (value.types.indexOf("administrative_area_level_1") > -1) {
             germanAddress.state.long = value.long_name;
             germanAddress.state.short = value.short_name;
           }
-          if (value.types.indexOf('country') > -1) {
+          if (value.types.indexOf("country") > -1) {
             germanAddress.country.long = value.long_name;
             germanAddress.country.short = value.short_name;
           }
-          if (value.types.indexOf('administrative_area_level_3') > -1) {
+          if (value.types.indexOf("administrative_area_level_3") > -1) {
             germanAddress.locality.short = value.short_name;
           }
         });
@@ -188,11 +199,10 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
         this.value = place.formatted_address;
         this.address = place.formatted_address;
         this.onAutocompleteSelected.emit(place);
-        this.onLocationSelected.emit(
-          {
-            latitude: place.geometry.location.lat(),
-            longitude: place.geometry.location.lng()
-          });
+        this.onLocationSelected.emit({
+          latitude: place.geometry.location.lat(),
+          longitude: place.geometry.location.lng(),
+        });
       });
     });
   }
@@ -201,8 +211,7 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
     this.propagateChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  registerOnTouched(fn: any): void {}
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
@@ -215,17 +224,19 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
   }
 
   loadMap(): void {
-    this.loaderService.loadScript(`https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places`)
+    this.loaderService
+      .loadScript(
+        `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places`
+      )
       .then(() => {
         this.initMap();
       })
-      .catch(error => console.error('Google Maps loading failed: ', error));
+      .catch((error) => console.error("Google Maps loading failed: ", error));
   }
 
   initMap() {
     if (isPlatformBrowser(this.platformId)) {
-
-      console.log("on after view init --> ", this.elemRef.nativeElement)
+      console.log("on after view init --> ", this.elemRef.nativeElement);
 
       this.autocomplete = new google.maps.places.Autocomplete(
         this.elemRef.nativeElement
@@ -236,18 +247,21 @@ export class MatGoogleMapsAutocompleteDirective implements OnInit, AfterViewInit
         // componentRestrictions: {country: this.country},
         placeIdOnly: this.placeIdOnly,
         strictBounds: this.strictBounds,
-        // types: this.types,
-        type: this.type
+        types: this.types,
       };
 
       // tslint:disable-next-line:no-unused-expression
-      this.country ? options.componentRestrictions = {country: this.country} : null;
+      this.country
+        ? (options.componentRestrictions = { country: this.country })
+        : null;
       // tslint:disable-next-line:no-unused-expression
-      this.country ? options.types = this.types : null;
+      this.country ? (options.types = this.types) : null;
 
-      this.autoCompleteOptions = Object.assign(this.autoCompleteOptions, options);
+      this.autoCompleteOptions = Object.assign(
+        this.autoCompleteOptions,
+        options
+      );
       this.initGoogleMapsAutocomplete();
     }
   }
-
 }

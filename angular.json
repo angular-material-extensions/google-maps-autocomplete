@@ -22,10 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -83,10 +80,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -137,18 +131,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "google-maps-autocomplete:build"
+            "buildTarget": "google-maps-autocomplete:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "google-maps-autocomplete:build:production"
+              "buildTarget": "google-maps-autocomplete:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "google-maps-autocomplete:build"
+            "buildTarget": "google-maps-autocomplete:build"
           }
         },
         "test": {
@@ -158,10 +152,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -215,7 +206,7 @@
           "options": {}
         },
         "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "options": {
             "browserTarget": "google-maps-autocomplete:build",
             "serverTarget": "google-maps-autocomplete:server"
@@ -228,26 +219,22 @@
           }
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "google-maps-autocomplete:build:production",
             "serverTarget": "google-maps-autocomplete:server:production",
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {}
           }
         },
         "prerender_ghpages": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "google-maps-autocomplete:build_ghpages:production",
             "serverTarget": "google-maps-autocomplete:server:production",
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {}
@@ -262,7 +249,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/angular-material-extensions/google-maps-autocomplete/tsconfig.lib.json",
             "project": "projects/angular-material-extensions/google-maps-autocomplete/ng-package.json"

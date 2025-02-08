@@ -4,8 +4,6 @@ import {
   findNode as originalFindNode,
   getSourceNodes as originalGetSourceNodes,
   insertAfterLastOccurrence as originalInsertAfterLastOccurrence,
-  getContentOfKeyLiteral as originalGetContentOfKeyLiteral,
-  getFirstNgModuleName as originalGetFirstNgModuleName,
   getDecoratorMetadata as originalGetDecoratorMetadata,
   getMetadataField as originalGetMetadataField,
   getRouterModuleDeclaration as originalGetRouterModuleDeclaration,
@@ -15,13 +13,12 @@ import {
   addProviderToModule as originalAddProviderToModule,
   addExportToModule as originalAddExportToModule,
   addBootstrapToModule as originalAddBootstrapToModule,
-  addEntryComponentToModule as originalAddEntryComponentToModule,
   addRouteDeclarationToModule as originalAddRouteDeclarationToModule,
-  isImported as originalIsImported
-} from '@schematics/angular/utility/ast-utils';
-import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
+  isImported as originalIsImported,
+} from "@schematics/angular/utility/ast-utils";
+import * as ts from "@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript";
 
-import { Change } from './change';
+import { Change } from "./change";
 
 /**
  * Add Import `import { symbolName } from fileName` if the import doesn't exit
@@ -39,7 +36,13 @@ export function insertImport(
   fileName: string,
   isDefault = false
 ): Change {
-  return originalInsertImport(source, fileToEdit, symbolName, fileName, isDefault);
+  return originalInsertImport(
+    source,
+    fileToEdit,
+    symbolName,
+    fileName,
+    isDefault
+  );
 }
 
 /**
@@ -51,7 +54,12 @@ export function insertImport(
  * the last child even when node of kind has been found.
  * @return all nodes of kind, or [] if none is found
  */
-export function findNodes(node: ts.Node, kind: ts.SyntaxKind, max = Infinity, recursive = false): ts.Node[] {
+export function findNodes(
+  node: ts.Node,
+  kind: ts.SyntaxKind,
+  max = Infinity,
+  recursive = false
+): ts.Node[] {
   return originalFindNodes(node, kind, max, recursive);
 }
 
@@ -64,7 +72,11 @@ export function getSourceNodes(sourceFile: ts.SourceFile): ts.Node[] {
   return originalGetSourceNodes(sourceFile);
 }
 
-export function findNode(node: ts.Node, kind: ts.SyntaxKind, text: string): ts.Node | null {
+export function findNode(
+  node: ts.Node,
+  kind: ts.SyntaxKind,
+  text: string
+): ts.Node | null {
   return originalFindNode(node, kind, text);
 }
 
@@ -88,28 +100,27 @@ export function insertAfterLastOccurrence(
   fallbackPos: number,
   syntaxKind?: ts.SyntaxKind
 ): Change {
-  return originalInsertAfterLastOccurrence(nodes, toInsert, file, fallbackPos, syntaxKind);
+  return originalInsertAfterLastOccurrence(
+    nodes,
+    toInsert,
+    file,
+    fallbackPos,
+    syntaxKind
+  );
 }
 
-export function getContentOfKeyLiteral(_source: ts.SourceFile, node: ts.Node): string | null {
-  return originalGetContentOfKeyLiteral(_source, node);
-}
-
-export function getDecoratorMetadata(source: ts.SourceFile, identifier: string, module: string): ts.Node[] {
+export function getDecoratorMetadata(
+  source: ts.SourceFile,
+  identifier: string,
+  module: string
+): ts.Node[] {
   return originalGetDecoratorMetadata(source, identifier, module);
 }
 
-/**
- * Given a source file with @NgModule class(es), find the name of the first @NgModule class.
- *
- * @param source source file containing one or more @NgModule
- * @returns the name of the first @NgModule, or `undefined` if none is found
- */
-export function getFirstNgModuleName(source: ts.SourceFile): string | undefined {
-  return originalGetFirstNgModuleName(source);
-}
-
-export function getMetadataField(node: ts.ObjectLiteralExpression, metadataField: string): ts.ObjectLiteralElement[] {
+export function getMetadataField(
+  node: ts.ObjectLiteralExpression,
+  metadataField: string
+): ts.ObjectLiteralElement[] {
   return originalGetMetadataField(node, metadataField);
 }
 
@@ -120,7 +131,13 @@ export function addSymbolToNgModuleMetadata(
   symbolName: string,
   importPath: string | null = null
 ): Change[] {
-  return originalAddSymbolToNgModuleMetadata(source, ngModulePath, metadataField, symbolName, importPath);
+  return originalAddSymbolToNgModuleMetadata(
+    source,
+    ngModulePath,
+    metadataField,
+    symbolName,
+    importPath
+  );
 }
 
 /**
@@ -133,7 +150,12 @@ export function addDeclarationToModule(
   classifiedName: string,
   importPath: string
 ): Change[] {
-  return originalAddDeclarationToModule(source, modulePath, classifiedName, importPath);
+  return originalAddDeclarationToModule(
+    source,
+    modulePath,
+    classifiedName,
+    importPath
+  );
 }
 
 /**
@@ -145,7 +167,12 @@ export function addImportToModule(
   classifiedName: string,
   importPath: string
 ): Change[] {
-  return originalAddImportToModule(source, modulePath, classifiedName, importPath);
+  return originalAddImportToModule(
+    source,
+    modulePath,
+    classifiedName,
+    importPath
+  );
 }
 
 /**
@@ -157,7 +184,12 @@ export function addProviderToModule(
   classifiedName: string,
   importPath: string
 ): Change[] {
-  return originalAddProviderToModule(source, modulePath, classifiedName, importPath);
+  return originalAddProviderToModule(
+    source,
+    modulePath,
+    classifiedName,
+    importPath
+  );
 }
 
 /**
@@ -169,7 +201,12 @@ export function addExportToModule(
   classifiedName: string,
   importPath: string
 ): Change[] {
-  return originalAddExportToModule(source, modulePath, classifiedName, importPath);
+  return originalAddExportToModule(
+    source,
+    modulePath,
+    classifiedName,
+    importPath
+  );
 }
 
 /**
@@ -181,38 +218,41 @@ export function addBootstrapToModule(
   classifiedName: string,
   importPath: string
 ): Change[] {
-  return originalAddBootstrapToModule(source, modulePath, classifiedName, importPath);
-}
-
-/**
- * Custom function to insert an entryComponent into NgModule. It also imports it.
- */
-export function addEntryComponentToModule(
-  source: ts.SourceFile,
-  modulePath: string,
-  classifiedName: string,
-  importPath: string
-): Change[] {
-  return originalAddEntryComponentToModule(source, modulePath, classifiedName, importPath);
+  return originalAddBootstrapToModule(
+    source,
+    modulePath,
+    classifiedName,
+    importPath
+  );
 }
 
 /**
  * Determine if an import already exists.
  */
-export function isImported(source: ts.SourceFile, classifiedName: string, importPath: string): boolean {
+export function isImported(
+  source: ts.SourceFile,
+  classifiedName: string,
+  importPath: string
+): boolean {
   return originalIsImported(source, classifiedName, importPath);
 }
 
 /**
  * Returns the RouterModule declaration from NgModule metadata, if any.
  */
-export function getRouterModuleDeclaration(source: ts.SourceFile): ts.Expression | undefined {
+export function getRouterModuleDeclaration(
+  source: ts.SourceFile
+): ts.Expression | undefined {
   return originalGetRouterModuleDeclaration(source);
 }
 
 /**
  * Adds a new route declaration to a router module (i.e. has a RouterModule declaration)
  */
-export function addRouteDeclarationToModule(source: ts.SourceFile, fileToAdd: string, routeLiteral: string): Change {
+export function addRouteDeclarationToModule(
+  source: ts.SourceFile,
+  fileToAdd: string,
+  routeLiteral: string
+): Change {
   return originalAddRouteDeclarationToModule(source, fileToAdd, routeLiteral);
 }

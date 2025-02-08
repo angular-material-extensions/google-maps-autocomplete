@@ -5,11 +5,8 @@
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
-    "types": ["googlemaps"],
-    "lib": [
-      "dom",
-      "es2018"
-    ]
+    "types": ["google.maps"],
+    "lib": ["dom", "es2018"]
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
@@ -18,8 +15,5 @@
     "strictInjectionParameters": true,
     "enableResourceInlining": true
   },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["src/test.ts", "**/*.spec.ts"]
 }

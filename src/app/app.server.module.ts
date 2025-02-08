@@ -1,17 +1,12 @@
-import {NgModule} from '@angular/core';
-import {ServerModule} from '@angular/platform-server';
+import { NgModule } from "@angular/core";
+import { ServerModule } from "@angular/platform-server";
 
-import {AppModule} from './app.module';
-import {AppComponent} from './app.component';
-import {FlexLayoutServerModule} from '@angular/flex-layout/server';
+import { AppModule } from "./app.module";
+import { AppComponent } from "./app.component";
+import { FlexLayoutServerModule } from "@ngbracket/ngx-layout/server";
 
 @NgModule({
-  imports: [
-    AppModule,
-    ServerModule,
-    FlexLayoutServerModule
-  ],
+  imports: [AppModule, ServerModule, FlexLayoutServerModule],
   bootstrap: [AppComponent],
 })
-export class AppServerModule {
-}
+export class AppServerModule {}

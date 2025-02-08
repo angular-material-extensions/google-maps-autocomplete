@@ -1,17 +1,13 @@
-import { Tree } from '@angular-devkit/schematics';
-import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import * as path from 'path';
+import { Tree } from "@angular-devkit/schematics";
+import { SchematicTestRunner } from "@angular-devkit/schematics/testing";
+import * as path from "path";
 
+const collectionPath = path.join(__dirname, "../collection.json");
 
-const collectionPath = path.join(__dirname, '../collection.json');
-
-
-describe('schematics', () => {
-  it('works', async () => {
-    const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = await runner.runSchematicAsync('schematics', {}, Tree.empty());
-    tree.subscribe(tree=>{
-      expect(tree.files).toEqual([]);
-    });
+describe("schematics", () => {
+  it("works", async () => {
+    const runner = new SchematicTestRunner("schematics", collectionPath);
+    const tree = await runner.runSchematic("schematics", {}, Tree.empty());
+    expect(tree.files).toEqual([]);
   });
 });
